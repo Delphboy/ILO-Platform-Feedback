@@ -15,6 +15,7 @@ final class database
     public $db; //PDO object which contains the database
     private $statement; //the current prepared query to be executed by execute()
 
+    private static $inst = NULL;
     /**
      * creates and assigns a PDO object to "db" which is used by all other methods
      */
@@ -26,11 +27,10 @@ final class database
      * @return $inst database object instance
      */
     public static function Instance(){
-        static $inst = null;
-        if ($inst == null){
-            $inst = new database();
+        if (self::$inst == null){
+            self::$inst = new database();
         }
-        return $inst;
+        return self::$inst;
     }
     /** Prepares a query for execution
      * @param $query - text of the query to be prepared for execution
