@@ -1,5 +1,8 @@
-<?php
+<head>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/my-style.css">
+</head>
 
-$view = new stdClass();
-$view->pageTitle = 'Page1';
-require_once('Views/page1.phtml');
+<?php
+require_once('Views/dbtest.phtml');

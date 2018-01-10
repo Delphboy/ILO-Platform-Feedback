@@ -1,38 +1,37 @@
-#title {
-    margin-top: 12px;
-    background-color: #fff;
-    color: #000;
-
+/* Universal Styles */
+html, body{
+    background-color: #f7f3ef;
+    margin:0;
+    border:0;
+    padding:0;
 }
-#menu {
-    border-top: solid 6px #f00;
-    background-color: #f00;
-    color: #fff;
-    height: 400px;
-}
+/* Login Form - index */
+.login{
+    margin: 5% 20%;
+    width:60%;
 
-#menu a {
-    background-color: #f00;
-    color: #fff;
-    text-decoration: none;
-    display: block;
+    /*Extra stuff (mostly design)*/
+    padding: 2%;
+    border-radius: 5px;
+    background-color: white;
 }
-#menu a:hover {
-    background-color: #f00;
-    color: #ddd;
-    text-decoration:underline;
-    display: block;
+.buttonLogin{
+    margin-top: 2%;
 }
-
-#content {
-    background-color: #fff;
-    border-top: solid 6px #f00;
-
+.backboard{
+    background-color: #37468E;
+    position: absolute;
+    width:100%;
+    height:20%;
+    border-bottom: 15px solid #6B91CB;
 }
-
-#footer {
-    margin_top: 20px;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
+/*
+    RESPONSIVE STUFF
+    - if the screen is greater than 480px then
+      the following will apply to the markup
+*/
+@media screen and (min-width: 1200px) {
+    .login{
+        width: 25%;
+    }
 }

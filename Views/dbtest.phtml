@@ -1,20 +1,21 @@
-<?php require('template/header.phtml');
+<?php
 require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php')
 ?>
-
-<h3>Database link and fetch test</h3>
-
+<h3>Login Status</h3>
 <?php
+$email = $_GET['username'];
+$pass =  $_GET['password'];
 
 $dbHandle = database::Instance();
-$dbHandle->query("select * from review");
-
+$dbHandle->query("SELECT * FROM user WHERE email LIKE \"$email\" AND password = \"$pass\"");
 $alldata = $dbHandle->resultset();
 $rowcount =sizeof($alldata);
-for ($i =0; $i <$rowcount; $i++){
-    $row = $alldata[0];
-    echo "<p> $row[0] $row[1] $row[2] $row[3] $row[4]</p>";
-}
 
+for ($i = 0; $i <$rowcount; $i++){
+    $row = $alldata[$i];
+    if ($row[3] == 1)
+        echo "You've Logged in as " . $row[2] . ", You are an Admin";
+    elseif($row[3] == 0)
+        echo "You've Logged in as " . $row[2];
+}
 ?>
-<?php require('template/footer.phtml') ?>

@@ -1,53 +1,37 @@
-<?php require('template/header.phtml') ?>
 <!--
--
-<h3>Welcome to the web-site </h3>
-
-<h3>A template for web-site development using the <i>Model-View-Controller</i> design pattern and <a href="http://www.getbootstrap.com/css"><i>Bootstrap</i></a>.</h3>
-<p>The <i>Views/template</i> directory contains a <i>header.phtl</i> and a <i>footer.phtml</i> which should be included on every new page generated.
-    To add additional pages just edit the file <i>header.phtml</i> to add the extra link and then add a new <i>Controller (pageN.php)</i> and a new <i>View (pageN.phtml)</i>, for each page required.<p/>
-<p>The <i>Model</i> code files are placed in the <i>Models</i> directory.</p>
-<p>Do not change any of the css files in the <i>css</> directory!<p>
--->
-
-<!-- 
 A simple login form design
- - [ ] Need to refine and test
- - [ ] Need to check works (Did this blind)
- - [ ] Will bring up in standup meeting
+ - [ ] Need to get group approval
 -->
-<div class="container">
-    <div class="row">
-		<div class="span12">
-			<form class="form-horizontal" action='' method="POST">
-			  <fieldset>
-			    <div id="legend">
-			      <legend class="">Login</legend>
-			    </div>
-			    <div class="control-group">
-			      <!-- Username -->
-			      <label class="control-label"  for="username">Username</label>
-			      <div class="controls">
-			        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-			      </div>
-			    </div>
-			    <div class="control-group">
-			      <!-- Password-->
-			      <label class="control-label" for="password">Password</label>
-			      <div class="controls">
-			        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-			      </div>
-			    </div>
-			    <div class="control-group">
-			      <!-- Button -->
-			      <div class="controls">
-			        <button class="btn btn-success">Login</button>
-			      </div>
-			    </div>
-			  </fieldset>
-			</form>
-		</div>
-	</div>
+<div class="container login">
+    <div class="row col-sm-10">
+        <div class="span12">
+            <form class="form-horizontal" action='dbtest.php'> <!-- Once Submitted, will send values to page1.php -->
+                <fieldset>
+                    <div id="legend col-sm-12">
+                        <legend>Login</legend>
+                    </div>
+                    <div class="control-group col-sm-10">
+                        <!-- Username -->
+                        <label class="control-label"  for="username">Username</label>
+                        <div class="controls">
+                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group col-sm-10">
+                        <!-- Password-->
+                        <label class="control-label" for="password">Password</label>
+                        <div class="controls">
+                            <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <!-- Button -->
+                        <div class="controls buttonLogin col-sm-10">
+                            <input class="btn btn-success" type="submit" value="Login"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
-
-<?php require('template/footer.phtml') ?>
