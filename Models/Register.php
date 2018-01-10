@@ -24,6 +24,6 @@ class Register
      */
     function addNewUser($email, $password)
     {
-
+        return $email;
     }
 }
