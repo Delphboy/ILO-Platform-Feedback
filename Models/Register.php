@@ -6,6 +6,7 @@
  * Date: 1/10/18
  * Time: 10:30 AM
  */
+namespace SPATApp\App\Model;
 class Register
 {
     /**
@@ -14,7 +15,6 @@ class Register
      */
     function __construct()
     {
-
     }
 
     /**

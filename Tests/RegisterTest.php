@@ -6,24 +6,17 @@
  * Date: 1/10/18
  * Time: 11:31 AM
  */
-include('/Models/Register.php') ;
-class RegisterTest extends PHPUnit_Framework_TestCase
+
+namespace SPATApp\Tests; //Setup namespace of Test class
+use \SPATApp\App\Model\Register; // pull in the model class being testing
+
+class RegisterTest extends \PHPUnit_Framework_TestCase
 {
-    private $registerObject;
-
-    protected function setUp()
-    {
-        $this->registerObject = new Register();
-    }
-
-    protected function tearDown()
-    {
-        $this->registerObject = NULL;
-    }
-
     public function testAddNewUser()
     {
-        $result = $this->registerObject->addNewUser("a@a.com", "password");
+        $registerObject = new Register();
+        $result = $registerObject->addNewUser("a@a.com", "password");
         $this->assertEquals("a@a.com", $result);
+        $registerObject = NULL;
     }
 }
