@@ -6,7 +6,7 @@
  * Date: 1/10/18
  * Time: 11:31 AM
  */
-require 'Register.php';
+include('/Models/Register.php') ;
 class RegisterTest extends PHPUnit_Framework_TestCase
 {
     private $registerObject;

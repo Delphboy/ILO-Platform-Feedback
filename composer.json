@@ -1,0 +1,14 @@
+{
+  "name": "ILO-Platform",
+  "description": "Second Year Project for SPAT",
+  "license": "MIT",
+  "authors": [
+    { "name": "Henry Senior",  "email": "H.Senior@edu.salford.ac.uk" },
+    { "name": "Henry Senior",  "email": "H.Senior@edu.salford.ac.uk" }
+  ],
+  "require": {
+    "phpunit/phpunit": "5.6.0"
+  },
+  "require-dev": {
+  }
+}
