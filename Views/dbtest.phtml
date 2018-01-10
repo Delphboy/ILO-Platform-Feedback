@@ -5,15 +5,14 @@ require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php')
 <h3>Database link and fetch test</h3>
 
 <?php
-
 $dbHandle = database::Instance();
 $dbHandle->query("select * from review");
 
 $alldata = $dbHandle->resultset();
 $rowcount =sizeof($alldata);
 for ($i =0; $i <$rowcount; $i++){
-    $row = $alldata[0];
-    echo "<p> $row[0] $row[1] $row[2] $row[3] $row[4]</p>";
+    $row = $alldata[$i];
+    echo "<p> $row[1] $row[2] $row[3] $row[4]</p>";
 }
 
 ?>
