@@ -1,7 +1,6 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php')
 ?>
-<h3>Login Status</h3>
 <?php
 $email = $_POST['username'];
 $pass =  $_POST['password'];
@@ -18,9 +17,14 @@ $rowcount =sizeof($alldata);
 
 for ($i = 0; $i <$rowcount; $i++){
     $row = $alldata[$i];
-    if ($row[3] == 1)
+    if ($row[3] == 1) {
         echo "You've Logged in as " . $row[2] . ", You are an Admin";
-    elseif($row[3] == 0)
-        echo "You've Logged in as " . $row[2];
+        require_once('admin.phtml');
+    }
+    elseif($row[3] == 0) {
+       // echo "You've Logged in as " . $row[2];
+        require_once('template/header.phtml');
+        require_once('user.phtml');
+    }
 }
 ?>
