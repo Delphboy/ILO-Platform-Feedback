@@ -1,0 +1,28 @@
+<?php require('template/header.phtml') ?>
+
+    <h3>Welcome to Page1</h3>
+
+    <form name="registration-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="container">
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <br />
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <br />
+            <label><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <br />
+
+            <div class="clearfix">
+                <button type="submit" class="signupbtn" >Sign Up</button>
+            </div>
+        </div>
+    </form>
+
+<?php if (isset($view->insert)) : ?>
+    <p><?php echo $view->insert; ?></p>
+<?php endif; ?>
+
+<?php require('template/footer.phtml') ?>
