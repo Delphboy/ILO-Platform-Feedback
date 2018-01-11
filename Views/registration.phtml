@@ -2,7 +2,7 @@
 
     <h3>Welcome to Page1</h3>
 
-    <form name="registration-form" action="Register.php">
+    <form name="registration-form" action="<?php $_SERVER['PHP_SELF']; ?> method="POST">
         <div class="container">
             <label><b>Email</b></label>
             <input type="email" placeholder="Enter Email" name="email" required>
@@ -16,10 +16,13 @@
             <br />
 
             <div class="clearfix">
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" class="signupbtn" >Sign Up</button>
             </div>
         </div>
     </form>
 
+<?php if (isset($view->insert)) : ?>
+    <p><?php echo $view->insert; ?></p>
+<?php endif; ?>
 
 <?php require('template/footer.phtml') ?>

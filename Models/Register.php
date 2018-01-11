@@ -24,6 +24,7 @@ class Register
      */
     function addNewUser($email, $password)
     {
-        return $email;
+        $dbHandle = database::Instance();
+        $dbHandle->query("INSERT INTO user VALUES (\'$email\', \'$password\');");
     }
 }

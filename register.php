@@ -11,10 +11,10 @@ spl_autoload_register(function($class)
 
 if(isset($_POST['submit']))
 {
-    $email = $_POST['email'];
-    $pwd = $_POST['pwd'];
-    $pwd_repeat = $_POST['pwd-repeat'];
-    
+    $email = $_POST['$email'];
+    $password = $_POST['$pwd'];
+    $reg = new \SPATApp\App\Model\Register();
+    $reg->addNewUser($email, $password);
 }
 
 require_once('Views/registration.phtml');
