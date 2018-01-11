@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login V1.6</title>
@@ -28,7 +26,8 @@
         })
     </script>
 </head>
-    <div class="backboard">
-        <?php require_once('Views/index.phtml');?>
-    </div>
+<?php
 
+$view = new stdClass();
+$view->pageTitle = 'dbtest';
+require_once('Views/dbtest.phtml');
