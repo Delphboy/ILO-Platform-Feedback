@@ -14,6 +14,8 @@ final class database
 {
     public $db; //PDO object which contains the database
     private $statement; //the current prepared query to be executed by execute()
+
+    //Database details
     private $host = "den1.mysql3.gear.host";
     private $dbName = "gr2";
     private $user = "gr2";
