@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = false
-	bare = true
-	ignorecase = true
-	precomposeunicode = true
-[remote "origin"]
-	url = https://github.com/Rilliswen/ILO-Platform-Feedback.git
