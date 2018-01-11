@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Singleton class intended to manage the connection to the database
  * Currently configured to use a local database
@@ -9,6 +8,10 @@
  * Date: 1/10/18
  * Time: 11:49 AM
  */
+
+namespace SPATApp\App\Classes;
+use \PDO;
+use \PDOStatement;
 
 final class database
 {
@@ -44,13 +47,12 @@ final class database
      */
     public function query($query){
         $this->statement = $this->db->prepare($query);
-
     }
 
     /** Executes the prepared query
      * @return the executed statement
      */
-    public function execute(){
+    public function exec(){
         return $this->statement->execute();
     }
 
