@@ -1,0 +1,5 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite
+RewriteRule ^sqlqueries testdb.php [NC,L]
