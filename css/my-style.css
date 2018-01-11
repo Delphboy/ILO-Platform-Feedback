@@ -30,7 +30,7 @@ body{
 }
 .searchOp {
     font-family: Poppins-Medium;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.5;
     color: #666666;
 
@@ -41,9 +41,20 @@ body{
     border: 0;
     padding: 0 30px 0 68px;
 }
+.searchItem{
+    font-size:25px;
+}
+.surveyText-sub{
+    color: #868e96;
+    font-family: Poppins-Bold;
+    font-size: 15px;
+    line-height: 1.2px;
+    text-align: left;
 
-.searchOp option{
-    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    display: inline-block;
 }
 .wrap-login101 {
     width: 960px;
@@ -98,4 +109,26 @@ body{
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+}
+.currency{
+    display: inline-block;
+    width: 100%;
+}
+.inputCurrency {
+    font-family: Poppins-Medium;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #666666;
+    margin: 10px;
+
+    display: inline-block;
+    width: 35%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+}
+.inputCurrency-text{
+    width:55%;
+    float: right;
 }

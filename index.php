@@ -1,22 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login V1.6</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" href="css/my-style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+<?php
+require_once('Views/index.phtml');
+require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php'); //Connect to database
+$email = $_POST['username'];
+$pass =  $_POST['password'];
+
+/* SANITISATION SECTION */
+
+
+/* END OF SANITISATION SECTION*/
+
+$dbHandle = database::Instance();
+$dbHandle->query("SELECT * FROM user WHERE email LIKE \"$email\" AND password = \"$pass\"");
+$alldata = $dbHandle->resultset();
+$rowcount =sizeof($alldata);
+
+for ($i = 0; $i <$rowcount; $i++){
+    $row = $alldata[$i];
+    if ($row[3] == 1) {
+        //echo "You've Logged in as " . $row[2] . ", You are an Admin";
+        header('Location: admin.php'); //Will navigate to different page
+    }
+    elseif($row[3] == 0) {
+        // echo "You've Logged in as " . $row[2];
+        header('Location: user.php'); //Will navigate to different page
+    }
+}
+?>
+
+
+<footer>
     <!-- Scripts -->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="vendor/bootstrap/js/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/select2/select2.min.js"></script>
@@ -27,8 +40,4 @@
             scale: 1.1
         })
     </script>
-</head>
-    <div class="backboard">
-        <?php require_once('Views/index.phtml');?>
-    </div>
-
+</footer>
