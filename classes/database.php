@@ -14,12 +14,19 @@ final class database
 {
     public $db; //PDO object which contains the database
     private $statement; //the current prepared query to be executed by execute()
+    private $host = "204.246.56.27";
+    //private $host = "den1.mysql3.gear.host";
+    private $dbName = "gr2";
+    private $user = "gr2";
+    private $pass = "gr0up2t357db!";
 
     private static $inst = NULL;
     /**
      * creates and assigns a PDO object to "db" which is used by all other methods
      */
     private function __construct(){
+        $dsn = "mysql:host=".$this->host.";port=3306;dbname=".$this->dbName;
+        //$this->db = new PDO($dsn,$this->user,$this->pass);
         $this->db = new PDO("sqlite:database/sqlite.db");
     }
 
