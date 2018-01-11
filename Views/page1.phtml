@@ -1,5 +1,24 @@
-<?php require('template/header.phtml') ?>
+<!--
+Database Testing
+-->
+<?php require('template/header.phtml');
+require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php')
+?>
 
-<h3>Welcome to Page1</h3>
+<div class="container login">
+    <?php
 
-<?php require('template/footer.phtml') ?>
+    $dbHandle = database::Instance();
+    $dbHandle->query("select * from user");
+    $alldata = $dbHandle->resultset();
+    $rowcount =sizeof($alldata);
+    for ($i =0; $i <$rowcount; $i++){
+        $row = $alldata[$i];
+        echo "<p> $row[0] $row[1] $row[2] $row[3] $row[4]</p>";
+    }
+
+    //Declare
+    $email = $_GET['username'];
+    $pass =  $_GET['password']
+    ?>
+</div>
