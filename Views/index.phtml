@@ -2,35 +2,47 @@
 A simple login form design
  - [ ] Need to sanitise data
 -->
-<div class="container login">
-    <div class="row col-sm-10">
-        <div class="span12">
-            <form class="form-horizontal" action='page1.php' method='post'> <!-- Once Submitted, will send values to page1.php -->
-                <fieldset>
-                    <div id="legend col-sm-12">
-                        <legend>Login</legend>
-                    </div>
-                    <div class="control-group col-sm-10">
-                        <!-- Username -->
-                        <label class="control-label"  for="username">Username</label>
-                        <div class="controls">
-                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                        </div>
-                    </div>
-                    <div class="control-group col-sm-10">
-                        <!-- Password-->
-                        <label class="control-label" for="password">Password</label>
-                        <div class="controls">
-                            <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <!-- Button -->
-                        <div class="controls buttonLogin col-sm-10">
-                            <input class="btn btn-success" type="submit" value="Login"/>
-                        </div>
-                    </div>
-                </fieldset>
+<body>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="images/img-01.png" alt="IMG">
+            </div>
+
+            <form class="login100-form validate-form" action='dbtest.php' method='post'>
+					<span class="login100-form-title">
+						User Login
+					</span>
+                <!-- Username -->
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="username" placeholder="Email" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+                </div>
+                <!-- Password -->
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="password" placeholder="Password" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                </div>
+                <!-- Button -->
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Login
+                    </button>
+                </div>
+                <!-- Register -->
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="#">
+                        Create your Account
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
             </form>
         </div>
     </div>
