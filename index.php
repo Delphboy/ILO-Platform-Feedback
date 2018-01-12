@@ -13,7 +13,14 @@ if(isset($_POST['password']))
 /* END OF SANITISATION SECTION*/
 if(isset($_POST['username']) && isset($_POST['password'])) {
     $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email LIKE \"$email\" AND password = \"$pass\"");
+    $dbHandle->query("SELECT * FROM user WHERE email LIKE :email AND password = :password");
+
+    $dbHandle = database::Instance();
+    $dbHandle->query("SELECT * FROM user WHERE email");
+    $dbHandle->bind(':email', $_POST['username']);
+    $dbHandle->bind(':password', $_POST['password']);
+    $dbHandle->execute();
+
     $alldata = $dbHandle->resultset();
     $rowcount = sizeof($alldata);
 

@@ -27,7 +27,7 @@ A simple login form design
                 <img src="images/img-01.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" action='index.php' method='post'>
+            <form class="login100-form validate-form" action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post'>
 					<span class="login100-form-title">
 						User Login
 					</span>
