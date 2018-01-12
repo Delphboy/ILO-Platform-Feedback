@@ -2,7 +2,9 @@
 
     <h3>Welcome to Page1</h3>
 
-    <form name="registration-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <!-- Import the registration validation script -->
+    <script src="../js/register.js"></script>
+    <form name="registration-form" onsubmit="return validateForm()" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="container">
             <label><b>Email</b></label>
             <input type="email" placeholder="Enter Email" name="email" required>
