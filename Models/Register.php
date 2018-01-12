@@ -24,13 +24,24 @@ class Register
      */
     function addNewUser($email, $password)
     {
-        $dbHandle = database::Instance();
+//        $dbHandle = database::Instance();
+//        $query  ="INSERT INTO gr2.user('email', 'password') VALUES (\'$email\', \'$password\')";
+//        $dbHandle->query($query);
+////        $dbHandle->bind(':Email', $email);
+////        $dbHandle->bind(':Password', $password);
+//        $dbHandle->execute();
+//        $dbHandle->resetConnection();
+//        $dbHandle = NULL;
+
+        $host="den1.mysql3.gear.host";
+        $dbName="gr2";
+        $user = "gr2";
+        $pass = 'gr0up2t357db!';
+
+        $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
         $query  ="INSERT INTO gr2.user('email', 'password') VALUES (\'$email\', \'$password\')";
-        $dbHandle->query($query);
-//        $dbHandle->bind(':Email', $email);
-//        $dbHandle->bind(':Password', $password);
-        $dbHandle->execute();
-        $dbHandle->resetConnection();
-        $dbHandle = NULL;
+        echo $query;  //helpful for debugging to see what SQL query has been created
+        $statement = $dbHandle->prepare($query); // prepare PDO statement
+        $statement->execute();   // execute the PDO statement
     }
 }
