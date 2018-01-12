@@ -38,15 +38,15 @@ class Register
         $user = "gr2";
         $pass = 'gr0up2t357db!';
 
-        echo $host;
-        echo $dbName;
-        echo $user;
-        echo $pass;
+        echo "<p>" . $host . "</p>";
+        echo "<p>" . $dbName . "</p>";
+        echo "<p>" . $user . "</p>";
+        echo "<p>" . $pass . "</p>";
 
         $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
         echo $dbHandle;
 
-        $query  ="INSERT INTO gr2.user('email', 'password') VALUES (\'$email\', \'$password\')";
+        $query  ="INSERT INTO gr2.user('email', 'password', 'isAdmin') VALUES (\'$email\', \'$password\', '1')";
         echo $query;
 
         $statement = $dbHandle->prepare($query); // prepare PDO statement
