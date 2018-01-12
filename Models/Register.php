@@ -1,5 +1,5 @@
 <?php
-
+require('../classes/database.php');
 /**
  * Created by Henry Senior
  * User: stc765
