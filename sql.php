@@ -17,6 +17,7 @@ $pass = 'gr0up2t357db!';
 
 
 
+//$dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
 $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
 $sqlQuery = $sql; // put your students table name
 echo $sqlQuery;  //helpful for debugging to see what SQL query has been created
