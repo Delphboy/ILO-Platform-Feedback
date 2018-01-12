@@ -1,0 +1,72 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Login V1.6</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/my-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<div class="container-login100">
+    <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+            <img src="images/img-01.png" alt="IMG">
+
+<?php require('template/header.phtml') ?>
+
+    <h3>Welcome to Page1</h3>
+
+    <!-- Import the registration validation script -->
+    <script src="../js/register.js"></script>
+    <form name="registration-form" onsubmit="return validateForm()" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="container">
+            <label><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <br />
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <br />
+            <label><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+            <br />
+
+            <div class="clearfix">
+                <button type="submit" class="signupbtn" >Sign Up</button>
+            </div>
+        </div>
+        <form class="login100-form validate-form" name="registration-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <span class=" login100-form-title">
+						User Signup
+					</span>
+            <div class="container">
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="email" placeholder="Enter Email" name="email" required>
+                </div>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" placeholder="Enter Password" name="psw" required>
+                </div>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit" class="signupbtn">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<?php if (isset($view->insert)) : ?>
+    <p><?php echo $view->insert; ?></p>
+<?php endif; ?>
+
+<?php require('template/footer.phtml') ?>

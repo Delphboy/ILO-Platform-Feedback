@@ -1,2 +1,5 @@
 # Remove PHPStorm Files
 .idea/
+*.phar
+vendor/
+composer.lock
