@@ -26,7 +26,7 @@ final class database
      */
     private function __construct(){
         $dsn = "mysql:host=".$this->host.";dbname=".$this->dbName;
-        //$this->db = new PDO("sqlite::sqlite.db");
+//        $this->db = new PDO("sqlite::sqlite.db");
         $this->db = new PDO($dsn, $this->user, $this->pass);
     }
 
@@ -61,6 +61,13 @@ final class database
         return $this->statement->fetchAll();
     }
 
+    /**
+     * Reset the database
+     */
+    public function resetConnection()
+    {
+        $this->db = NULL;
+    }
 
     public function bind($param, $value, $type = null){
         if (is_null($type)) {
