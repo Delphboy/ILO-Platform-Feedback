@@ -29,5 +29,7 @@ class Register
         $dbHandle->bind(':Email', $email);
         $dbHandle->bind(':Password', $password);
         $dbHandle->execute();
+        $dbHandle->resetConnection();
+        $dbHandle = NULL;
     }
 }
