@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 {
     $email = $_POST['$email'];
     $password = $_POST['$pwd'];
-    $reg = new \SPATApp\App\Model\Register();
+    $reg = new Register();
     $reg->addNewUser($email, $password);
 }
 
