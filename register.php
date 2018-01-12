@@ -12,7 +12,7 @@ spl_autoload_register(function($class)
 if(isset($_POST['submit']))
 {
     $email = $_POST['$email'];
-    $password = $_POST['$pwd'];
+    $password = $_POST['$psw'];
     $reg = new Register();
     $reg->addNewUser($email, $password);
 }
