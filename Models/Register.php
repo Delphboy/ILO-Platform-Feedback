@@ -1,12 +1,12 @@
 <?php
-require('../classes/database.php');
+require('../Models/database.php');
 /**
  * Created by Henry Senior
  * User: stc765
  * Date: 1/10/18
  * Time: 10:30 AM
  */
-namespace SPATApp\App\Model;
+require('');
 class Register
 {
     /**
@@ -25,6 +25,9 @@ class Register
     function addNewUser($email, $password)
     {
         $dbHandle = database::Instance();
-        $dbHandle->query("INSERT INTO user VALUES (\'$email\', \'$password\');");
+        $dbHandle->query("INSERT INTO user('Email', 'Password') VALUES (:Email :Password);");
+        $dbHandle->bind(':Email', $email);
+        $dbHandle->bind(':Password', $password);
+        $dbHandle->execute();
     }
 }
