@@ -3,7 +3,6 @@
 
 
 <?php
-phpinfo();
 $sql = $_POST["click"];
 
 
