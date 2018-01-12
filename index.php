@@ -1,6 +1,6 @@
 <?php
 require_once('Views/index.phtml');
-require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php'); //Connect to database
+require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
 
 if(isset($_POST['username']))
     $email = $_POST['username'];

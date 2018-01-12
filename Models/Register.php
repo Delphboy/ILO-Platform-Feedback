@@ -1,5 +1,5 @@
 <?php
-require('../classes/database.php');
+require('../Models/database.php');
 /**
  * Created by Henry Senior
  * User: stc765
@@ -26,6 +26,8 @@ class Register
     {
         $dbHandle = database::Instance();
         $dbHandle->query("INSERT INTO user('Email', 'Password') VALUES (:Email :Password);");
-        
+        $dbHandle->bind(':Email', $email);
+        $dbHandle->bind(':Password', $password);
+        $dbHandle->execute();
     }
 }
