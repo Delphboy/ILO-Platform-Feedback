@@ -132,3 +132,18 @@ body{
     width:55%;
     float: right;
 }
+.sec-container{
+    text-align: center;
+}
+.sec1{
+    display: inline-block;
+    width: 30%;
+    background-color: #2aabd2;
+    height: 80%;
+}
+.sec2{
+    display: inline-block;
+    width: 60%;
+    background-color: #afd9ee;
+    height: 80%;
+}
