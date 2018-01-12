@@ -3816,6 +3816,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav {
     float: left;
     margin: 0;
+    display: inline-block;
   }
   .navbar-nav > li {
     float: left;
@@ -5305,7 +5306,7 @@ button.close {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, .2);
+  /*border: 1px solid rgba(0, 0, 0, .2);*/
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
           box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
@@ -5669,9 +5670,6 @@ button.close {
 }
 .affix {
   position: fixed;
-}
-@-ms-viewport {
-  width: device-width;
 }
 .visible-xs,
 .visible-sm,

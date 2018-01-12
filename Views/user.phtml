@@ -42,12 +42,12 @@
             <div class="wrap-input100 validate-input">
                 <label class="surveyText" >Time spent looking for work:</label>
                 <label class="surveyText-sub">In Hours</label>
-                <input class="input100" name="timelooking" type="number" max="100" min="0" step="1" required>
+                <input class="input100" name="timelooking" type="number" maxlength="6" max="200" min="1" step="0.5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
             </div>
             <div class="wrap-input100 validate-input">
                 <label class="surveyText">Time spent working on task:</label>
                 <label class="surveyText-sub">In Hours</label>
-                <input class="input100" name="timeworking" type="number" max="100" min="0" step="1" required>
+                <input class="input100" name="timeworking" type="number" maxlength="6" max="200" min="1" step="0.5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
             </div>
 
             <div class="wrap-input100 validate-input">
@@ -62,7 +62,7 @@
                             <option class="searchItem" value="Yen">¥</option>
                         </select>
                     </div>
-                    <input class="inputCurrency inputCurrency-text" name="wage" type="number" max="100" min="0" step="0.1"required>
+                    <input class="inputCurrency inputCurrency-text" name="wage" type="number" maxlength="6" max="200" min="0" step="0.1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
                 </div>
             </div>
 
