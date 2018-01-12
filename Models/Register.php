@@ -25,7 +25,7 @@ class Register
     function addNewUser($email, $password)
     {
         $dbHandle = database::Instance();
-        $dbHandle->query("INSERT INTO user('Email', 'Password') VALUES (:Email :Password);");
+        $dbHandle->query("INSERT INTO user('email', 'password') VALUES (:Email :Password);");
         $dbHandle->bind(':Email', $email);
         $dbHandle->bind(':Password', $password);
         $dbHandle->execute();
