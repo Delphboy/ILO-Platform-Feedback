@@ -3,6 +3,7 @@
 
 
 <?php
+phpinfo();
 $sql = $_POST["click"];
 
 
@@ -35,7 +36,6 @@ $dbHandle = null;
 
 <form action="/sql.php" method="post">
 	<select name="click">
-		
 		<option value='select * from gr2.user where isAdministrator = 1'>get all admin</option>
 		<option value='select * from gr2.user where isAdministrator = 0'>get all non admin</option>
 		<option value='select * from gr2.review'>select all reviews</option>

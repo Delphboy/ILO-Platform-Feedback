@@ -43,7 +43,8 @@ final class database
      * @param $query - text of the query to be prepared for execution
      */
     public function query($query){
-        $this->statement = $this->db->prepare($query);
+        $q = $query;
+        $this->statement = $this->db->prepare($q);
     }
 
     /** Executes the prepared query
