@@ -8,11 +8,6 @@
  * Date: 1/10/18
  * Time: 11:49 AM
  */
-
-namespace SPATApp\App\Classes;
-use \PDO;
-use \PDOStatement;
-
 final class database
 {
     public $db; //PDO object which contains the database
@@ -30,8 +25,8 @@ final class database
      */
     private function __construct(){
         $dsn = "mysql:host=".$this->host.";dbname=".$this->dbName;
-        $this->db = new PDO("sqlite::sqlite.db");
-       // $this->db = new PDO($dsn, $this->user, $this->pass);
+        //$this->db = new PDO("sqlite::sqlite.db");
+        $this->db = new PDO($dsn, $this->user, $this->pass);
     }
 
     /**
