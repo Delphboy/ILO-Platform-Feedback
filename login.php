@@ -2,38 +2,18 @@
 require_once('Views/login.phtml');
 require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
 
-if(isset($_POST['username']))
-    $email = $_POST['username'];
-if(isset($_POST['password']))
-    $pass =  $_POST['password'];
-
-/* SANITISATION SECTION */
-
-
 /* END OF SANITISATION SECTION*/
-if(isset($_POST['username']) && isset($_POST['password'])) {
-    $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email LIKE :email AND password = :password");
+if(isset($_POST['submit']))
+{
+    $userEmail = htmlentities($_POST['username']);
+    $userPassword = htmlentities($_POST['password']);
 
-    $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email");
-    $dbHandle->bind(':email', $_POST['username']);
-    $dbHandle->bind(':password', $_POST['password']);
-    $dbHandle->execute();
+    $loginModel = new Login();
+    $auth = $loginModel->searchDatabase($userEmail, $userPassword);
 
-    $alldata = $dbHandle->resultset();
-    $rowcount = sizeof($alldata);
-
-    for ($i = 0; $i < $rowcount; $i++) {
-        $row = $alldata[$i];
-        if ($row[3] == 1) {
-            //echo "You've Logged in as " . $row[2] . ", You are an Admin";
-            header('Location: admin.php'); //Will navigate to different page
-        } elseif ($row[3] == 0) {
-            // echo "You've Logged in as " . $row[2];
-            header('Location: index.php'); //Will navigate to different page
-        }
-    }
+    // Redirect if signin successful
+    if($auth)
+        header('Location: https://www.google.co.uk/');
 }
 ?>
 
