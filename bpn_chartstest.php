@@ -69,7 +69,7 @@ try {
     foreach($result as $r) {
 
         $temp = array();
-        echo "<p>$result</p>";
+        print_r($r);
 
         // the following line will be used to slice the Pie chart
 
