@@ -121,6 +121,34 @@ try {
             // Do not forget to check your div ID
             var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
             chart.draw(data, barchart_options);
+
+
+
+
+
+            var piedata = new google.visualization.DataTable ();
+            piedata.addColumn ('string', 'Platform');
+            piedata.addColumn ('number', 'Popularity');
+            piedata.addRows (
+                [
+                    ['Amazon', $z],
+                    ['Fiverr', 8],
+                    ['AMT', 5],
+                    ['Click Work', 4],
+                    ['Up Work', 3]
+                ]
+            );
+
+            // Set chart options
+            var options =
+            {
+                'title': 'Platforms by popularity',
+                'width': 600,
+                'height': 400
+            };
+
+            var piechart = new google.visualization.PieChart (document.getElementById ('chart_div'));
+            piechart.draw (piedata, options);
         }
     </script>
 </head>
