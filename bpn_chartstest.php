@@ -74,9 +74,9 @@ try {
         // the following line will be used to slice the Pie chart
 
         // Values of each slice
-
-        $temp[] = array('v' => (double) $r['avg_wage']);
         $temp[] = array('v' => (string) $r['platform']);
+        $temp[] = array('v' => (int) $r['avg_wage']);
+
         $rows[] = array('c' => $temp);
     }
 
