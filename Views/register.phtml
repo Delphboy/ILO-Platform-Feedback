@@ -1,9 +1,9 @@
-<!--<?php //require('template/headerUser.phtml') ?>-->
+<?php require('template/headerUser.phtml') ?>
 
-    <h3>Welcome to Page1</h3>
+    <h3>Register as a new Admin</h3>
 
     <!-- Import the registration validation script -->
-<!--    <script src="../js/register.js" ></script>-->
+    <script src="../js/register.js" ></script>
     <form name="registration-form" onsubmit="return validateRegisterForm()" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="container">
             <label><b>Email</b></label>
@@ -29,6 +29,4 @@
     <p><?php echo $view->insert; ?></p>
 <?php endif; ?>
 
-<!--
-<?php //require('template/footer.phtml') ?>
--->
+<?php require('template/footer.phtml') ?>
