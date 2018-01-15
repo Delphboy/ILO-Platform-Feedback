@@ -94,55 +94,21 @@ try {
 <html>
 <head>
     <!--Load the Ajax API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript">
+
 
         var $z= 2;
 
-        // Load the Visualization API and the piechart package.
-        google.load('visualisation', '1', {'packages':['corechart']});
-
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
         // Set a callback to run when the Google Visualization API is loaded.
-        google.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
 
-            // Create our data table out of JSON data loaded from server.
-//            var data = new google.visualization.DataTable(<?php //echo $jsonTable; ?>//);
-//            var barchart_options =
-//            {
-//                title: 'Barchart',
-//                width: 600,
-//                height: 400,
-//                legend: 'none'
-//            };
-//
-//            // Instantiate and draw our chart, passing in some options.
-//            // Do not forget to check your div ID
-//            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-//            chart.draw(data, barchart_options);
-
-
-
-
-
-            var piedata = new google.visualization.DataTable ();
-            piedata.addColumn ('string', 'Platform');
-            piedata.addColumn ('number', 'Popularity');
-            piedata.addRows (
-                [
-                    ['Amazon', $z],
-                    ['Fiverr', 8],
-                    ['AMT', 5],
-                    ['Click Work', 4],
-                    ['Up Work', 3]
-                ]
-            );
-
-            // Set chart options
-            //Bar Chart
+             //Create our data table out of JSON data loaded from server.
+            var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
             var barchart_options =
             {
                 title: 'Barchart',
@@ -151,8 +117,12 @@ try {
                 legend: 'none'
             };
 
-            var barchart = new google.visualization.BarChart (document.getElementById ('chart_div'));
-            barchart.draw (piedata, barchart_options);
+            // Instantiate and draw our chart, passing in some options.
+            // Do not forget to check your div ID
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, barchart_options);
+
+
         }
     </script>
 </head>
