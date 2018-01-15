@@ -46,7 +46,7 @@ try {
     $conn->query('SELECT AVG(wage),platform FROM review GROUP BY platform');
     $result = $conn->resultset();
 
-
+    echo 'Attempt to create arrays';
 
     $rows = array();
     $table = array();
@@ -85,6 +85,7 @@ try {
     //echo $jsonTable;
 } catch(PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();
+    echo 'cannot do what you asked';
 }
 
 ?>
@@ -106,7 +107,7 @@ try {
         function drawChart() {
 
             // Create our data table out of JSON data loaded from server.
-            var data = new google.visualization.DataTable(<?=$jsonTable?>);
+            var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
             var options = {
                 title: 'My Weekly Plan',
                 is3D: 'true',
