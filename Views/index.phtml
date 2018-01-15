@@ -24,7 +24,7 @@
 </head>
 <body class="container-login100">
     <div class="wrap-login101">
-        <form class="form-style" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form class="form-style" method="post" action="index.php">
             <span class="survey-title">
                     Survey
                 </span>
@@ -55,11 +55,11 @@
                 <label class="surveyText-sub">(Currency/hr)</label>
                 <div class="currency">
                     <div class="inputCurrency">
-                        <select class="searchOp" name="platform" required>
-                            <option class="searchItem" value="Pound">£</option>
-                            <option class="searchItem" value="Dollar">$</option>
-                            <option class="searchItem" value="Euro">€</option>
-                            <option class="searchItem" value="Yen">¥</option>
+                        <select class="searchOp" name="CurrencySign" required>
+                            <option class="searchItem" value="GBP">£</option>
+                            <option class="searchItem" value="USD">$</option>
+                            <option class="searchItem" value="EUR">€</option>
+                            <option class="searchItem" value="YEN">¥</option>
                         </select>
                     </div>
                     <input class="inputCurrency inputCurrency-text" name="wage" type="number" maxlength="6" max="200" min="0" step="0.1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
@@ -69,10 +69,10 @@
             <div class="wrap-input100 validate-input">
                 <label class="surveyText">Gender</label>
                 <div class="input100">
-                    <select class="searchOp">
-                        <option class="searchItem" value="Male">Male</option>
-                        <option class="searchItem" value="Female">Female</option>
-                        <option class="searchItem" value="Other">Prefer not to Say</option>
+                    <select name="gender" class="searchOp">
+                        <option class="searchItem" value="M">Male</option>
+                        <option class="searchItem" value="F">Female</option>
+                        <option class="searchItem" value="O">Prefer not to Say</option>
                     </select>
                 </div>
             </div>
@@ -94,7 +94,7 @@
             <div class="wrap-input100 validate-input">
                 <label class="surveyText">Rating</label>
                 <div class="input100">
-                    <select class="searchOp">
+                    <select class="searchOp" name="rating">
                         <option class="searchItem" value="0">0 Star</option>
                         <option class="searchItem" value="1">1 Star</option>
                         <option class="searchItem" value="2">2 Star</option>
@@ -104,7 +104,6 @@
                     </select>
                 </div>
             </div>
-
             <input class="login101-form-btn" type="submit" value="submit" name="submit">
         </form>
     </div>
