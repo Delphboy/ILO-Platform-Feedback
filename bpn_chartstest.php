@@ -60,8 +60,8 @@ try {
         */
 
 
-        array('label' => 'avg wage', 'type' => 'number'),
-        array('label' => 'platform', 'type' => 'string')
+        array('label' => 'platform', 'type' => 'string'),
+        array('label' => 'avg wage', 'type' => 'number')
 
 
     );
