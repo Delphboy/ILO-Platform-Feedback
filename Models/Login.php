@@ -32,6 +32,9 @@ class Login
         $dbHandle->bind(':email', $searchEmail);
         $result = $dbHandle->resultSet();
 
+        echo $result[0] . " " . $searchEmail . "<br/>";
+        echo $result[1] . " " . $searchPass . "<br/>";
+
         if($result[0] == $searchEmail && $result[1] == $searchPass)
         {
             return true;

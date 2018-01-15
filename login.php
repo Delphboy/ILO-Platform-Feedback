@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 
     // Redirect if signin successful
 //    if($auth)
-    header('Location: https://www.google.co.uk/');
+//    header('Location: https://www.google.co.uk/');
 }
 ?>
 
