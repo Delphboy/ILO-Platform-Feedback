@@ -58,8 +58,9 @@ try {
             as pie chart only required "numbers" for calculating percentage
             and string will be used for Slice title
         */
-        array('label' => 'avg wage', 'type' => 'number'),
-        array('label' => 'platform', 'type' => 'string')
+
+        array('label' => 'platform', 'type' => 'string'),
+        array('label' => 'avg wage', 'type' => 'number')
 
 
     );
@@ -67,7 +68,7 @@ try {
     foreach($result as $r) {
 
         $temp = array();
-        echo '<p>$r</p>';
+        echo "<p>$result</p>";
 
         // the following line will be used to slice the Pie chart
 
