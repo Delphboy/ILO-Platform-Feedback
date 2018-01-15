@@ -26,7 +26,6 @@ final class database
      */
     private function __construct(){
         $dsn = "mysql:host=".$this->host.";dbname=".$this->dbName;
-//        $this->db = new PDO("sqlite::sqlite.db");
         $this->db = new PDO($dsn, $this->user, $this->pass);
     }
 
