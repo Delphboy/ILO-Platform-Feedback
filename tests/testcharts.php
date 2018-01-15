@@ -70,7 +70,7 @@
 	// Load the Visualization API and the corechart package.
 	google.charts.load('current', {'packages':['corechart']});
 	// Set a callback to run when the Google Visualization API is loaded.
-	godrogle.charts.setOnLoadCallback(awChart);
+	google.charts.setOnLoadCallback(drawChart);
 
 	
 		// Creates and populates a data table
