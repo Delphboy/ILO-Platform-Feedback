@@ -71,14 +71,16 @@ try {
         $temp = array();
         //print_r($r);
         print_r($r['platform']);
+        echo '<br>';
+        print_r($r['AVG(wage)']);
 
         // the following line will be used to slice the Pie chart
 
         // Values of each slice
         $temp[] = array('v' => (string) $r['platform']);
         $plat = (string)$r['platform'];
-        $temp[] = array('v' => (real) $r['avg_wage']);
-        $wage = (real)$r['avg_wage'];
+        $temp[] = array('v' => (real) $r['AVG(wage)']);
+        $wage = (real)$r['AVG(wage)'];
         echo "<p> $wage</p>";
 
         $rows[] = array('c' => $temp);
