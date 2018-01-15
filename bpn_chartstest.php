@@ -78,7 +78,7 @@ try {
         $plat = (string)$r['platform'];
         $temp[] = array('v' => (int) $r['avg_wage']);
         $wage = (int)$r['avg_wage'];
-        echo "<p>$plat $wage</p>";
+        echo "<p> $wage</p>";
 
         $rows[] = array('c' => $temp);
     }
