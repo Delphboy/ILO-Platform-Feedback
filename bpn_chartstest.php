@@ -99,6 +99,8 @@ try {
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript">
 
+        var $z= 2;
+
         // Load the Visualization API and the piechart package.
         google.load('visualisation', '1', {'packages':['corechart']});
 
@@ -149,7 +151,7 @@ try {
                 legend: 'none'
             };
 
-            var barchart = new google.visualization.BarChart (document.getElementById ('barchart_div'));
+            var barchart = new google.visualization.BarChart (document.getElementById ('chart_div'));
             barchart.draw (piedata, barchart_options);
         }
     </script>
