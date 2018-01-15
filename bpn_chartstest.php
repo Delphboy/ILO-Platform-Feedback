@@ -75,9 +75,9 @@ try {
 
         // Values of each slice
         $temp[] = array('v' => (string) $r['platform']);
-        $plat = $r['platform'];
+        $plat = (string)$r['platform'];
         $temp[] = array('v' => (int) $r['avg_wage']);
-        $wage = $r['avg_wage'];
+        $wage = (int)$r['avg_wage'];
         echo "<p>$plat $wage</p>";
 
         $rows[] = array('c' => $temp);
