@@ -59,8 +59,9 @@ try {
             and string will be used for Slice title
         */
 
-        array('label' => 'platform', 'type' => 'string'),
-        array('label' => 'avg wage', 'type' => 'number')
+
+        array('label' => 'avg wage', 'type' => 'number'),
+        array('label' => 'platform', 'type' => 'string')
 
 
     );
@@ -72,11 +73,10 @@ try {
 
         // the following line will be used to slice the Pie chart
 
-        $temp[] = array('v' => (string) $r['platform']);
-
         // Values of each slice
 
         $temp[] = array('v' => (double) $r['avg_wage']);
+        $temp[] = array('v' => (string) $r['platform']);
         $rows[] = array('c' => $temp);
     }
 
