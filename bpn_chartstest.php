@@ -140,15 +140,17 @@ try {
             );
 
             // Set chart options
-            var options =
+            //Bar Chart
+            var barchart_options =
             {
-                'title': 'Platforms by popularity',
-                'width': 600,
-                'height': 400
+                title: 'Barchart',
+                width: 600,
+                height: 400,
+                legend: 'none'
             };
 
-            var piechart = new google.visualization.PieChart (document.getElementById ('chart_div'));
-            piechart.draw (piedata, options);
+            var barchart = new google.visualization.BarChart (document.getElementById ('barchart_div'));
+            barchart.draw (piedata, barchart_options);
         }
     </script>
 </head>
