@@ -8,6 +8,7 @@
  * Date: 1/10/18
  * Time: 11:49 AM
  */
+
 final class database
 {
     public $db; //PDO object which contains the database
@@ -25,7 +26,6 @@ final class database
      */
     private function __construct(){
         $dsn = "mysql:host=".$this->host.";dbname=".$this->dbName;
-        //$this->db = new PDO("sqlite::sqlite.db");
         $this->db = new PDO($dsn, $this->user, $this->pass);
     }
 
@@ -42,7 +42,8 @@ final class database
      * @param $query - text of the query to be prepared for execution
      */
     public function query($query){
-        $this->statement = $this->db->prepare($query);
+        $q = $query;
+        $this->statement = $this->db->prepare($q);
     }
 
     /** Executes the prepared query
@@ -60,6 +61,13 @@ final class database
         return $this->statement->fetchAll();
     }
 
+    /**
+     * Reset the database
+     */
+    public function resetConnection()
+    {
+        $this->db = NULL;
+    }
 
     public function bind($param, $value, $type = null){
         if (is_null($type)) {

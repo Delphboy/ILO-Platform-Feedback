@@ -1,6 +1,6 @@
 <?php
 require_once('Views/index.phtml');
-require($_SERVER['DOCUMENT_ROOT'] . '/classes/database.php'); //Connect to database
+require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
 
 if(isset($_POST['username']))
     $email = $_POST['username'];
@@ -13,7 +13,14 @@ if(isset($_POST['password']))
 /* END OF SANITISATION SECTION*/
 if(isset($_POST['username']) && isset($_POST['password'])) {
     $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email LIKE \"$email\" AND password = \"$pass\"");
+    $dbHandle->query("SELECT * FROM user WHERE email LIKE :email AND password = :password");
+
+    $dbHandle = database::Instance();
+    $dbHandle->query("SELECT * FROM user WHERE email");
+    $dbHandle->bind(':email', $_POST['username']);
+    $dbHandle->bind(':password', $_POST['password']);
+    $dbHandle->execute();
+
     $alldata = $dbHandle->resultset();
     $rowcount = sizeof($alldata);
 
