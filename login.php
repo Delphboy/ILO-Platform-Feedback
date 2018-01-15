@@ -12,8 +12,8 @@ if(isset($_POST['submit']))
     $auth = $loginModel->searchDatabase($userEmail, $userPassword);
 
     // Redirect if signin successful
-    if($auth)
-        header('Location: https://www.google.co.uk/');
+//    if($auth)
+    header('Location: https://www.google.co.uk/');
 }
 ?>
 
