@@ -43,7 +43,7 @@ $conn = database::Instance();
 
 try {
     /* select all the weekly tasks from the table googlechart */
-    $conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
+    $conn->query('SELECT platform, floor(AVG(wage)) FROM review GROUP BY platform');
     $result = $conn->resultset();
 
     echo 'Attempt to create arrays';
