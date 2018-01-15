@@ -56,7 +56,7 @@ final class database
     /** Executes the last prepared query and returns all the rows of the results
      * @return array of arrays of data (each array is a row of data)
      */
-    public function resultset(){
+    public function resultSet(){
         $this->execute();
         return $this->statement->fetchAll();
     }
