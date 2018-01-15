@@ -30,6 +30,7 @@ class Login
         $dbHandle = database::Instance();
         $query  ="SELECT email, password FROM gr2.user WHERE email = :email;";
         $dbHandle->bind(':email', $searchEmail);
+        $dbHandle->query($query);
         $result = $dbHandle->resultSet();
 
         echo $result[0] . " " . $searchEmail . "<br/>";
