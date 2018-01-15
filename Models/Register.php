@@ -25,9 +25,9 @@ class Register
     {
         $dbHandle = database::Instance();
         $query  ="INSERT INTO gr2.user(email, password, isAdministrator) VALUES (:email, :pass, '1')";
-        $dbHandle->query($query);
         $dbHandle->bind(':email', $email);
         $dbHandle->bind(':pass', $password);
+        $dbHandle->query($query);
         $dbHandle->execute();
         $dbHandle->resetConnection();
         $dbHandle = NULL;

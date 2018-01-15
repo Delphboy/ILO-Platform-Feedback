@@ -9,6 +9,7 @@
  * Time: 11:49 AM
  */
 
+
 final class database
 {
     public $db; //PDO object which contains the database
@@ -44,12 +45,14 @@ final class database
     public function query($query){
         $q = $query;
         $this->statement = $this->db->prepare($q);
+        if ($this->statement == false){echo 'query not prepared';}
     }
 
     /** Executes the prepared query
      * @return the executed statement
      */
-    public function execute(){
+    public function execute()
+    {
         return $this->statement->execute();
     }
 
