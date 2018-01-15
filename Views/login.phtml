@@ -27,7 +27,7 @@ A simple login form design
                 <img src="images/img-01.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post'>
+            <form class="login100-form validate-form" action='<?php echo htmlentities($_SERVER['PHP_SELF']); ?>' method='post'>
 					<span class="login100-form-title">
 						User Login
 					</span>
@@ -49,7 +49,7 @@ A simple login form design
                 </div>
                 <!-- Button -->
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button value="submit" class="login100-form-btn">
                         Login
                     </button>
                 </div>
