@@ -58,9 +58,9 @@ try {
             as pie chart only required "numbers" for calculating percentage
             and string will be used for Slice title
         */
+        array('label' => 'avg wage', 'type' => 'number'),
+        array('label' => 'platform', 'type' => 'string')
 
-        array('label' => 'platform', 'type' => 'string'),
-        array('label' => 'avg wage', 'type' => 'number')
 
     );
     /* Extract the information from $result */
