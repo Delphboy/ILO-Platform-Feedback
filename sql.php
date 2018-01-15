@@ -39,8 +39,9 @@ $dbHandle = null;
         <option value='select * from gr2.user where isAdministrator = 1'>get all admin</option>
         <option value='select * from gr2.user where isAdministrator = 0'>get all non admin</option>
         <option value='select * from gr2.review'>select all reviews</option>
+        <option value='SELECT AVG(wage),platform FROM review GROUP BY platform'>wage by platform</option>
 
-	</select>
+    </select>
 	<input type="submit" value="Quick Search">
 </form>
 
