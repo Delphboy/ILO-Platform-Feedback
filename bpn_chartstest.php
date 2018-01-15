@@ -95,11 +95,12 @@ try {
 <head>
     <!--Load the Ajax API-->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript">
 
         // Load the Visualization API and the piechart package.
-        google.load('current', '1', {'packages':['corechart']});
+        google.load('visualisation', '1', {'packages':['corechart']});
 
         // Set a callback to run when the Google Visualization API is loaded.
         google.setOnLoadCallback(drawChart);
@@ -108,24 +109,25 @@ try {
 
             // Create our data table out of JSON data loaded from server.
             var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
-            var options = {
-                title: 'My Weekly Plan',
-                is3D: 'true',
-                width: 800,
-                height: 600
+            var barchart_options =
+            {
+                title: 'Barchart',
+                width: 600,
+                height: 400,
+                legend: 'none'
             };
+
             // Instantiate and draw our chart, passing in some options.
             // Do not forget to check your div ID
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+            chart.draw(data, barchart_options);
         }
     </script>
 </head>
 
 <body>
 
-<h3><?php echo 'success?'; ?></h3>
-<h3><?php echo $jsonTable; ?></h3>
+<h3><?php echo 'json data: '.$jsonTable; ?></h3>
 <!--this is the div that will hold the pie chart-->
 <div id="chart_div"></div>
 </body>
