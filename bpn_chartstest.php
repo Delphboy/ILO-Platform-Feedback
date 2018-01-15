@@ -123,7 +123,9 @@ try {
 </head>
 
 <body>
+
 <h3><?php echo 'success?'; ?></h3>
+<h3><?php echo $jsonTable; ?></h3>
 <!--this is the div that will hold the pie chart-->
 <div id="chart_div"></div>
 </body>
