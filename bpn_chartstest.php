@@ -103,7 +103,7 @@ try {
 <head>
     <!--Load the Ajax API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+  <!--  <script type="text/javascript">
 
 
         var $z= 2;
@@ -132,13 +132,22 @@ try {
 
 
         }
-    </script>
+    </script> -->
+    <script type="text/javascript" src="js/filters.js"></script>
 </head>
 
 <body>
 
 <h3><?php echo 'json data: '.$jsonTable; ?></h3>
 <!--this is the div that will hold the pie chart-->
-<div id="chart_div"></div>
+
+<div id="chart_div">
+    <?php
+    require ('Models/Graph.php');
+    $graph = new Graph();
+    $jsonTable = $graph->fetchData();
+    echo "<script>drawbarchart($jsonTable);</script>"
+    ?>
+</div>
 </body>
 </html>
