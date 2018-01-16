@@ -83,8 +83,7 @@ class Graph
         foreach($result as $r) {
 
             $temp = array();
-            print_r($r['country']);
-            print_r($r['AVG(wage)']);
+
 
             // the following line will be used to slice the Pie chart
 
@@ -115,8 +114,7 @@ class Graph
         foreach($result as $r) {
 
             $temp = array();
-            print_r($r['platform']);
-            print_r($r['count(platform)']);
+
 
             // the following line will be used to slice the Pie chart
 
@@ -133,7 +131,7 @@ class Graph
 
     function rating_vs_wage(){
         $conn = database::Instance();
-        $conn->query('SELECT rating, AVG(wage), platform FROM review GROUP BY platform');
+        $conn->query('SELECT rating, wage FROM review GROUP BY platform');
         $result = $conn->resultset();
 
         $rows = array();
@@ -147,14 +145,11 @@ class Graph
         foreach($result as $r) {
 
             $temp = array();
-            print_r($r['platform']);
-            print_r($r['count(platform)']);
-
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
             $temp[] = array('v' => (string) $r['rating']);
-            $temp[] = array('v' => (real) $r['AVG(wage)']);
+            $temp[] = array('v' => (real) $r['wage']);
 
             $rows[] = array('c' => $temp);
         }
