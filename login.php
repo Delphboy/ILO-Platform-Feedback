@@ -1,6 +1,6 @@
 <?php
 require_once('Views/login.phtml');
-require_once('Models/Register.php');
+require_once('Models/Login.php');
 if(isset($_POST['submit']))
 {
     $userEmail = htmlentities($_POST['username']);
