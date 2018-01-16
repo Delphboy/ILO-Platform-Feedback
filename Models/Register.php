@@ -23,13 +23,6 @@ class Register
      */
     function addNewUser($email, $password)
     {
-        $dbHandle = database::Instance();
-        $query  ="INSERT INTO gr2.user(email, password, isAdministrator) VALUES (:email, :pass, '1')";
-        $dbHandle->bind(':email', $email);
-        $dbHandle->bind(':pass', $password);
-        $dbHandle->query($query);
-        $dbHandle->execute();
-        $dbHandle->resetConnection();
-        $dbHandle = NULL;
+
     }
 }
