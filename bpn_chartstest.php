@@ -6,8 +6,8 @@
     <?php
     require ('Models/Graph.php');
     $gr = new Graph();
-    $jsonTable = $gr->fetchData();
-    print_r($jsonTable);
+    $platform_vs_wage = $gr->platform_vs_wage();
+    print_r($platform_vs_wage);
     ?>
     <script type="text/javascript">
         // Load the Visualization API and the corechart package.
@@ -16,10 +16,10 @@
 //        google.charts.setOnLoadCallback();
 
 
-            function drawbarchart(){
+            function platform_vs_wage(){
 
             //Create our data table out of JSON data  loaded from server.
-            var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
+            var data = new google.visualization.DataTable(<?php echo $platform_vs_wage; ?>);
             var barchart_options =
             {
                 title: 'Barchart',
@@ -38,7 +38,7 @@
 </head>
 
 <body>
-<button id="btn" value="btn" onclick="drawbarchart()"> Generate chart</button>
+<button id="btn" value="btn" onclick="platform_vs_wage()"> Generate chart</button>
 
 <div id="chart_div" style="width: 300px; height: 300px;">
 </div>

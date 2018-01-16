@@ -17,7 +17,7 @@ class Graph
         $conn = database::Instance();
     }
 
-    function fetchData(){
+    function platform_vs_wage(){
         $conn = database::Instance();
         $conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
         $result = $conn->resultset();
