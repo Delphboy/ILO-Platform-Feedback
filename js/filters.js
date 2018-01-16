@@ -24,7 +24,7 @@ function drawbarchart(jsontable) {
     // Instantiate and draw our chart, passing in some options.
     // Do not forget to check your div ID
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-    chart.draw(jsontable, barchart_options);
+    chart.draw(data, barchart_options);
 
 }
 
