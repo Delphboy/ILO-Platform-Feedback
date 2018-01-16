@@ -137,15 +137,15 @@
 </head>
 
 <body>
-
-<h3><?php echo 'json data: '.$jsonTable; ?></h3>
 <!--this is the div that will hold the pie chart-->
 
 <div id="chart_div">
     <?php
     require ('Models/Graph.php');
+    echo '<h3>Trying to fetch data</h3>';
     $graph = new Graph();
     $jsonTable = $graph->fetchData();
+    print_r($jsonTable);
     echo "<script type='text/javascript'>drawbarchart($jsonTable);</script>"
     ?>
 </div>
