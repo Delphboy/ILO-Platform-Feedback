@@ -27,7 +27,6 @@ final class database
      */
     private function __construct(){
         $dsn = "mysql:host=".$this->host.";dbname=".$this->dbName;
-//        $this->db = new PDO("sqlite::sqlite.db");
         $this->db = new PDO($dsn, $this->user, $this->pass);
     }
 
@@ -60,7 +59,7 @@ final class database
     /** Executes the last prepared query and returns all the rows of the results
      * @return array of arrays of data (each array is a row of data)
      */
-    public function resultset(){
+    public function resultSet(){
         $this->execute();
         return $this->statement->fetchAll();
     }
