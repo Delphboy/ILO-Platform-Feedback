@@ -38,7 +38,7 @@
 </head>
 
 <body>
-<button id="btn" onclick="drawbarchart(<?php echo $jsonTable; ?>)" value="Btn"> Generate chart</button>
+<button id="btn" value="btn"> Generate chart</button>
 
 <div id="chart_div">
 </div>
