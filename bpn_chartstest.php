@@ -9,6 +9,7 @@
     $platform_vs_wage = $gr->platform_vs_wage();
     //print_r($platform_vs_wage);
     $wage_per_country = $gr->wage_per_country();
+    $platform_popularity = $gr->platform_popularity();
     ?>
     <script type="text/javascript">
         // Load the Visualization API and the corechart package.
@@ -36,7 +37,6 @@
             }
 
         function wage_per_country(){
-            //Create our data table out of JSON data  loaded from server.
             var data = new google.visualization.DataTable(<?php echo $wage_per_country; ?>);
             var barchart_options =
             {
@@ -45,20 +45,32 @@
                 height: 900,
                 legend: 'none'
             };
-
-            // Instantiate and draw our chart, passing in some options.
-            // Do not forget to check your div ID
             var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
             chart.draw(data, barchart_options);
+        }
+
+        function platform_popularity() {
+            var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
+            var piechart_options =
+            {
+                title: 'Barchart',
+                width: 600,
+                height: 900,
+                legend: 'none'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+            chart.draw(data, piechart_options);
         }
 
     </script>
 </head>
 
 <body>
-<button id="btn" value="btn" onclick="platform_vs_wage()"> Generate platform vs wage bar</button>
-<button id="btn" value="btn" onclick="wage_per_country()"> Generate wage per country bar</button>
+<button id="btn" value="btn" onclick="platform_vs_wage()"> Platform vs wage barchart</button>
+<button id="btn" value="btn" onclick="wage_per_country()"> Wage per country barchart</button>
+<button id="btn" value="btn" onclick="platform_popularity()"> Platform popularity piechart</button>
 
 <div id="chart_div">
 </div>

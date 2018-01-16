@@ -98,4 +98,50 @@ class Graph
         $jsonTable = json_encode($table);
         return $jsonTable;
     }
+
+    function platform_popularity(){
+        $conn = database::Instance();
+        $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
+        $result = $conn->resultset();
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+
+            array('label' => 'platform', 'type' => 'string'),
+            array('label' => 'percentage', 'type' => 'number')
+        );
+
+        foreach($result as $r) {
+
+            $temp = array();
+            print_r($r['platform']);
+            print_r($r['count(platform)']);
+
+            // the following line will be used to slice the Pie chart
+
+            // Values of each slice
+            $temp[] = array('v' => (string) $r['platform']);
+            $temp[] = array('v' => (real) $r['count(platform)']);
+
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
+
+
+    function returnUSD($currency, $value){
+        $output = $value;
+        switch ($currency){
+            case "GBP" :
+                $output = $value*1.38; break;
+            case "EUR" :
+                $output = $value*1.13; break;
+            case "YEN" :
+                $output = $value*152.32; break;
+        }
+        return $output;
+    }
 }
