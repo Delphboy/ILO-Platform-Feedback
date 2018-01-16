@@ -139,8 +139,8 @@ class Graph
         $table = array();
         $table['cols'] = array(
 
-            array('label' => 'rating', 'type' => 'number'),
-            array('label' => 'wage', 'type' => 'number')
+            array('label' => 'time looking', 'type' => 'number'),
+            array('label' => 'time working', 'type' => 'number')
         );
 
         foreach($result as $r) {
@@ -152,6 +152,10 @@ class Graph
             // Values of each slice
             $temp[] = array('v' => (int) $r['time_spent_looking']);
             $temp[] = array('v' => (int) $r['time_spent_working']);
+            $var1 = (int) $r['time_spent_looking'];
+            $var2 = (int) $r['time_spent_working'];
+            echo "<p> $var1 $var2</p>";
+
 
             $rows[] = array('c' => $temp);
         }
