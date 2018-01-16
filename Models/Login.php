@@ -1,5 +1,5 @@
 <?php
-
+require_once ('database.php');
 /**
  * Created by Henry Senior
  * Date: 1/15/18
@@ -19,24 +19,21 @@ class Login
 
     /**
      * Search the database for an email and password
-     * @param $searchEmail
-     * @param $searchPass
+     * @param $email
+     * @param $password
      * @return bool
      *      true if the user's data matches the search result
      *      false if the user's data doesn't match the results
      */
-    function searchDatabase($searchEmail, $searchPass)
+    function signIn($email, $password)
     {
-        $dbHandle = database::Instance();
-        $query  ="SELECT email, password FROM gr2.user WHERE email = :email;";
-        $dbHandle->bind(':email', $searchEmail);
-        $dbHandle->query($query);
-        $result = $dbHandle->resultSet();
-
-        echo $result[0] . " " . $searchEmail . "<br/>";
-        echo $result[1] . " " . $searchPass . "<br/>";
-
-        if($result[0] == $searchEmail && $result[1] == $searchPass)
+        $dbConnection = database::Instance();
+        $testQuery = "SELECT email, password FROM gr2.user WHERE email LIKE :email";
+        $dbConnection->query($testQuery);
+        $dbConnection->bind(':email', $email);
+        $dbConnection->execute();
+        $row = $dbConnection->resultSet();
+        if(($row[0][0] == $email) && ($row[0][1] == $password))
         {
             return true;
         }
