@@ -180,8 +180,8 @@ class Graph
 
             $temp = array();
 
-            $temp[] = array('v' => (int) $r['platform']);
-            $temp[] = array('v' => (int) $r['AVG(rating)']);
+            $temp[] = array('v' => (string) $r['platform']);
+            $temp[] = array('v' => (real) $r['AVG(rating)']);
 
             $rows[] = array('c' => $temp);
         }

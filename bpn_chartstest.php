@@ -89,7 +89,7 @@
                 height: 900,
                 legend: 'none'
             };
-            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
             chart.draw(data, piechart_options);
         }
