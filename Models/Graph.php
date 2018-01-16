@@ -51,8 +51,9 @@ class Graph
 
             // Values of each slice
             $temp[] = array('v' => (string) $r['platform']);
-            $plat = (string)$r['platform'];
+
             $temp[] = array('v' => (real) $r['AVG(wage)']);
+            $plat = (string)$r['platform'];
             $wage = (real)$r['AVG(wage)'];
             //echo "<p> $wage</p>";
 
@@ -138,18 +139,22 @@ class Graph
         $table = array();
         $table['cols'] = array(
 
-            array('label' => 'rating', 'type' => 'string'),
-            array('label' => 'wage', 'type' => 'string')
+            array('label' => 'rating', 'type' => 'number'),
+            array('label' => 'wage', 'type' => 'number')
         );
 
         foreach($result as $r) {
 
             $temp = array();
+
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
             $temp[] = array('v' => (int) $r['rating']);
             $temp[] = array('v' => (real) $r['wage']);
+            $plat = (int) $r['rating'];
+            $wage = (real) $r['wage'];
+            echo "$plat $wage";
 
             $rows[] = array('c' => $temp);
         }
