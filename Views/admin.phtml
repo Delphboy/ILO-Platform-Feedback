@@ -294,26 +294,27 @@
         <!--<input type="text" id="myInput7" onkeyup="myFunction7()" placeholder="Search by column 8" title="Type">-->
         <!--<input type="text" id="myInput8" onkeyup="myFunction8()" placeholder="Search by column 9" title="Type">-->
         <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
+        <div class="tablescroll">
+            <?php
+            echo "<table id='myTable' class='table table-bordered col-md-5 col-xs-12' style='width: 100%'>";
+            while ($row = $statement->fetch())
+            {
+                echo"<tr><td>". $row[0] ."</td>
+             <td>". $row[1] ."</td>
+             <td>". $row[2] ."</td>
+             <td>". $row[3] ."</td>
+             <td>". $row[4] ."</td>
+             <td>". $row[5] ."</td>
+             <td>". $row[6] ."</td>
+             <td>". $row[7] ."</td>
+             <td>". $row[8] ."</td>
+             <td>". $row[9];}
+            echo "</table>";
 
-        <?php
-        echo "<table id='myTable' class='table table-bordered col-md-5 col-xs-12' style='width: 100%'>";
-        while ($row = $statement->fetch())
-        {
-            echo"<tr><td>". $row[0] ."</td>
-	  	 <td>". $row[1] ."</td>
-		 <td>". $row[2] ."</td>
-		 <td>". $row[3] ."</td>
-		 <td>". $row[4] ."</td>
-		 <td>". $row[5] ."</td>
-		 <td>". $row[6] ."</td>
-		 <td>". $row[7] ."</td>
-		 <td>". $row[8] ."</td>
-		 <td>". $row[9];}
-        echo "</table>";
-
-        //close connect
-        $dbHandle = null;
-        ?>
+            //close connect
+            $dbHandle = null;
+            ?>
+        </div>
         <!--Filter Choices-->
 <!--        <form action="/tests/testFilter.php" method="post">-->
 <!--            <label> <select name = "click">-->

@@ -136,11 +136,14 @@ body{
 .sec-container{
     text-align: center;
 }
+.tablescroll{
+    max-height: 80vh;
+    overflow-y: scroll;
+}
 .sec1{
     display: inline-block;
-    max-height: 100vh;
+    max-height: 80vh;
     background-color: #2aabd2;
-    overflow-y: scroll;
 }
 .sec2{
     display: inline-block;
