@@ -135,6 +135,7 @@ class Graph
         $conn->query('SELECT time_spent_looking, time_spent_working FROM review');
         $result = $conn->resultset();
 
+        print_r($result);
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -151,8 +152,8 @@ class Graph
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
-            $temp[] = array('v' => (int) $r['time_spent_looking']);
-            $temp[] = array('v' => (int) $r['time_spent_working']);
+            $temp[] = array('v' => (real) $r['time_spent_looking']);
+            $temp[] = array('v' => (real) $r['time_spent_working']);
             $var1 = (int) $r['time_spent_looking'];
             $var2 = (int) $r['time_spent_working'];
             echo "<p> $var1 $var2</p>";
