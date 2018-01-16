@@ -42,7 +42,7 @@
             {
                 title: 'Barchart',
                 width: 600,
-                height: 600,
+                height: 900,
                 legend: 'none'
             };
 
