@@ -34,7 +34,7 @@ class Login
         $dbConnection->execute();
         $row = $dbConnection->resultSet();
         echo 'Pulled Email: ' . $row[0][0] . " <br>Pulled Password: " .$row[0][1];
-        if(($row[0] == $email) && ($row[1] == $password))
+        if(($row[0][0] == $email) && ($row[0][1] == $password))
         {
             return true;
         }
