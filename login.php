@@ -1,4 +1,5 @@
 <?php
+require_once('Views/template/headerUser.phtml');
 require_once('Views/login.phtml');
 require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
 
@@ -12,8 +13,8 @@ if(isset($_POST['submit']))
     $auth = $loginModel->searchDatabase($userEmail, $userPassword);
 
     // Redirect if signin successful
-    if($auth)
-        header('Location: https://www.google.co.uk/');
+//    if($auth)
+//    header('Location: https://www.google.co.uk/');
 }
 ?>
 
