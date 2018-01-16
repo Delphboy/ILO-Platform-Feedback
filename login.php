@@ -1,4 +1,5 @@
 <?php
+require_once('Views/template/headerUser.phtml');
 require_once('Views/login.phtml');
 require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
 
