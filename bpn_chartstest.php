@@ -147,7 +147,7 @@
     $jsonTable = $graph->fetchData();
     print_r($jsonTable);
     ?>
-    drawbarchart(<?php echo $jsonTable; ?>);
+    <script type="text/javascript">drawbarchart(<?php echo $jsonTable; ?>);</script>
 </div>
 </body>
 </html>
