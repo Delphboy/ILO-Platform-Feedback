@@ -9,14 +9,14 @@
     $jsonTable = $gr->fetchData();
     print_r($jsonTable);
     ?>
-    <script src="js/filters.js"></script>
     <script type="text/javascript">
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
         // Set a callback to run when the Google Visualization API is loaded.
         //google.charts.setOnLoadCallback(drawbarchart);
+
         btn = document.getElementById("btn");
-        btn.onclick = function drawbarchart() {
+        btn.onclick = function drawbarchart(){
 
             //Create our data table out of JSON data  loaded from server.
             var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
