@@ -151,7 +151,7 @@ class Graph
 
             // Values of each slice
             $temp[] = array('v' => (int) $r['time_spent_looking']);
-            $temp[] = array('v' => (real) $r['time_spent_working']);
+            $temp[] = array('v' => (int) $r['time_spent_working']);
 
             $rows[] = array('c' => $temp);
         }

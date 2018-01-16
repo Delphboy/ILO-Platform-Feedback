@@ -101,7 +101,7 @@
 <button id="btn" value="btn" onclick="platform_vs_wage()"> Platform vs wage barchart</button>
 <button id="btn" value="btn" onclick="wage_per_country()"> Wage per country barchart</button>
 <button id="btn" value="btn" onclick="platform_popularity()"> Platform popularity piechart</button>
-<button id="btn" value="btn" onclick="rating_vs_wage()">Scatter chart of wage vs rating</button>
+<button id="btn" value="btn" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</button>
 <button id="btn" value="btn" onclick="platform_by_rating()">Platform by rating</button>
 
 
