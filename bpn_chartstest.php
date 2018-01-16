@@ -41,9 +41,8 @@
 
 <body>
 <!--this is the div that will hold the pie chart-->
-
+<script>drawbarchart(<?php echo $jsonTable; ?>)</script>
 <div id="chart_div">
-    <script>drawbarchart(<?php echo $jsonTable; ?>)</script>
 </div>
 </body>
 </html>
