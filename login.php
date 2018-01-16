@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once('Views/login.phtml');
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
 {
@@ -22,6 +21,7 @@ if(isset($_POST['submit']))
 			    </span>';
     }
 }
+require_once('Views/login.phtml');
 ?>
 
 
