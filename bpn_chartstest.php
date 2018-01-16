@@ -107,7 +107,7 @@ try {
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
         // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawbarchart);
+        //google.charts.setOnLoadCallback(drawbarchart);
 
 
         //first column must be bars, second column must be values
@@ -136,6 +136,7 @@ try {
 <!--this is the div that will hold the pie chart-->
 
 <div id="chart_div">
+    <script type="text/javascript">drawbarchart();</script>
 </div>
 </body>
 </html>
