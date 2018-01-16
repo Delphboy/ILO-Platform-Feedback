@@ -22,7 +22,7 @@ class Graph
         $conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
         $result = $conn->resultset();
 
-        echo 'Attempt to create arrays';
+        //echo 'Attempt to create arrays';
 
         $rows = array();
         $table = array();
@@ -46,7 +46,7 @@ class Graph
             $temp = array();
             //print_r($r);
             print_r($r['platform']);
-            echo '<br>';
+            //echo '<br>';
             print_r($r['AVG(wage)']);
 
             // the following line will be used to slice the Pie chart
@@ -56,7 +56,7 @@ class Graph
             $plat = (string)$r['platform'];
             $temp[] = array('v' => (real) $r['AVG(wage)']);
             $wage = (real)$r['AVG(wage)'];
-            echo "<p> $wage</p>";
+            //echo "<p> $wage</p>";
 
             $rows[] = array('c' => $temp);
         }
@@ -65,7 +65,7 @@ class Graph
 
         // convert data into JSON format
         $jsonTable = json_encode($table);
-        print_r($jsonTable);
+        //print_r($jsonTable);
         return $jsonTable;
     }
 }
