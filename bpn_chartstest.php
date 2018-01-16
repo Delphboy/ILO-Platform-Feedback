@@ -110,7 +110,7 @@ try {
 <!--this is the div that will hold the pie chart-->
 
 <div id="chart_div">
-    <script type="text/javascript">drawbarchart();</script>
+    <script type="text/javascript">drawbarchart(<?php echo $jsonTable; ?>);</script>
 </div>
 </body>
 </html>
