@@ -1,21 +1,27 @@
 <?php
-require_once('Views/template/headerUser.phtml');
-require_once('Views/login.phtml');
-require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
+session_start();
 
-/* END OF SANITISATION SECTION*/
+require_once('Models/Login.php');
 if(isset($_POST['submit']))
 {
     $userEmail = htmlentities($_POST['username']);
     $userPassword = htmlentities($_POST['password']);
-
     $loginModel = new Login();
-    $auth = $loginModel->searchDatabase($userEmail, $userPassword);
-
-    // Redirect if signin successful
-//    if($auth)
-//    header('Location: https://www.google.co.uk/');
+    $auth = $loginModel->signIn($userEmail, $userPassword);
+    if($auth)
+    {
+        $_SESSION['isSignedIn'] = true;
+        header('Location: admin.php');
+        exit();
+    }
+    else
+    {
+        echo '<span class="login100-form-title">
+						<p style="color: white">Incorrect Details</p>
+			    </span>';
+    }
 }
+require_once('Views/login.phtml');
 ?>
 
 

@@ -4,8 +4,9 @@ body{
 }
 
 .myNav{
-    width:90%;
+    width:100%;
     height: auto;
+    padding: 0 0 40px 0;
 }
 .nav-text{
     font-size: 18px;
@@ -135,15 +136,27 @@ body{
 .sec-container{
     text-align: center;
 }
-.sec1{
+.tablescroll{
+    max-height: 65vh;
+    overflow-y: scroll;
+}
+.sec1 table{
+    background-color: white;
+}
+#chart_div{
     display: inline-block;
-    width: 30%;
-    background-color: #2aabd2;
-    height: 80%;
+    margin: auto;
+}
+.sec1{
+display: inline-block;
+max-height: 80vh;
 }
 .sec2{
     display: inline-block;
-    width: 60%;
-    background-color: #afd9ee;
-    height: 80%;
+    background-color: white;
+}
+.wrap-wrap{
+    display: block;
+    margin: auto;
+    margin-top: 0px;
 }
