@@ -13,10 +13,10 @@
         // Load the Visualization API and the corechart package.
         google.charts.load('current', {'packages':['corechart']});
         // Set a callback to run when the Google Visualization API is loaded.
-        //google.charts.setOnLoadCallback(drawbarchart);
+        google.charts.setOnLoadCallback(initialize);
 
-        btn = document.getElementById("btn");
-        btn.onclick = function drawbarchart(){
+
+            function drawbarchart(){
 
             //Create our data table out of JSON data  loaded from server.
             var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
@@ -33,6 +33,12 @@
             var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
             chart.draw(data, barchart_options);
+        }
+
+        function initialize () {
+            $(button).click(function() {
+                drawbarchart();
+            });
         }
     </script>
 </head>
