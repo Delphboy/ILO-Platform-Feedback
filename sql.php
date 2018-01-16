@@ -16,7 +16,7 @@ $statement = $dbHandle->prepare($sqlQuery); // prepare PDO statement
 $statement->execute();   // execute the PDO statement
 echo "<table border='1'>";
 while ($row = $statement->fetch()) {
-	echo "<tr><td>" . $row[0] ."</td><td>". $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "<td><td>" . $row[4] ."</td><td>". $row[5] . "</td><td>" . $row[6] . "</td><td>" . $row[7] ."</td><td>". $row[8]."</td><td>". $row[9];}
+	echo "<tr><td>" . $row[0] ."</td><td>". $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] ."</td><td>". $row[5] . "</td><td>" . $row[6] . "</td><td>" . $row[7] ."</td><td>". $row[8]."</td><td>". $row[9];}
 echo "</table>";
 $dbHandle = null;
 
@@ -29,7 +29,7 @@ $dbHandle = null;
         <option value='select * from gr2.user where isAdministrator = 1'>get all admin</option>
         <option value='select * from gr2.user where isAdministrator = 0'>get all non admin</option>
         <option value='select * from gr2.review'>select all reviews</option>
-
-	</select>
+        <option value='SELECT platform, AVG(wage) FROM review GROUP BY platform'>wage by platform</option>
+    </select>
 	<input type="submit" value="Quick Search">
 </form>
