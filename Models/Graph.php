@@ -43,9 +43,9 @@ class Graph
 
             $temp = array();
             //print_r($r);
-            print_r($r['platform']);
+//            print_r($r['platform']);
             //echo '<br>';
-            print_r($r['AVG(wage)']);
+//            print_r($r['AVG(wage)']);
 
             // the following line will be used to slice the Pie chart
 
