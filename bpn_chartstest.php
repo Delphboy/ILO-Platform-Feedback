@@ -40,8 +40,8 @@
 </head>
 
 <body>
-<button onclick="drawbarchart(<?php echo $jsonTable; ?>)" value="Btn"></button>
-<!--this is the div that will hold the pie chart-->
+<button onclick="drawbarchart(<?php echo $jsonTable; ?>)" value="Btn"> Generate chart</button>
+
 <div id="chart_div">
 </div>
 </body>
