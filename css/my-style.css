@@ -143,6 +143,10 @@ body{
 .sec1 table{
     background-color: white;
 }
+#chart_div{
+    display: block;
+    margin: auto;
+}
 .sec1{
 display: inline-block;
 max-height: 80vh;
