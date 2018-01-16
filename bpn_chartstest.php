@@ -36,7 +36,7 @@
         }
 
         function initialize () {
-            $(button).click(function() {
+            $('button').click(function() {
                 drawbarchart();
             });
         }
