@@ -6,11 +6,17 @@ if(isset($_POST['submit']))
 {
     $userEmail = htmlentities($_POST['username']);
     $userPassword = htmlentities($_POST['password']);
-    echo 'Email: ' . $userEmail . '<br>';
-    echo 'Password: ' . $userPassword . '<br>';
     $loginModel = new Login();
     $auth = $loginModel->signIn($userEmail, $userPassword);
-    echo '<p>Authorised User: ' . $auth . '</p>';
+    if($auth)
+    {
+        header('Location: admin.php');
+        exit();
+    }
+    else
+    {
+        echo '<p>Unrecognised user details</p>';
+    }
 }
 ?>
 
