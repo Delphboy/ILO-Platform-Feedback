@@ -146,7 +146,7 @@
     require ('Models/Graph.php');
     $graph = new Graph();
     $jsonTable = $graph->fetchData();
-    echo "<script>drawbarchart($jsonTable);</script>"
+    echo "<script type='text/javascript'>drawbarchart($jsonTable);</script>"
     ?>
 </div>
 </body>

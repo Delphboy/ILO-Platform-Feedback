@@ -11,7 +11,6 @@ require ('database.php');
 
 class Graph
 {
-    private $conn;
 
     function __construct()
     {
@@ -19,8 +18,9 @@ class Graph
     }
 
     function fetchData(){
-        $this->conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
-        $result = $this->conn->resultset();
+        $conn = database::Instance();
+        $conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
+        $result = $conn->resultset();
 
         echo 'Attempt to create arrays';
 
@@ -65,6 +65,8 @@ class Graph
 
         // convert data into JSON format
         $jsonTable = json_encode($table);
+        print_r($jsonTable);
         return $jsonTable;
+
     }
 }
