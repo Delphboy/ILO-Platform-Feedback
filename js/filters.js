@@ -5,7 +5,7 @@
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
 // Set a callback to run when the Google Visualization API is loaded.
-//google.charts.setOnLoadCallback(drawbarchart);
+google.charts.setOnLoadCallback(drawbarchart);
 
 
 //first column must be bars, second column must be values
@@ -25,7 +25,6 @@ function drawbarchart(jsontable) {
     // Do not forget to check your div ID
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
     chart.draw(data, barchart_options);
-
 }
 
 
