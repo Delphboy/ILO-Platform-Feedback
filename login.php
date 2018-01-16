@@ -1,7 +1,6 @@
 <?php
 require_once('Views/login.phtml');
-require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
-
+require_once('Models/Register.php');
 /* END OF SANITISATION SECTION*/
 if(isset($_POST['submit']))
 {
@@ -9,11 +8,8 @@ if(isset($_POST['submit']))
     $userPassword = htmlentities($_POST['password']);
 
     $loginModel = new Login();
-    $auth = $loginModel->searchDatabase($userEmail, $userPassword);
-
-    // Redirect if signin successful
-//    if($auth)
-//    header('Location: https://www.google.co.uk/');
+    $auth = $loginModel->signIn($userEmail, $userPassword);
+    echo 'Authorised User: ' . $auth;
 }
 ?>
 

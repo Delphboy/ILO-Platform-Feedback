@@ -31,11 +31,10 @@ class Login
         $testQuery = "SELECT email, password FROM Users WHERE email LIKE :email;";
         $dbConnection->setQuery($testQuery);
         $dbConnection->bindQueryValue(':email', $email);
-//        $dbConnection->bindQueryValue(':pass', $password);
         $dbConnection->run();
         $row = $dbConnection->getRow();
         echo 'Email: ' . $row[0] . " Password: " .$row[1];
-        if(($row[0] == $email) && password_verify($password, $row[1]))
+        if(($row[0] == $email) && ($row[1] == $password))
         {
             return true;
         }
