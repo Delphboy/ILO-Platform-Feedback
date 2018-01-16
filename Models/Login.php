@@ -28,7 +28,7 @@ class Login
     function signIn($email, $password)
     {
         $dbConnection = database::Instance();
-        $testQuery = "SELECT email, password FROM Users WHERE email LIKE :email;";
+        $testQuery = "SELECT email, password FROM gr2.user WHERE email LIKE :email";
         $dbConnection->query($testQuery);
         $dbConnection->bind(':email', $email);
         $dbConnection->execute();
