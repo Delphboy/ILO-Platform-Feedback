@@ -132,7 +132,7 @@ class Graph
 
     function rating_vs_wage(){
         $conn = database::Instance();
-        $conn->query('SELECT rating, wage FROM review');
+        $conn->query('SELECT time_spent_looking, time_spent_working FROM review');
         $result = $conn->resultset();
 
         $rows = array();
@@ -150,8 +150,8 @@ class Graph
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
-            $temp[] = array('v' => (int) $r['wage']);
-            $temp[] = array('v' => (real) $r['rating']);
+            $temp[] = array('v' => (int) $r['time_spent_looking']);
+            $temp[] = array('v' => (real) $r['time_spent_working']);
 
             $rows[] = array('c' => $temp);
         }
