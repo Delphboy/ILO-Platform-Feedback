@@ -69,7 +69,7 @@ try {
     foreach($result as $r) {
 
         $temp = array();
-        //print_r($r);
+        print_r($r);
         print_r($r['platform']);
         echo '<br>';
         print_r($r['AVG(wage)']);
@@ -90,7 +90,7 @@ try {
 
     // convert data into JSON format
     $jsonTable = json_encode($table);
-    //echo $jsonTable;
+    print_r($jsonTable);
 } catch(PDOException $e) {
     echo 'ERROR: ' . $e->getMessage();
     echo 'cannot do what you asked';
