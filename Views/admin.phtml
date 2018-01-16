@@ -381,7 +381,7 @@
                     var data = new google.visualization.DataTable(<?php echo $platform_vs_wage; ?>);
                     var barchart_options =
                     {
-                        title: 'Platform vs Wage',
+                        title: 'Platform vs Average Wage',
                         width: 600,
                         height: 600,
                         legend: 'none'
@@ -398,7 +398,7 @@
                     var data = new google.visualization.DataTable(<?php echo $wage_per_country; ?>);
                     var barchart_options =
                     {
-                        title: 'Wage per Country',
+                        title: 'Average Wage per Country',
                         width: 600,
                         height: 600,
                         legend: 'none'
@@ -412,7 +412,7 @@
                     var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
                     var piechart_options =
                     {
-                        title: 'Platform Popularity',
+                        title: 'Average Platform Popularity',
                         width: 600,
                         height: 600,
                         legend: 'none'
@@ -441,7 +441,7 @@
                     var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
                     var piechart_options =
                     {
-                        title: 'Platform by Rating',
+                        title: 'Platform by Average Rating',
                         width: 600,
                         height: 600,
                         legend: 'none'
@@ -470,11 +470,11 @@
 
         <select name="def-graphs" class="searchOp">
             <option id="placeholder" value="placeholder">Choose graph</option>
-            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform vs wage barchart</option>
-            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Wage per country barchart</option>
+            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform by Avg wage barchart</option>
+            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
             <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
             <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
-            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by rating</option>
+            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
         </select>
 
 
