@@ -137,7 +137,7 @@ body{
     text-align: center;
 }
 .tablescroll{
-    max-height: auto;
+    max-height: 50%;
     overflow-y: scroll;
 }
 .sec1{
