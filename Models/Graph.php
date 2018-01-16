@@ -134,7 +134,7 @@ class Graph
         $conn = database::Instance();
         $conn->query('SELECT time_spent_looking, time_spent_working FROM review');
         $result = $conn->resultset();
-
+        echo 'executing';
         print_r($result);
         $rows = array();
         $table = array();
