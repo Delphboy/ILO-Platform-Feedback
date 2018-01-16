@@ -11,6 +11,8 @@
     $wage_per_country = $gr->wage_per_country();
     $platform_popularity = $gr->platform_popularity();
     $rating_vs_wage = $gr->rating_vs_wage();
+    $hours_working_vs_hours_looking = $gr->hours_working_vs_hours_looking();
+
     ?>
     <script type="text/javascript">
         // Load the Visualization API and the corechart package.
@@ -74,6 +76,20 @@
                 legend: 'none'
             };
             var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, piechart_options);
+        }
+
+        function hours_working_vs_hours_looking(){
+            var data = new google.visualization.DataTable(<?php echo $hours_working_vs_hours_looking; ?>);
+            var piechart_options =
+            {
+                title: 'Barchart',
+                width: 600,
+                height: 900,
+                legend: 'none'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
             chart.draw(data, piechart_options);
         }
