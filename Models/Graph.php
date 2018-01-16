@@ -146,6 +146,7 @@ class Graph
         foreach($result as $r) {
 
             $temp = array();
+            print_r($r);
 
             // the following line will be used to slice the Pie chart
 
