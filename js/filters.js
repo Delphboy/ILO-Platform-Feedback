@@ -21,13 +21,11 @@ function drawbarchart(jsontable) {
         legend: 'none'
     };
 
-
-    //document.write('Hello World');
     // Instantiate and draw our chart, passing in some options.
     // Do not forget to check your div ID
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
-    document.write(chart.draw(data, barchart_options));
+    chart.draw(data, barchart_options);
 }
 
 
