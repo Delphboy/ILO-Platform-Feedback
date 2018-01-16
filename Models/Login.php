@@ -19,24 +19,23 @@ class Login
 
     /**
      * Search the database for an email and password
-     * @param $searchEmail
-     * @param $searchPass
+     * @param $email
+     * @param $password
      * @return bool
      *      true if the user's data matches the search result
      *      false if the user's data doesn't match the results
      */
-    function searchDatabase($searchEmail, $searchPass)
+    function signIn($email, $password)
     {
-        $dbHandle = database::Instance();
-        $query  ="SELECT email, password FROM gr2.user WHERE email = :email;";
-        $dbHandle->bind(':email', $searchEmail);
-        $dbHandle->query($query);
-        $result = $dbHandle->resultSet();
-
-        echo $result[0] . " " . $searchEmail . "<br/>";
-        echo $result[1] . " " . $searchPass . "<br/>";
-
-        if($result[0] == $searchEmail && $result[1] == $searchPass)
+        $dbConnection = DBConnection::getInstance();
+        $testQuery = "SELECT email, password FROM Users WHERE email LIKE :email;";
+        $dbConnection->setQuery($testQuery);
+        $dbConnection->bindQueryValue(':email', $email);
+//        $dbConnection->bindQueryValue(':pass', $password);
+        $dbConnection->run();
+        $row = $dbConnection->getRow();
+        echo 'Email: ' . $row[0] . " Password: " .$row[1];
+        if(($row[0] == $email) && password_verify($password, $row[1]))
         {
             return true;
         }
