@@ -134,7 +134,6 @@
         }
     </script> -->
     <script type="text/javascript" src="js/filters.js"></script>
-    <script type="text/javascript">document.write('Hello world');</script>
 </head>
 
 <body>
