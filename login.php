@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once('Views/login.phtml');
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
@@ -9,6 +11,7 @@ if(isset($_POST['submit']))
     $auth = $loginModel->signIn($userEmail, $userPassword);
     if($auth)
     {
+        $_SESSION['isSignedIn'] = true;
         header('Location: admin.php');
         exit();
     }
