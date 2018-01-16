@@ -45,9 +45,9 @@
 </head>
 
 <body>
-<button id="btn" value="btn"> Generate chart</button>
+<button id="btn" value="btn" onclick="initialize()"> Generate chart</button>
 
-<div id="chart_div">
+<div id="chart_div" style="width: 300px; height: 300px;">
 </div>
 </body>
 </html>
