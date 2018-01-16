@@ -296,7 +296,7 @@
         <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
         <div class="tablescroll">
             <?php
-            echo "<table id='myTable' class='table table-bordered col-md-5 col-xs-12' style='width: 100%'>";
+            echo "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
             while ($row = $statement->fetch())
             {
                 echo"<tr><td>". $row[0] ."</td>
