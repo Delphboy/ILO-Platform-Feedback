@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     else
     {
         echo '<span class="login100-form-title">
-						User Login
+						<p>Incorrect Details</p>
 			    </span>';
     }
 }
