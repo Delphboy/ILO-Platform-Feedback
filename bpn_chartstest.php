@@ -102,6 +102,8 @@
 <button id="btn" value="btn" onclick="wage_per_country()"> Wage per country barchart</button>
 <button id="btn" value="btn" onclick="platform_popularity()"> Platform popularity piechart</button>
 <button id="btn" value="btn" onclick="rating_vs_wage()"> Platform popularity piechart</button>
+<button id="btn" value="btn" onclick="hours_working_vs_hours_looking()">Hours looking vs hours working piechart</button>
+
 
 
 <div id="chart_div">
