@@ -65,7 +65,7 @@
             chart.draw(data, piechart_options);
         }
         function rating_vs_wage(){
-            var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
+            var data = new google.visualization.DataTable(<?php echo $rating_vs_wage; ?>);
             var piechart_options =
             {
                 title: 'Barchart',
