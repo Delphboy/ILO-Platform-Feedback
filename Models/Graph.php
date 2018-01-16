@@ -131,7 +131,7 @@ class Graph
 
     function rating_vs_wage(){
         $conn = database::Instance();
-        $conn->query('SELECT rating, wage FROM review GROUP BY platform');
+        $conn->query('SELECT rating, wage FROM review');
         $result = $conn->resultset();
 
         $rows = array();
