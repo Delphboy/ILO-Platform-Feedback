@@ -10,6 +10,7 @@
     //print_r($platform_vs_wage);
     $wage_per_country = $gr->wage_per_country();
     $platform_popularity = $gr->platform_popularity();
+    $rating_vs_wage = $gr->rating_vs_wage();
     ?>
     <script type="text/javascript">
         // Load the Visualization API and the corechart package.
@@ -51,6 +52,19 @@
         }
 
         function platform_popularity() {
+            var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
+            var piechart_options =
+            {
+                title: 'Barchart',
+                width: 600,
+                height: 900,
+                legend: 'none'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+            chart.draw(data, piechart_options);
+        }
+        function rating_vs_wage(){
             var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
             var piechart_options =
             {

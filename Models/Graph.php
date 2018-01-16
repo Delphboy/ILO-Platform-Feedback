@@ -131,6 +131,38 @@ class Graph
         return $jsonTable;
     }
 
+    function rating_vs_wage(){
+        $conn = database::Instance();
+        $conn->query('SELECT rating, AVG(wage), platform FROM review GROUP BY platform');
+        $result = $conn->resultset();
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+
+            array('label' => 'rating', 'type' => 'string'),
+            array('label' => 'wage', 'type' => 'string')
+        );
+
+        foreach($result as $r) {
+
+            $temp = array();
+            print_r($r['platform']);
+            print_r($r['count(platform)']);
+
+            // the following line will be used to slice the Pie chart
+
+            // Values of each slice
+            $temp[] = array('v' => (string) $r['rating']);
+            $temp[] = array('v' => (real) $r['AVG(wage)']);
+
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
+
 
     function returnUSD($currency, $value){
         $output = $value;
