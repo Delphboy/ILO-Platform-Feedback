@@ -134,6 +134,7 @@
         }
     </script> -->
     <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript">document.write('Hello world');</script>
 </head>
 
 <body>
@@ -142,7 +143,7 @@
 <div id="chart_div">
     <?php
     require ('Models/Graph.php');
-    echo '<h3>Trying to fetch data</h3>';
+    echo '<h3>Attempt to fetch data</h3>';
     $graph = new Graph();
     $jsonTable = $graph->fetchData();
     print_r($jsonTable);
