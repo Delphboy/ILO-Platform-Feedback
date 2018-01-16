@@ -4,7 +4,7 @@ body{
 }
 
 .myNav{
-    width:90%;
+    width:100%;
     height: auto;
 }
 .nav-text{
@@ -146,4 +146,9 @@ body{
     width: 60%;
     background-color: #afd9ee;
     height: 80%;
+}
+.wrap-wrap{
+    display: block;
+    margin: auto;
+    margin-top: 0px;
 }

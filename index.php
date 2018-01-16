@@ -3,7 +3,7 @@ require_once('Views/template/headerUser.phtml');
 require_once('Views/index.phtml');
 require_once('Models/index.php');
 require_once('Models/database.php');
-
+require_once('Views/template/footer.phtml');
 $survey = new index();
 
 //If the data has been submitted

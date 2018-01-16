@@ -1,28 +1,71 @@
-<?php require('template/headerUser.phtml') ?>
+<!DOCTYPE html>
+<html lang="en">
 
-    <h3>Register as a new Admin</h3>
-
-    <!-- Import the registration validation script -->
+<head>
+    <meta charset="UTF-8">
+    <title>Login V1.6</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/my-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>    <!-- Import the registration validation script -->
     <script src="../js/register.js" ></script>
-    <form name="registration-form" onsubmit="return validateRegisterForm()" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <div class="container">
-            <label><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <br />
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <br />
-            <label><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-            <br />
-
-            <div class="clearfix">
-                <input type="submit" name='submit' class="signupbtn" value="submit">
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="images/img-01.png" alt="IMG">
             </div>
-        </div>
-    </form>
+            <form class="login100-form validate-form" name="registration-form" onsubmit="return validateRegisterForm()" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
+                <span class="login100-form-title">
+                    Register as a new Admin
+                </span>
+                <!-- Email -->
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="email" name="email" placeholder="Enter Email" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <!-- Password -->
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="psw" placeholder="Enter Password"  required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <!-- Repeat Password -->
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="psw-repeat" placeholder="Repeat Password"  required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <!-- Button -->
+                <div class="clearfix container-login100-form-btn">
+                    <input type="submit" name='submit' class="signupbtn login100-form-btn" value="submit">
+                </div>
+                <!-- Login -->
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="login.php">
+                        Log into your account
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <?php if (isset($view->insert)) : ?>
