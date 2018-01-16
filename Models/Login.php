@@ -1,5 +1,5 @@
 <?php
-
+require_once ('database.php');
 /**
  * Created by Henry Senior
  * Date: 1/15/18
@@ -27,12 +27,12 @@ class Login
      */
     function signIn($email, $password)
     {
-        $dbConnection = DBConnection::getInstance();
+        $dbConnection = database::Instance();
         $testQuery = "SELECT email, password FROM Users WHERE email LIKE :email;";
-        $dbConnection->setQuery($testQuery);
-        $dbConnection->bindQueryValue(':email', $email);
-        $dbConnection->run();
-        $row = $dbConnection->getRow();
+        $dbConnection->query($testQuery);
+        $dbConnection->bind(':email', $email);
+        $dbConnection->execute();
+        $row = $dbConnection->resultSet();
         echo 'Email: ' . $row[0] . " Password: " .$row[1];
         if(($row[0] == $email) && ($row[1] == $password))
         {
