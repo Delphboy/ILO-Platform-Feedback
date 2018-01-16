@@ -7,7 +7,8 @@ if(isset($_POST['submit']))
 {
     $userEmail = htmlentities($_POST['username']);
     $userPassword = htmlentities($_POST['password']);
-
+    echo 'Email: ' . $userEmail . '<br>';
+    echo 'Password: ' . $userPassword . '<br>';
     $loginModel = new Login();
     $auth = $loginModel->signIn($userEmail, $userPassword);
     echo 'Authorised User: ' . $auth;
