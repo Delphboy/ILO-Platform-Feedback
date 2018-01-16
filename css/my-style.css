@@ -138,15 +138,11 @@ body{
 }
 .sec1{
     display: inline-block;
-    width: 30%;
     background-color: #2aabd2;
-    height: 80%;
 }
 .sec2{
     display: inline-block;
-    width: 60%;
     background-color: #afd9ee;
-    height: 80%;
 }
 .wrap-wrap{
     display: block;
