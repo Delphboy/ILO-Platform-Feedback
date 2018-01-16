@@ -465,12 +465,13 @@
             </script>
         </head>
 
-        <button id="btn" value="btn" onclick="platform_vs_wage()"> Platform vs wage barchart</button>
-        <button id="btn" value="btn" onclick="wage_per_country()"> Wage per country barchart</button>
-        <button id="btn" value="btn" onclick="platform_popularity()"> Platform popularity piechart</button>
-        <button id="btn" value="btn" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</button>
-        <button id="btn" value="btn" onclick="platform_by_rating()">Platform by rating</button>
-
+        <select name="def-graphs" class="searchOp">
+            <value id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform vs wage barchart</value>
+            <value id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Wage per country barchart</value>
+            <value id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</value>
+            <value id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</value>
+            <value id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by rating</value>
+        </select>
 
 
         <div id="chart_div">
