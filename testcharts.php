@@ -35,7 +35,7 @@
 		//echo $look;
 		foreach ($results[1] as $key => $value)
 		{
-				print_r($value->count);
+				//print_r($value->count);
 		}
 		//$value = current ($results[]->plat);
 		//print_r($value);
@@ -46,8 +46,8 @@
 
 		//print_r (array_values ($results->plat));
 
-		print_r ($results);
-		print_r ($results{3});
+		//print_r ($results);
+		//print_r ($results{3});
 		//echo '<pre>';
 		//print_r($value);
 		//echo '</pre>';
@@ -138,40 +138,40 @@
 			google.charts.load ('current', {'packages': ['gauge']});
 			google.charts.setOnLoadCallback (gdrawChart);
 			
-			function gdrawChart () {
-				//gauges
-				
-				var gdata = google.visualization.arrayToDataTable (
-					[
-						['Label', 'Value'],
-						['Amazon', $z],
-						['Fiverr', 8],
-						['AMT', 5],
-						['Click Work', 4],
-						['Up Work', 3]
-					]);
-				
-				var goptions =
-					{
-						width: 600, height: 400,
-//						redFrom: 90, redTo: 100,
-//						yellowFrom: 75, yellowTo: 90,
-						minorTicks: 1
-					};
-				
-				var gchart = new google.visualization.Gauge (document.getElementById ('gchart_div'));
-				
-				gchart.draw (gdata, goptions);
-				
-//				setInterval (function () {gdata.setValue (0, 1, 40 + Math.round (60 * Math.random ()));gchart.draw (gdata, goptions);}, 5000);
-				setInterval (function () {gdata.setValue (0);   gchart.draw (gdata, goptions);});
-				setInterval (function () {gdata.setValue (1);   gchart.draw (gdata, goptions);});
-				setInterval (function () {gdata.setValue (2);   gchart.draw (gdata, goptions);});
-				setInterval (function () {gdata.setValue (3);	gchart.draw (gdata, goptions);});
-				setInterval (function () {gdata.setValue (4);	gchart.draw (gdata, goptions);});
-			}
-		
-
+//			function gdrawChart () {
+//				//gauges
+//
+//				var gdata = google.visualization.arrayToDataTable (
+//					[
+//						['Label', 'Value'],
+//						['Amazon', $z],
+//						['Fiverr', 8],
+//						['AMT', 5],
+//						['Click Work', 4],
+//						['Up Work', 3]
+//					]);
+//
+//				var goptions =
+//					{
+//						width: 600, height: 400,
+////						redFrom: 90, redTo: 100,
+////						yellowFrom: 75, yellowTo: 90,
+//						minorTicks: 1
+//					};
+//
+//				var gchart = new google.visualization.Gauge (document.getElementById ('gchart_div'));
+//
+//				gchart.draw (gdata, goptions);
+//
+////				setInterval (function () {gdata.setValue (0, 1, 40 + Math.round (60 * Math.random ()));gchart.draw (gdata, goptions);}, 5000);
+//				setInterval (function () {gdata.setValue (0);   gchart.draw (gdata, goptions);});
+//				setInterval (function () {gdata.setValue (1);   gchart.draw (gdata, goptions);});
+//				setInterval (function () {gdata.setValue (2);   gchart.draw (gdata, goptions);});
+//				setInterval (function () {gdata.setValue (3);	gchart.draw (gdata, goptions);});
+//				setInterval (function () {gdata.setValue (4);	gchart.draw (gdata, goptions);});
+//			}
+//
+//
 	</script>
 </head>
 

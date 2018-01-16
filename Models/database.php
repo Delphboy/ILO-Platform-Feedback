@@ -9,6 +9,7 @@
  * Time: 11:49 AM
  */
 
+
 final class database
 {
     public $db; //PDO object which contains the database
@@ -44,19 +45,21 @@ final class database
     public function query($query){
         $q = $query;
         $this->statement = $this->db->prepare($q);
+        if ($this->statement == false){echo 'query not prepared';}
     }
 
     /** Executes the prepared query
      * @return the executed statement
      */
-    public function execute(){
+    public function execute()
+    {
         return $this->statement->execute();
     }
 
     /** Executes the last prepared query and returns all the rows of the results
      * @return array of arrays of data (each array is a row of data)
      */
-    public function resultset(){
+    public function resultSet(){
         $this->execute();
         return $this->statement->fetchAll();
     }

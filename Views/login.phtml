@@ -4,6 +4,7 @@ A simple login form design
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login V1.6</title>
@@ -19,6 +20,7 @@ A simple login form design
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body>
 <div class="limiter">
     <div class="container-login100">
@@ -27,7 +29,7 @@ A simple login form design
                 <img src="images/img-01.png" alt="IMG">
             </div>
 
-            <form class="login100-form validate-form" action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post'>
+            <form class="login100-form validate-form" action='<?php echo htmlentities($_SERVER['PHP_SELF']); ?>' method='post'>
 					<span class="login100-form-title">
 						User Login
 					</span>
@@ -49,9 +51,7 @@ A simple login form design
                 </div>
                 <!-- Button -->
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Login
-                    </button>
+                    <input type="submit" name="submit" value="submit" class="login100-form-btn" />
                 </div>
                 <!-- Register -->
                 <div class="text-center p-t-136">

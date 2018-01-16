@@ -4,8 +4,9 @@ body{
 }
 
 .myNav{
-    width:90%;
+    width:100%;
     height: auto;
+    padding: 0 0 40px 0;
 }
 .nav-text{
     font-size: 18px;
@@ -146,4 +147,9 @@ body{
     width: 60%;
     background-color: #afd9ee;
     height: 80%;
+}
+.wrap-wrap{
+    display: block;
+    margin: auto;
+    margin-top: 0px;
 }

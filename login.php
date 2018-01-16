@@ -1,40 +1,27 @@
 <?php
-require_once('Views/login.phtml');
-require($_SERVER['DOCUMENT_ROOT'] . '/Models/database.php'); //Connect to database
+session_start();
 
-if(isset($_POST['username']))
-    $email = $_POST['username'];
-if(isset($_POST['password']))
-    $pass =  $_POST['password'];
-
-/* SANITISATION SECTION */
-
-
-/* END OF SANITISATION SECTION*/
-if(isset($_POST['username']) && isset($_POST['password'])) {
-    $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email LIKE :email AND password = :password");
-
-    $dbHandle = database::Instance();
-    $dbHandle->query("SELECT * FROM user WHERE email");
-    $dbHandle->bind(':email', $_POST['username']);
-    $dbHandle->bind(':password', $_POST['password']);
-    $dbHandle->execute();
-
-    $alldata = $dbHandle->resultset();
-    $rowcount = sizeof($alldata);
-
-    for ($i = 0; $i < $rowcount; $i++) {
-        $row = $alldata[$i];
-        if ($row[3] == 1) {
-            //echo "You've Logged in as " . $row[2] . ", You are an Admin";
-            header('Location: admin.php'); //Will navigate to different page
-        } elseif ($row[3] == 0) {
-            // echo "You've Logged in as " . $row[2];
-            header('Location: index.php'); //Will navigate to different page
-        }
+require_once('Models/Login.php');
+if(isset($_POST['submit']))
+{
+    $userEmail = htmlentities($_POST['username']);
+    $userPassword = htmlentities($_POST['password']);
+    $loginModel = new Login();
+    $auth = $loginModel->signIn($userEmail, $userPassword);
+    if($auth)
+    {
+        $_SESSION['isSignedIn'] = true;
+        header('Location: admin.php');
+        exit();
+    }
+    else
+    {
+        echo '<span class="login100-form-title">
+						<p style="color: white">Incorrect Details</p>
+			    </span>';
     }
 }
+require_once('Views/login.phtml');
 ?>
 
 
