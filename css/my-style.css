@@ -140,9 +140,12 @@ body{
     max-height: 65vh;
     overflow-y: scroll;
 }
+.sec1 table{
+    background-color: white;
+}
 .sec1{
-    display: inline-block;
-    max-height: 80vh;
+display: inline-block;
+max-height: 80vh;
 }
 .sec2{
     display: inline-block;
