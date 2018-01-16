@@ -14,7 +14,9 @@ if(isset($_POST['submit']))
     }
     else
     {
-        echo '<p>Unrecognised user details</p>';
+        echo '<span class="login100-form-title">
+						User Login
+			    </span>';
     }
 }
 ?>
