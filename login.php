@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     echo 'Password: ' . $userPassword . '<br>';
     $loginModel = new Login();
     $auth = $loginModel->signIn($userEmail, $userPassword);
-    echo 'Authorised User: ' . $auth;
+    echo '<p>Authorised User: ' . $auth . '</p>';
 }
 ?>
 
