@@ -22,7 +22,7 @@ function drawbarchart(jsontable) {
     };
 
 
-    document.write('Hello World');
+    //document.write('Hello World');
     // Instantiate and draw our chart, passing in some options.
     // Do not forget to check your div ID
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
