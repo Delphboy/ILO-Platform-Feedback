@@ -67,6 +67,5 @@ class Graph
         $jsonTable = json_encode($table);
         print_r($jsonTable);
         return $jsonTable;
-
     }
 }
