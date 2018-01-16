@@ -163,26 +163,25 @@ class Graph
         return $jsonTable;
     }
 
-    function hours_working_vs_hours_looking(){
+    function platform_by_rating(){
         $conn = database::Instance();
-        $conn->query('SELECT AVG(hours_spent_looking), AVG(hours_spent_working) FROM review WHERE platform = :platform');
-        $conn->bind(':platform', "Fiverr");
+        $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
         $result = $conn->resultset();
 
         $rows = array();
         $table = array();
         $table['cols'] = array(
 
-            array('label' => 'hours looking', 'type' => 'string'),
-            array('label' => 'hours looking', 'type' => 'string')
+            array('label' => 'platform', 'type' => 'string'),
+            array('label' => 'average rating', 'type' => 'number')
         );
 
         foreach($result as $r) {
 
             $temp = array();
 
-            $temp[] = array('v' => (int) $r['AVG(hours_spent_looking)']);
-            $temp[] = array('v' => (int) $r['AVG(hours_spent_working)']);
+            $temp[] = array('v' => (int) $r['platform']);
+            $temp[] = array('v' => (int) $r['AVG(rating)']);
 
             $rows[] = array('c' => $temp);
         }

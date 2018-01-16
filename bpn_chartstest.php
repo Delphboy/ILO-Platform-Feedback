@@ -11,7 +11,7 @@
     $wage_per_country = $gr->wage_per_country();
     $platform_popularity = $gr->platform_popularity();
     $rating_vs_wage = $gr->rating_vs_wage();
-    $hours_working_vs_hours_looking = $gr->hours_working_vs_hours_looking();
+    $platform_by_rating = $gr->platform_by_rating();
 
     ?>
     <script type="text/javascript">
@@ -80,8 +80,8 @@
             chart.draw(data, piechart_options);
         }
 
-        function hours_working_vs_hours_looking(){
-            var data = new google.visualization.DataTable(<?php echo $hours_working_vs_hours_looking; ?>);
+        function platform_by_rating(){
+            var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
             var piechart_options =
             {
                 title: 'Barchart',
@@ -102,7 +102,7 @@
 <button id="btn" value="btn" onclick="wage_per_country()"> Wage per country barchart</button>
 <button id="btn" value="btn" onclick="platform_popularity()"> Platform popularity piechart</button>
 <button id="btn" value="btn" onclick="rating_vs_wage()"> Platform popularity piechart</button>
-<button id="btn" value="btn" onclick="hours_working_vs_hours_looking()">Hours looking vs hours working piechart</button>
+<button id="btn" value="btn" onclick="platform_by_rating()">Platform by rating</button>
 
 
 
