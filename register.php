@@ -1,5 +1,4 @@
 <?php
-require('Views/template/headerUser.phtml');
 require_once('Models/Register.php');
 require_once ('Models/database.php');
 require_once('Views/register.phtml');
