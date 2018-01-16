@@ -148,7 +148,7 @@ class Graph
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
-            $temp[] = array('v' => (string) $r['rating']);
+            $temp[] = array('v' => (int) $r['rating']);
             $temp[] = array('v' => (real) $r['wage']);
 
             $rows[] = array('c' => $temp);
