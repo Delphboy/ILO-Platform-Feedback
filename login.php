@@ -1,7 +1,7 @@
 <?php
 require_once('Views/login.phtml');
 require_once('Models/Register.php');
-/* END OF SANITISATION SECTION*/
+
 if(isset($_POST['submit']))
 {
     $userEmail = htmlentities($_POST['username']);
