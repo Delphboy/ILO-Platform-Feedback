@@ -28,7 +28,7 @@
         ?>
         <!--Table-->
 
-        <form action="/tests/testFilter.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
             <label> <select name="click" class="searchOp">
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -348,7 +348,7 @@
             }
         </script>
     </div>
-    
+
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2" >
         <head>
