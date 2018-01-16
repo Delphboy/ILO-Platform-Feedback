@@ -66,4 +66,36 @@ class Graph
         //print_r($jsonTable);
         return $jsonTable;
     }
+
+    function wage_per_country(){
+        $conn = database::Instance();
+        $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
+        $result = $conn->resultset();
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+
+            array('label' => 'country', 'type' => 'string'),
+            array('label' => 'avg wage', 'type' => 'number')
+        );
+
+        foreach($result as $r) {
+
+            $temp = array();
+            print_r($r['country']);
+            print_r($r['AVG(wage)']);
+
+            // the following line will be used to slice the Pie chart
+
+            // Values of each slice
+            $temp[] = array('v' => (string) $r['country']);
+            $temp[] = array('v' => (real) $r['AVG(wage)']);
+
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
 }
