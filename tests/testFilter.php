@@ -25,8 +25,6 @@ $statement->execute();   // execute the PDO statement
 ?>
 <!--Table-->
 
-<input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by column 2" title="Type">
-
 <form action="/tests/testFilter.php" method="post">
 	<label> <select name="click" class="searchOp">
 				<option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
@@ -279,8 +277,10 @@ $statement->execute();   // execute the PDO statement
 				<option value="select * from gr2.review where country like 'ZM';">Zambia</option>
 				<option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 			
-		</select> </label> <input type="submit" value="Quick Search">
+		</select> </label> <input type="submit" placeholder="Select Country" value="Input Country">
 </form>
+
+<input type="text" id="myInput1" onkeydown="myFunction1()" placeholder="Search by column 2" title="Type">
 <!--<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search by column 3" title="Type">-->
 <!--<input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search by column 4" title="Type">-->
 <!--<input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search by column 5" title="Type">-->
@@ -318,7 +318,7 @@ $dbHandle = null;
 			<option value = 'select * from gr2.user where isAdministrator = 0'>get all non admin</option>
 			<option value = 'select * from gr2.review'>select all reviews</option>
 		
-		</select> </label> <input type="submit" value="Quick Search">
+		</select> </label> <input type="submit" placeholder="Select SQL Query" value="Quick Search">
 </form>
 
 <!--JScript to help filter-->
