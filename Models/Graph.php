@@ -37,8 +37,6 @@ class Graph
 
             array('label' => 'platform', 'type' => 'string'),
             array('label' => 'avg wage', 'type' => 'number')
-
-
         );
         /* Extract the information from $result */
         foreach($result as $r) {
