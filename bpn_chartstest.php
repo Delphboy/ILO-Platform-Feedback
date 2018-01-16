@@ -34,18 +34,11 @@
 
             chart.draw(data, barchart_options);
         }
-
-        function initialize () {
-            btn = document.getElementById("btn");
-            $(btn).click(function() {
-                drawbarchart();
-            });
-        }
     </script>
 </head>
 
 <body>
-<button id="btn" value="btn" onclick="initialize()"> Generate chart</button>
+<button id="btn" value="btn" onclick="drawbarchart()"> Generate chart</button>
 
 <div id="chart_div" style="width: 300px; height: 300px;">
 </div>
