@@ -1,3 +1,4 @@
+<?php require('Views/template/headerUser.phtml') ?>
 <?php
 
 $view = new stdClass();
