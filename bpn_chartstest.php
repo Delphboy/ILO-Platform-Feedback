@@ -96,6 +96,20 @@
             chart.draw(data, piechart_options);
         }
 
+        function gender_vs_wage(){
+            var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
+            var piechart_options =
+            {
+                title: 'Barchart',
+                width: 600,
+                height: 900,
+                legend: 'none'
+            };
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+            chart.draw(data, piechart_options);
+        }
+
     </script>
 </head>
 

@@ -19,7 +19,7 @@ class Graph
 
     function platform_vs_wage(){
         $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(wage) FROM review GROUP BY platform');
+        $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
         $result = $conn->resultset();
 
         //echo 'Attempt to create arrays';
@@ -186,6 +186,41 @@ class Graph
         $jsonTable = json_encode($table);
         return $jsonTable;
     }
+
+    function gender_vs_wage(){
+        $conn = database::Instance();
+        $conn->query('SELECT wage, AVG(wage) as food1, null as Food2
+    where gender = :female;
+
+    UNION ALL
+
+        SELECT Anganbadi_ID, null as food1, food as Food2
+    where Month = 10');
+        $conn->bind(':female',"F");
+        $result = $conn->resultset();
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+
+            array('label' => 'platform', 'type' => 'string'),
+            array('label' => 'average rating', 'type' => 'number')
+        );
+
+        foreach($result as $r) {
+
+            $temp = array();
+
+            $temp[] = array('v' => (string) $r['platform']);
+            $temp[] = array('v' => (real) $r['AVG(rating)']);
+
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
+
 
 
     function returnUSD($currency, $value){
