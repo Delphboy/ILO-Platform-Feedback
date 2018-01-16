@@ -40,7 +40,7 @@
 <body>
 <button id="btn" value="btn" onclick="platform_vs_wage()"> Generate chart</button>
 
-<div id="chart_div" style="width: 300px; height: 300px;">
+<div id="chart_div">
 </div>
 </body>
 </html>
