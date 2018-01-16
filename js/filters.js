@@ -7,6 +7,10 @@ google.charts.load('current', {'packages':['corechart']});
 // Set a callback to run when the Google Visualization API is loaded.
 //google.charts.setOnLoadCallback(drawbarchart);
 
+btn = document.getElementById("btn");
+btn.onclick = function drawbarchart() {
+
+}
 
 //first column must be bars, second column must be values
 function drawbarchart(jsontable) {

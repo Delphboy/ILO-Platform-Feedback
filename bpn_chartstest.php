@@ -15,10 +15,8 @@
         google.charts.load('current', {'packages':['corechart']});
         // Set a callback to run when the Google Visualization API is loaded.
         //google.charts.setOnLoadCallback(drawbarchart);
-
-
-        //first column must be bars, second column must be values
-        function drawbarchart() {
+        btn = document.getElementById("btn");
+        btn.onclick = function drawbarchart() {
 
             //Create our data table out of JSON data  loaded from server.
             var data = new google.visualization.DataTable(<?php echo $jsonTable; ?>);
@@ -40,7 +38,7 @@
 </head>
 
 <body>
-<button onclick="drawbarchart(<?php echo $jsonTable; ?>)" value="Btn"> Generate chart</button>
+<button id="btn" onclick="drawbarchart(<?php echo $jsonTable; ?>)" value="Btn"> Generate chart</button>
 
 <div id="chart_div">
 </div>
