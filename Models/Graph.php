@@ -163,6 +163,34 @@ class Graph
         return $jsonTable;
     }
 
+    function hours_working_vs_hours_looking(){
+        $conn = database::Instance();
+        $conn->query('SELECT AVG(hours_spent_looking), AVG(hours_spent_working) FROM review WHERE platform = :platform');
+        $conn->bind(':platform', "Fiverr");
+        $result = $conn->resultset();
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+
+            array('label' => 'hours looking', 'type' => 'string'),
+            array('label' => 'hours looking', 'type' => 'string')
+        );
+
+        foreach($result as $r) {
+
+            $temp = array();
+
+            $temp[] = array('v' => (int) $r['AVG(hours_spent_looking)']);
+            $temp[] = array('v' => (int) $r['AVG(hours_spent_working)']);
+
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
+
 
     function returnUSD($currency, $value){
         $output = $value;
