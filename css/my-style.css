@@ -143,11 +143,9 @@ body{
 .sec1{
     display: inline-block;
     max-height: 80vh;
-    background-color: #2aabd2;
 }
 .sec2{
     display: inline-block;
-    background-color: #afd9ee;
 }
 .wrap-wrap{
     display: block;
