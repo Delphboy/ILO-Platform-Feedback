@@ -132,7 +132,7 @@ class Graph
 
     function rating_vs_wage(){
         $conn = database::Instance();
-        $conn->query('SELECT time_spent_looking, time_spent_working FROM review');
+        $conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
         $result = $conn->resultset();
         echo 'executing';
         print_r($result);
