@@ -281,10 +281,10 @@
                     <option value="select * from gr2.review where country like 'ZM';">Zambia</option>
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
-                </select> </label> <input type="submit" placeholder="Select Country" value="Input Country">
+                </select> </label> <input type="submit" class="login100-form-btn" placeholder="Select Country" value="Input Country">
         </form>
 
-        <input type="text" id="myInput1" class="login100-form-btn" onkeyup="myFunction1()" placeholder="Search by column 2" title="Type">
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by column 2" title="Type">
         <!--<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search by column 3" title="Type">-->
         <!--<input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search by column 4" title="Type">-->
         <!--<input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search by column 5" title="Type">-->
@@ -295,7 +295,7 @@
         <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
 
         <?php
-        echo "<table id='myTable'  border='1' class='table table-bordered'>";
+        echo "<table id='myTable' class='table table-bordered' style='width: 100%'>";
         while ($row = $statement->fetch())
         {
             echo"<tr><td>". $row[0] ."</td>
