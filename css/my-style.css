@@ -144,7 +144,7 @@ body{
     background-color: white;
 }
 #chart_div{
-    display: block;
+    display: inline-block;
     margin: auto;
 }
 .sec1{
@@ -153,6 +153,7 @@ max-height: 80vh;
 }
 .sec2{
     display: inline-block;
+    background-color: white;
 }
 .wrap-wrap{
     display: block;
