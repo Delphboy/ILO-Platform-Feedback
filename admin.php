@@ -1,11 +1,11 @@
 <?php
-session_start();
+//session_start();
 require_once ('Models/Admin.php');
 
 $model = new Admin();
 
 echo 'I am a var dump <br/>';
-var_dump($_POST[]);
+var_dump($_POST);
 // Check for the country selection
 
 if(isset($_POST['country-selection-admin']))
@@ -24,11 +24,11 @@ if(isset($_POST['country-selection-admin']))
 
 
 
-if($_SESSION['isSignedIn'])
-{
-    require_once('Views/admin.phtml');
-}
-else
-{
-    header('Location: login.php');
-}
+//if($_SESSION['isSignedIn'])
+//{
+//    require_once('Views/admin.phtml');
+//}
+//else
+//{
+//    header('Location: login.php');
+//}
