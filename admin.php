@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once('Views/template/headerAdmin.phtml');
 require_once ('Models/Admin.php');
 
 $model = new Admin();
