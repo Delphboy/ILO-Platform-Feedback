@@ -1,3 +1,6 @@
+<?php
+
+?>
 <html>
 <head>
 	<script>
@@ -32,10 +35,4 @@
 </form>
 <script>onload();</script>
 </body>
-</html><?php
-/**
- * Created by PhpStorm.
- * User: sagiu
- * Date: 17/01/2018
- * Time: 17:59
- */
+</html>
