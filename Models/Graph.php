@@ -64,7 +64,7 @@ class Graph
 
         // convert data into JSON format
         $jsonTable = json_encode($table);
-        //print_r($jsonTable);
+        print_r($jsonTable);
         return $jsonTable;
     }
 
