@@ -13,10 +13,11 @@ if(isset($_POST['table-submit'])) {
     $query = $_POST['country-selection-admin'];
     $tableToDisplay = $model->createTable($query);
 
-//    if ($tableToDisplay != "")
-//    {
+    if ($tableToDisplay != "")
+    {
+        echo 'table is set yall';
 //        $view->table = $tableToDisplay;
-//    }
+    }
 }
 
 
