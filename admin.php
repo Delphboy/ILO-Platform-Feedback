@@ -35,7 +35,7 @@ if(isset($_POST['GraphSubmit']))
         case "PlatformVSWage":
             echo "<h2>attempt to set stuff</h2>";
             //$view->grdata = $this->gr->platform_vs_wage();
-            var_dump($view->grdata);break;
+              break;
 //        case "WagePerCountry":
 //            $grdata = $this->gr->wage_per_country(); break;
 //        case "PlatformPopularity":
