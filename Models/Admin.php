@@ -29,13 +29,16 @@ class Admin
 
         $output = "";
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
-
+        
+        $colcount = count($data[0]);
         for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
-            $row[] = $data[$rowno];
+//            $row = $data[$rowno];
 //            print_r($row);
-            echo "<br>";
-            $colcount = sizeof($row);
+//            //echo "<br>";
+//            $colcount = count($row);
+
+
             $output = $output . '<tr>';
 
             //hardcoded for the moment as $colcount doubles the size of the array
