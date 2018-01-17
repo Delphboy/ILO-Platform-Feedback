@@ -1,19 +1,25 @@
 <?php
+$view = new stdClass();
 require_once ('Models/Admin.php');
 
 $model = new Admin();
 
 // Check for the country selection
-if(isset($_POST['table-submit']))
-{
+if(isset($_POST['table-submit'])) {
     //listen for submission
     // if it's submitted then:
     // grab query -> execute -> return table with values
     // display values in DIV
     $query = $_POST['country-selection-admin'];
     $tableToDisplay = $model->createTable($query);
-    echo $tableToDisplay;
+
+    if ($tableToDisplay != "")
+    {
+        $view->table = $tableToDisplay;
+    }
 }
+
+
 
 
 session_start();
