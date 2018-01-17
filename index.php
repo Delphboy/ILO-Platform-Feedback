@@ -33,4 +33,6 @@ if(isset($_POST['submit'])) {
     $dbHandle->bind(':rating',$rating);
     $dbHandle->bind(':country',$country);
     $dbHandle->execute();
+
+    require_once('Views/success.phtml');
 }
