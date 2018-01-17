@@ -263,19 +263,17 @@
             <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
         </form>
 
-<!--        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />-->
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />
 
                 <?php
                 if(isset($view->table))
                 {
                         echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
-//                        echo '<h3>Am I in a DIV?</h3>';
                         echo $view->table;
                         echo "</div>";
                 }
                 else
                 {
-                        echo '<h2>HI</h2>';
                 }
                 ?>
     </div>
