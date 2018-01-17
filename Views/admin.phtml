@@ -7,7 +7,7 @@
     <div class="sec1 col-md-5 col-xs-12" >
         <!--Table-->
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <label> <select name="country-selection" class="searchOp">
+            <label> <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -260,7 +260,7 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="table-submit">
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
         </form>
 
         <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />
