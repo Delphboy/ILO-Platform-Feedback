@@ -351,24 +351,26 @@
             }
         </script>
     </div>
+	
+
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12" >
-        <head>
+        
             <!--Load the Ajax API-->
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
             <?php
-            require ('Models/Graph.php');
+            require ('/Models/Graph.php');
             $gr = new Graph();
             $platform_vs_wage = $gr->platform_vs_wage();
-            //print_r($platform_vs_wage);
+            print_r($platform_vs_wage);
             $wage_per_country = $gr->wage_per_country();
             $platform_popularity = $gr->platform_popularity();
             $rating_vs_wage = $gr->rating_vs_wage();
             $platform_by_rating = $gr->platform_by_rating();
-
             ?>
+	    
             <script type="text/javascript">
                 // Load the Visualization API and the corechart package.
                 google.charts.load('current', {'packages':['corechart']});
@@ -466,19 +468,30 @@
                 }
 
             </script>
-        </head>
+	
+	
+	    
+		    <select name = "def-graphs" class = "searchOp">
+			    <option id = "placeholder" value = "placeholder">Choose graph</option>
+			    <option id = "graph1" value = "PlatformVSWage"
+			            onclick = "platform_vs_wage()"> Platform by Avg wage barchart
+			    </option>
+			    <option id = "graph2" value = "WagePerCountry"
+			            onclick = "wage_per_country()"> Avg Wage per country barchart
+			    </option>
+			    <option id = "graph3" value = "PlatformPopularity"
+			            onclick = "platform_popularity()"> Platform popularity piechart
+			    </option>
+			    <option id = "graph4" value = "TimeVSTime"
+			            onclick = "rating_vs_wage()">Scatter chart of time looking vs time working
+			    </option>
+			    <option id = "graph5" value = "PlatformByRating" onclick = "platform_by_rating()">Platform by Avg rating
+			    </option>
+		    </select>
+	    
 
-        <select name="def-graphs" class="searchOp">
-            <option id="placeholder" value="placeholder">Choose graph</option>
-            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform by Avg wage barchart</option>
-            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
-            <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
-            <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
-            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
-        </select>
 
-
-        <div id="chart_div">
-        </div>
+        <!--<div id="chart_div">
+        </div>-->
     </div>
 </div>
