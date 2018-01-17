@@ -33,9 +33,9 @@ class Admin
         for($i = 0; $i < $rowCount; $i++)
         {
             $row = $data[$i];
-            $jCount = sizeof($data[$i]);
+            $jCount = sizeof($row);
             $output = $output . '<tr>';
-            for($j = 0; $j < $jCount - 1; $j++)
+            for($j = 0; $j < $jCount; $j++)
             {
                 $output = $output . '<td>' . $row[$j] . '</td>';
             }
