@@ -12,6 +12,7 @@ else
 {
     header('Location: login.php');
 }
+echo 'I am a var dump <br/>';
 var_dump($_POST);
 // Check for the country selection
 if(isset($_POST['table-submit']))
