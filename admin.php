@@ -14,8 +14,9 @@ else
     header('Location: login.php');
 }
 
-if(isset($_POST['click']))
+// Check for the country selection
+if(isset($_POST['submit']))
 {
-    $model->setQuery($_POST['click']);
+    $model->setQuery($_POST['country-selection']);
     $model->executeQuery();
 }

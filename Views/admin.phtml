@@ -1,34 +1,9 @@
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12" >
-        <?php
-        /**
-         * Created by PhpStorm.
-         * User: sagiu
-         * Date: 16/01/2018
-         * Time: 11:34
-         */
-        // recieve request
-        //$sql = $_POST["country"];
-
-        //Data Base Connect to be removed when proved working
-
-        $host="den1.mysql3.gear.host";
-        $dbName="gr2";
-        $user = "gr2";
-        $pass = 'gr0up2t357db!';
-
-        //$dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $sqlQuery = $sql; // put your students table name
-        //echo $sqlQuery;  //helpful for debugging to see what SQL query has been created
-        $statement = $dbHandle->prepare($sqlQuery); // prepare PDO statement
-        $statement->execute();   // execute the PDO statement
-        ?>
         <!--Table-->
-
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <label> <select name="click" class="searchOp">
+            <label> <select name="country-selection" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -281,7 +256,7 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="Input Country">
+            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="submit">
         </form>
 
         <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type">

@@ -32,12 +32,12 @@ class Admin
     {
         if(($this->SQLQuery != "") || ($this->SQLQuery != NULL))
         {
-            $this->SQLQuery = $this->ILODatabase->prepare($SQLQuery);
+            $this->SQLQuery = $this->ILODatabase->prepare($this->SQLQuery);
             $this->SQLQuery->execute();
         }
         else
         {
-
+            echo 'Please enter a database search';
         }
     }
 
