@@ -36,7 +36,8 @@ if(isset($_POST['GraphSubmit']))
             echo "<h2>attempt to set stuff</h2>";
             //echo $view->grdata;
             echo "<h2>above is our precious data</h2>";
-            $jsontable =  $this->gr->platform_vs_wage();
+//            $jsontable =  $this->gr->platform_vs_wage();
+            echo $this->gr->platform_vs_wage();
             print_r($jsontable);
 //            $view->grdata;
               break;
