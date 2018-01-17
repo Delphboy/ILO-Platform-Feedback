@@ -32,7 +32,8 @@ class Admin
 
         for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
-            $colcount = sizeof($data[$rowno]);
+            $row[] = $data[$rowno];
+            $colcount = sizeof($row);
             $output = $output . '<tr>';
 
             //hardcoded for the moment as $colcount doubles the size of the array
