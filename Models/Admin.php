@@ -29,7 +29,7 @@ class Admin
 
         $output = "";
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
-        
+
         $colcount = count($data[0]);
         for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
@@ -42,7 +42,7 @@ class Admin
             $output = $output . '<tr>';
 
             //hardcoded for the moment as $colcount doubles the size of the array
-            for($colno = 0; $colno < $colcount; $colno++)
+            for($colno = 0; $colno < ($colcount/2); $colno++)
             {
                 $output = $output . '<td>' . $data[$rowno][$colno] . '</td>';
             }
