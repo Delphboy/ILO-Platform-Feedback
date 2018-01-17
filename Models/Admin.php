@@ -33,6 +33,8 @@ class Admin
         for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
             $row[] = $data[$rowno];
+            print_r($row);
+            echo "<br>";
             $colcount = sizeof($row);
             $output = $output . '<tr>';
 
