@@ -30,20 +30,13 @@ class Admin
         $output = "";
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
-//        $sizeofrow = sizeof($data[0]); //no of cols
-//        echo "Size of row is: $sizeofrow <br>";
-//        print_r($data[0]);
-//        echo "<br>";
-//        print_r($data[0][11]);
-
-
         for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
             $colcount = sizeof($data[$rowno]);
             $output = $output . '<tr>';
-            //hardcoded for the moment
-            
-            for($colno = 0; $colno < 10; $colno++)
+
+            //hardcoded for the moment as $colcount doubles the size of the array
+            for($colno = 0; $colno < ($colcount/2); $colno++)
             {
                 $output = $output . '<td>' . $data[$rowno][$colno] . '</td>';
             }
