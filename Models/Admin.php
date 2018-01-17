@@ -25,25 +25,23 @@ class Admin
     {
         $this->ILODatabase->query($statement);
         $data = $this->ILODatabase->resultSet();
-        $rowCount = sizeof($data);
+        $rowCount = sizeof($data); //No of rows
 
         $output = "";
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
-        $sizeofrow = sizeof($data[0]);
+        $sizeofrow = sizeof($data[0]); //no of cols
         echo "Size of row is: $sizeofrow <br>";
         print_r($data[0]);
 
 
-        for($i = 0; $i < $rowCount; $i++)
+        for($rowno = 0; $rowno < $rowCount; $rowno++)
         {
-            $row = $data[$i];
-            $jCount = sizeof($data[$i]);
-            
+            $colcount = sizeof($data[$rowno]);
             $output = $output . '<tr>';
-            for($j = 0; $j < $jCount; $j++)
+            for($colno = 0; $colno < $colcount; $colno++)
             {
-                $output = $output . '<td>' . $row[$j] . '</td>';
+                $output = $output . '<td>' . $data[$rowno][$colno] . '</td>';
             }
             $output = $output . '</tr>';
         }
