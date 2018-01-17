@@ -1,7 +1,7 @@
 <?php
 $view = new stdClass();
 require_once ('Models/Admin.php');
-require ('Models/Graph.php');
+require_once ('Models/Graph.php');
 
 
 $model = new Admin();
