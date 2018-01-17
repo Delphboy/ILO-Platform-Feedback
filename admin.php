@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once ('Models/Admin.php');
 
 $model = new Admin();
@@ -22,8 +21,8 @@ if(isset($_POST['country-selection-admin']))
 
 
 
-
-
+require_once ('Views/admin.phtml');
+//session_start();
 //if($_SESSION['isSignedIn'])
 //{
 //    require_once('Views/admin.phtml');
