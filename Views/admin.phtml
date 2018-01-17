@@ -293,7 +293,7 @@
             if(isset($view->grdata))
             {
                     echo "<div id=\"chart_div\">"; ?>
-                    <script type='text/javascript'>platform_vs_wage(<?php echo $view->grdata; ?>) </script>
+                    <script type='text/javascript'>platform_vs_wage("<?php echo $view->grdata; ?>") </script>
                     <?php echo $view->grdata;
                     echo "</div>";
             }

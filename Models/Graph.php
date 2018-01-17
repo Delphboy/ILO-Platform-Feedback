@@ -71,7 +71,7 @@ class Graph
     function wage_per_country(){
         $conn = database::Instance();
         $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -102,7 +102,7 @@ class Graph
     function platform_popularity(){
         $conn = database::Instance();
         $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -133,7 +133,7 @@ class Graph
     function rating_vs_wage(){
         $conn = database::Instance();
         $conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -163,7 +163,7 @@ class Graph
     function platform_by_rating(){
         $conn = database::Instance();
         $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -197,7 +197,7 @@ class Graph
         SELECT Anganbadi_ID, null as food1, food as Food2
     where Month = 10');
         $conn->bind(':female',"F");
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
