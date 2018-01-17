@@ -28,12 +28,13 @@ if(isset($_POST['table-submit'])) {
 
 if(isset($_POST['GraphSubmit']))
 {
+    $view->grdata = "<p>this is data</p>";
     echo '<h1>Henry is Okay i guess</h1>';
     switch ($_POST['def-graphs'])
     {
         case "PlatformVSWage":
             echo "<h2>attempt to set stuff</h2>";
-            $view->grdata = $this->gr->platform_vs_wage();
+            //$view->grdata = $this->gr->platform_vs_wage();
             var_dump($view->grdata);break;
 //        case "WagePerCountry":
 //            $grdata = $this->gr->wage_per_country(); break;
