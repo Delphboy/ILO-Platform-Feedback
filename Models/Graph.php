@@ -6,7 +6,7 @@
  * Date: 1/16/18
  * Time: 10:29 AM
  */
-require ('database.php');
+require_once('database.php');
 
 
 class Graph
