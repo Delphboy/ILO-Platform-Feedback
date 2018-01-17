@@ -30,27 +30,14 @@ function myFunction1() {
 /**
  * CHART FILTERS
  */
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart']});
-// Set a callback to run when the Google Visualization API is loaded.
-//google.charts.setOnLoadCallback(drawbarchart);
-
-btn = document.getElementById("btn");
-btn.onclick = function drawbarchart() {
-
-}
-
-//first column must be bars, second column must be values
-function drawbarchart(jsontable) {
-
+function platform_vs_wage(jsontable){
     //Create our data table out of JSON data  loaded from server.
-    var data = new google.visualization.DataTable(jsontable );
+    var data = new google.visualization.DataTable(jsontable);
     var barchart_options =
     {
-        title: 'Barchart',
+        title: 'Platform vs Average Wage',
         width: 600,
-        height: 400,
+        height: 600,
         legend: 'none'
     };
 
@@ -61,20 +48,73 @@ function drawbarchart(jsontable) {
     chart.draw(data, barchart_options);
 }
 
-
-function drawscatterchat(jsontable) {
-
-
-    var data = new google.visualization.DataTable(jsontable );
-    var options = {
-        title: 'Scatter Graph ',
-        hAxis: {title: 'Wage'},
-        vAxis: {title: 'Rating', minValue: 0, maxValue: 5},
+function wage_per_country(jsontable){
+    var data = new google.visualization.DataTable(jsontable);
+    var barchart_options =
+    {
+        title: 'Average Wage per Country',
+        width: 600,
+        height: 600,
         legend: 'none'
     };
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
+    chart.draw(data, barchart_options);
+}
+
+function platform_popularity(jsontable) {
+    var data = new google.visualization.DataTable(jsontable);
+    var piechart_options =
+    {
+        title: 'Average Platform Popularity',
+        width: 600,
+        height: 600,
+        legend: 'none'
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+    chart.draw(data, piechart_options);
+}
+function rating_vs_wage(jsontable){
+    var data = new google.visualization.DataTable(jsontable);
+    var piechart_options =
+    {
+        title: 'Hours Looking vs Hours Working',
+        hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
+        vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
+        width: 600,
+        height: 600,
+        legend: 'none'
+    };
     var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
 
-    chart.draw(data, options);
-    
+    chart.draw(data, piechart_options);
 }
+
+function platform_by_rating(jsontable){
+    var data = new google.visualization.DataTable(jsontable);
+    var piechart_options =
+    {
+        title: 'Platform by Average Rating',
+        width: 600,
+        height: 600,
+        legend: 'none'
+    };
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+    chart.draw(data, piechart_options);
+}
+//
+// function gender_vs_wage(jsontable){
+//     var data = new google.visualization.DataTable(jsontable);
+//     var piechart_options =
+//     {
+//         title: 'Barchart',
+//         width: 600,
+//         height: 600,
+//         legend: 'none'
+//     };
+//     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+//
+//     chart.draw(data, piechart_options);
+// }

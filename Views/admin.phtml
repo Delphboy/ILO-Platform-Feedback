@@ -1,6 +1,7 @@
 <?php require_once('Views/template/headerAdmin.phtml');?>
 <!-- Import JavaScript Filter Functions -->
 <script type="text/javascript" src="../js/filters.js"></script>
+<!--Load the Ajax API-->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
         google.charts.load('43', {'packages':['corechart']});
@@ -276,143 +277,35 @@
                         echo $view->table;
                         echo "</div>";
                 }
-                else
-                {
-                }
                 ?>
     </div>
 
 
 
-
-
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12" >
-        <head>
-            <!--Load the Ajax API-->
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                <select name="def-graphs" class="searchOp">
+                    <option id="placeholder" value="placeholder">Choose graph</option>
+                    <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage(<?php
+                                        if (isset($view->grdata))
+                                                echo $view -> grdata;
+                                                ?>)"> Platform by Avg wage barchart</option>
+                    <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
+                    <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
+                    <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
+                    <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
+                </select>
+            </form>
 
             <?php
-            require ('Models/Graph.php');
-            $gr = new Graph();
-            $platform_vs_wage = $gr->platform_vs_wage();
-            //print_r($platform_vs_wage);
-            $wage_per_country = $gr->wage_per_country();
-            $platform_popularity = $gr->platform_popularity();
-            $rating_vs_wage = $gr->rating_vs_wage();
-            $platform_by_rating = $gr->platform_by_rating();
-
+            if(isset($view->chart))
+            {
+                    echo "<div id=\"chart_div\">";
+                    echo $view->chart;
+                    echo "</div>";
+            }
             ?>
-            <script type="text/javascript">
-                // Load the Visualization API and the corechart package.
-                google.charts.load('43', {'packages':['corechart']});
-                // Set a callback to run when the Google Visualization API is loaded.
-                //        google.charts.setOnLoadCallback();
 
-
-                function platform_vs_wage(){
-                    //Create our data table out of JSON data  loaded from server.
-                    var data = new google.visualization.DataTable(<?php echo $platform_vs_wage; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Platform vs Average Wage',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-
-                    // Instantiate and draw our chart, passing in some options.
-                    // Do not forget to check your div ID
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function wage_per_country(){
-                    var data = new google.visualization.DataTable(<?php echo $wage_per_country; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Average Wage per Country',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function platform_popularity() {
-                    var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Average Platform Popularity',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-                function rating_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $rating_vs_wage; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Hours Looking vs Hours Working',
-                        hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
-                        vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function platform_by_rating(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Platform by Average Rating',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function gender_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Barchart',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-            </script>
-        </head>
-
-        <select name="def-graphs" class="searchOp">
-            <option id="placeholder" value="placeholder">Choose graph</option>
-            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform by Avg wage barchart</option>
-            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
-            <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
-            <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
-            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
-        </select>
-
-
-        <div id="chart_div">
-        </div>
     </div>
 </div>
