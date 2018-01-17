@@ -33,6 +33,7 @@ class Admin
         $sizeofrow = sizeof($data[0]); //no of cols
         echo "Size of row is: $sizeofrow <br>";
         print_r($data[0]);
+        echo "<br>";
         print_r($data[0][0]);
 
 
