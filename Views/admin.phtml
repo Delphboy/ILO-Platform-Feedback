@@ -1,4 +1,4 @@
-<?php require_once('Views/template/headerAdmin.phtml');?>
+<?php require_once('../Views/template/headerAdmin.phtml');?>
 <!-- Import JavaScript Filter Functions -->
 <script type="text/javascript" src="../js/filters.js"></script>
 
@@ -269,7 +269,7 @@
                 if(isset($view->table))
                 {
                         echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
-                        echo $view->table;
+                        echo '<h3>Am I in a DIV?</h3>';
                         echo "</div>";
                 }
                 else
