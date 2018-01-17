@@ -24,6 +24,7 @@ class Admin
 
     function createTable($statement)
     {
+        echo "<p>" . $statement . "</p>";
         $this->ILODatabase->query($statement);
         $data = $this->ILODatabase->resultSet();
         $rowCount = sizeof($data);
