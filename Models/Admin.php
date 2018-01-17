@@ -28,7 +28,7 @@ class Admin
         $rowCount = sizeof($data);
 
         $output = "";
-        $output = $output . '<table id="myTable" class="table table-striped col-md-5 col-xs-12">';
+        $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
         for($i = 0; $i < $rowCount; $i++)
         {
