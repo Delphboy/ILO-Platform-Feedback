@@ -1,12 +1,6 @@
-<?php require_once('Views/template/headerAdmin.phtml');?>
-<!-- Import JavaScript Filter Functions -->
-<script type="text/javascript" src="../js/filters.js"></script>
-<!--Load the Ajax API-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-        google.charts.load('43', {'packages':['corechart']});
-</script>
+<?php require_once("Views/template/headerAdmin.phtml");?>
 
+<body>
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12" >
@@ -280,8 +274,6 @@
                 ?>
     </div>
 
-
-
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12" >
             <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
@@ -306,6 +298,14 @@
                     echo "</div>";
             }
             ?>
-
     </div>
 </div>
+</body>
+
+<!-- Import JavaScript Filter Functions -->
+<script type="text/javascript" src="../js/filters.js"></script>
+<!--Load the Ajax API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+        google.charts.load('43', {'packages':['corechart']});
+</script>
