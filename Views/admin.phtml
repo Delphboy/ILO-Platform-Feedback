@@ -266,10 +266,16 @@
         <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />
 
         <div id="tableToDisplay" class="tablescroll">
-<!--                --><?php //if (isset($view->table)) : ?>
-<!--                        --><?php //echo $view->table; ?>
-<!--                --><?php //endif; ?>
-                <?php echo "<h1>Hi</h1>"?>
+                <?php
+                if(isset($view->table))
+                {
+                        echo $view->table;
+                }
+                else
+                {
+                        echo '<h2>HI</h2>';
+                }
+                ?>
         </div>
     </div>
 
