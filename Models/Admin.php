@@ -31,14 +31,15 @@ class Admin
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
         $sizeofrow = sizeof($data[0]);
-        echo "$sizeofrow";
+        echo "Size of row is: $sizeofrow <br>";
+        print_r($data[0]);
 
-        
+
         for($i = 0; $i < $rowCount; $i++)
         {
             $row = $data[$i];
             $jCount = sizeof($data[$i]);
-            echo "$jCount";
+            
             $output = $output . '<tr>';
             for($j = 0; $j < $jCount; $j++)
             {
