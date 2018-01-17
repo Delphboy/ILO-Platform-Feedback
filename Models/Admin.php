@@ -20,25 +20,30 @@ class Admin
     function __construct()
     {
         $this->ILODatabase = database::Instance();
-        $this->SQLQuery = NULL;
     }
 
-    function setQuery($newQuery)
+    function createTable($statement)
     {
-        $this->SQLQuery = $newQuery;
-    }
+        $this->ILODatabase->query($statement);
+        $data = $this->ILODatabase->resultSet();
+        $rowCount = sizeof($data);
 
-    function executeQuery()
-    {
-        if(($this->SQLQuery != "") || ($this->SQLQuery != NULL))
+        $output = "";
+        $output = $output . "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
+
+        for($i = 0; $i < $rowCount; $i++)
         {
-            $this->SQLQuery = $this->ILODatabase->prepare($this->SQLQuery);
-            $this->SQLQuery->execute();
+            $row = $data[$i];
+            $output = $output . "<tr>";
+            for($j = 0; $j < sizeof($row[$i]); $j++)
+            {
+                $output = $output . "<td>" . $row[$j] . "</td>";
+            }
+            $output = $output . "</tr>";
         }
-        else
-        {
-            echo 'Please enter a database search';
-        }
+        $output = $output . "</table>";
+
+        return $output;
     }
 
 }

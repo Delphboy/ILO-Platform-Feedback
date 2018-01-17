@@ -1,3 +1,6 @@
+<!-- Import JavaScript Filter Functions -->
+<script type="text/javascript" src="../js/filters.js"></script>
+
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12" >
@@ -256,75 +259,33 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="submit">
+            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="table-submit">
         </form>
 
-        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type">
-        <!--<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search by column 3" title="Type">-->
-        <!--<input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search by column 4" title="Type">-->
-        <!--<input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search by column 5" title="Type">-->
-        <!--<input type="text" id="myInput5" onkeyup="myFunction5()" placeholder="Search by column 6" title="Type">-->
-        <!--<input type="text" id="myInput6" onkeyup="myFunction6()" placeholder="Search by column 7" title="Type">-->
-        <!--<input type="text" id="myInput7" onkeyup="myFunction7()" placeholder="Search by column 8" title="Type">-->
-        <!--<input type="text" id="myInput8" onkeyup="myFunction8()" placeholder="Search by column 9" title="Type">-->
-        <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
-        <div class="tablescroll">
-            <?php
-            echo "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
-            while ($row = $statement->fetch())
-            {
-                echo"<tr><td>". $row[0] ."</td>
-             <td>". $row[1] ."</td>
-             <td>". $row[2] ."</td>
-             <td>". $row[3] ."</td>
-             <td>". $row[4] ."</td>
-             <td>". $row[5] ."</td>
-             <td>". $row[6] ."</td>
-             <td>". $row[7] ."</td>
-             <td>". $row[8] ."</td>
-             <td>". $row[9];}
-            echo "</table>";
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />
 
-            //close connect
-            $dbHandle = null;
-            ?>
+        <div id="tableToDisplay" class="tablescroll">
+
         </div>
-        <!--Filter Choices-->
-<!--        <form action="/tests/testFilter.php" method="post">-->
-<!--            <label> <select name = "click">-->
-<!--                    <option value = 'select * from gr2.user'>select all users</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 1'>get all admin</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 0'>get all non admin</option>-->
-<!--                    <option value = 'select * from gr2.review'>select all reviews</option>-->
-<!---->
-<!--                </select> </label> <input type="submit" placeholder="Select SQL Query" value="Quick Search">-->
-<!--        </form>-->
-
-        <!--JScript to help filter-->
-
-        <script>
-            function myFunction1() {
-                // Declare variables
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput1");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        </script>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12" >

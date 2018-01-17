@@ -15,8 +15,13 @@ else
 }
 
 // Check for the country selection
-if(isset($_POST['submit']))
+if(isset($_POST['table-submit']))
 {
-    $model->setQuery($_POST['country-selection']);
-    $model->executeQuery();
+    //listen for submission
+    // if it's submitted then:
+    // grab query -> execute -> return table with values
+    // display values in DIV
+    $query = $_POST['country-selection'];
+    $tableToDisplay = $model->createTable($query);
+    echo $tableToDisplay;
 }

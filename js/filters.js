@@ -2,6 +2,35 @@
  * Created by stc567 on 1/15/18.
  */
 
+/**
+ * TABLE FILTERS
+ */
+function myFunction1() {
+    // Declare variables
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput1");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+/**
+ * CHART FILTERS
+ */
+
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {'packages':['corechart']});
 // Set a callback to run when the Google Visualization API is loaded.
