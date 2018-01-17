@@ -280,10 +280,7 @@
             <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                 <select name="def-graphs" class="searchOp">
                     <option id="placeholder" value="placeholder">Choose graph</option>
-                    <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage(<?php
-                                        if (isset($view->grdata))
-                                                echo $view -> grdata;
-                                                ?>)"> Platform by Avg wage barchart</option>
+                    <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
                     <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
                     <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
                     <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
@@ -295,8 +292,9 @@
             <?php
             if(isset($view->chart))
             {
-                    echo "<div id=\"chart_div\">";
-                    echo $view->chart;
+                    echo "<div id=\"chart_div\">"; ?>
+                    <script type='text/javascript'>platform_vs_wage(<?php echo $grdata; ?>) </script>
+                    <?php echo $view->chart;
                     echo "</div>";
             }
             ?>
