@@ -12,7 +12,7 @@ else
 {
     header('Location: login.php');
 }
-
+var_dump($_POST);
 // Check for the country selection
 if(isset($_POST['table-submit']))
 {
@@ -22,5 +22,6 @@ if(isset($_POST['table-submit']))
     // display values in DIV
     $query = $_POST['country-selection'];
     $tableToDisplay = $model->createTable($query);
+    echo '';
     echo $tableToDisplay;
 }
