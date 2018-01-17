@@ -28,7 +28,7 @@ if(isset($_POST['table-submit'])) {
 
 if(isset($_POST['GraphSubmit']))
 {
-//    $view->grdata = "<p>this is data</p>";
+    $view->grdata = "<p>this is data</p>";
     echo '<h1>Henry is Okay i guess</h1>';
     switch ($_POST['def-graphs'])
     {
@@ -36,7 +36,9 @@ if(isset($_POST['GraphSubmit']))
             echo "<h2>attempt to set stuff</h2>";
             //echo $view->grdata;
             echo "<h2>above is our precious data</h2>";
-            $view->grdata = $this->gr->platform_vs_wage();
+            $jsontable =  $this->gr->platform_vs_wage();
+            print_r($jsontable);
+//            $view->grdata;
               break;
 //        case "WagePerCountry":
 //            $grdata = $this->gr->wage_per_country(); break;
