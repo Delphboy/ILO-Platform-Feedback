@@ -39,7 +39,7 @@ class Admin
             $output = $output . '<tr>';
 
             //hardcoded for the moment as $colcount doubles the size of the array
-            for($colno = 0; $colno < ($colcount/2); $colno++)
+            for($colno = 0; $colno < $colcount; $colno++)
             {
                 $output = $output . '<td>' . $data[$rowno][$colno] . '</td>';
             }
