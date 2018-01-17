@@ -28,20 +28,20 @@ class Admin
         $rowCount = sizeof($data);
 
         $output = "";
-        $output = $output . "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
+        $output = $output . '<table id="myTable" class="table table-striped col-md-5 col-xs-12">';
 
         for($i = 0; $i < $rowCount; $i++)
         {
             $row = $data[$i];
             $jCount = sizeof($data[$i]);
-            $output = $output . "<tr>";
+            $output = $output . '<tr>';
             for($j = 0; $j < $jCount; $j++)
             {
-                $output = $output . "<td>" . $row[$j] . "</td>";
+                $output = $output . '<td>' . $row[$j] . '</td>';
             }
-            $output = $output . "</tr>";
+            $output = $output . '</tr>';
         }
-        $output = $output . "</table>";
+        $output = $output . '</table>';
 
         return $output;
     }

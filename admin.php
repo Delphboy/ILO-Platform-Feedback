@@ -15,8 +15,8 @@ if(isset($_POST['table-submit'])) {
 
     if ($tableToDisplay != "")
     {
-        $view->table = 'table is set yall';
-//        $view->table = $tableToDisplay;
+//        $view->table = 'table is set yall';
+        $view->table = $tableToDisplay;
     }
 }
 
