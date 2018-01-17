@@ -11,7 +11,6 @@ require_once ('database.php');
 class Admin
 {
     private $ILODatabase;
-    private $SQLQuery;
 
     /**
      * Admin constructor.
