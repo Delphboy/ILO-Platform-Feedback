@@ -48,6 +48,10 @@ if(isset($_POST['def-graphs']))
 //    $rating_vs_wage = $gr->rating_vs_wage();
 //    $platform_by_rating = $gr->platform_by_rating();
 }
+else
+{
+    echo '<h1>henry Sucks</h1>';
+}
 
 
 
