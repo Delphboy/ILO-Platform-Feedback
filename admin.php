@@ -3,9 +3,17 @@ $view = new stdClass();
 require_once ('Models/Admin.php');
 require_once ('Models/Graph.php');
 
+try
+{
+    $model = new Admin();
+    $gr = new Graph();
+}catch (Error $error)
+{
+    echo $error->getMessage();
+}
 
-$model = new Admin();
-$gr = new Graph();
+
+
 // Check for the country selection
 if(isset($_POST['table-submit'])) {
     //listen for submission
