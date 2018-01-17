@@ -11,16 +11,16 @@ require ('database.php');
 
 class Graph
 {
-
+    private $conn;
     function __construct()
     {
-        $conn = database::Instance();
+        $this->conn = database::Instance();
     }
 
     function platform_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
+        $this->result = $this->conn->resultSet();
 
         //echo 'Attempt to create arrays';
 
@@ -69,9 +69,9 @@ class Graph
     }
 
     function wage_per_country(){
-        $conn = database::Instance();
-        $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $conn->resultSet();
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -100,9 +100,9 @@ class Graph
     }
 
     function platform_popularity(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -131,9 +131,9 @@ class Graph
     }
 
     function rating_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
-        $result = $conn->resultSet();
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
+        $result = $this->conn->resultSet();
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -161,9 +161,9 @@ class Graph
     }
 
     function platform_by_rating(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -188,16 +188,16 @@ class Graph
     }
 
     function gender_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT wage, AVG(wage) as food1, null as Food2
+        $this->conn = database::Instance();
+        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2
     where gender = :female;
 
     UNION ALL
 
         SELECT Anganbadi_ID, null as food1, food as Food2
     where Month = 10');
-        $conn->bind(':female',"F");
-        $result = $conn->resultSet();
+        $this->conn->bind(':female',"F");
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
