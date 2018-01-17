@@ -1,5 +1,14 @@
 <?php require_once("Views/template/headerAdmin.phtml");?>
-<?php echo "<h3>where is my source code</h3>"; ?>
+
+<!--Load the Ajax API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.charts.load('43', {'packages':['corechart']});
+</script>
+<!-- Import JavaScript Filter Functions -->
+<script type="text/javascript" src="../js/filters.js"></script>
 
 <body>
 <div class="sec-container">
@@ -289,22 +298,17 @@
                     <input type="submit" value="Generate Graph" name="GraphSubmit"/>
             </form>
 
+            <div id="chart_div">
             <?php
-            if(isset($view->grdata))
+            if(isset($view->JSFunc))
             {
-                    echo "<div id=\"chart_div\">";
-                    echo $view->grdata;
-                    echo "</div>";
+                echo $view->grdata; // print JSON
+                echo $view->JSFunc;
+                echo $view->grdata;
+                echo ');</script>';
             }
             ?>
+            </div>
     </div>
 </div>
 </body>
-
-<!-- Import JavaScript Filter Functions -->
-<script type="text/javascript" src="../js/filters.js"></script>
-<!--Load the Ajax API-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-        google.charts.load('43', {'packages':['corechart']});
-</script>

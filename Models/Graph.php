@@ -11,16 +11,10 @@ require_once('database.php');
 
 class Graph
 {
-    private $conn;
-    function __construct()
-    {
-        $this->conn = database::Instance();
-    }
-
     function platform_vs_wage(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
-        $this->result = $this->conn->resultSet();
+        $conn = database::Instance();
+        $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
+        $result = $conn->resultSet();
 
         //echo 'Attempt to create arrays';
 
