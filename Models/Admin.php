@@ -34,7 +34,7 @@ class Admin
         echo "Size of row is: $sizeofrow <br>";
         print_r($data[0]);
         echo "<br>";
-        print_r($data[0][0]);
+        print_r($data[0][11]);
 
 
         for($rowno = 0; $rowno < $rowCount; $rowno++)
