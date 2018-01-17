@@ -20,7 +20,7 @@ class Graph
     function platform_vs_wage(){
         $conn = database::Instance();
         $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
-        $result = $conn->resultset();
+        $result = $conn->resultSet();
 
         //echo 'Attempt to create arrays';
 
