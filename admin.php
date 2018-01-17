@@ -33,6 +33,7 @@ if(isset($_POST['GraphSubmit']))
     switch ($_POST['def-graphs'])
     {
         case "PlatformVSWage":
+            echo "<h2>attempt to set stuff</h2>";
             $grdata = $this->gr->platform_vs_wage(); break;
 //        case "WagePerCountry":
 //            $grdata = $this->gr->wage_per_country(); break;
