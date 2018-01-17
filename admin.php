@@ -6,7 +6,7 @@ require_once ('Models/Graph.php');
 
 $model = new Admin();
 $gr = new Graph();
-$grdata;
+$grdata = null;
 
 // Check for the country selection
 if(isset($_POST['table-submit'])) {
@@ -27,8 +27,9 @@ if(isset($_POST['table-submit'])) {
 
 
 
-if(isset($_POST['def-graphs']))
+if(isset($_POST['GraphSubmit']))
 {
+    echo '<h1>Henry is Okay i guess</h1>';
     switch ($_POST['def-graphs'])
     {
         case "PlatformVSWage":
@@ -50,18 +51,18 @@ if(isset($_POST['def-graphs']))
 }
 else
 {
-    echo '<h1>henry Sucks</h1>';
+    echo '<h1>Henry Sucks</h1>';
 }
 
 
 
 
-//session_start();
-//if($_SESSION['isSignedIn'])
-//{
+session_start();
+if($_SESSION['isSignedIn'])
+{
     require_once('Views/admin.phtml');
-//}
-//else
-//{
-//    header('Location: login.php');
-//}
+}
+else
+{
+    header('Location: login.php');
+}
