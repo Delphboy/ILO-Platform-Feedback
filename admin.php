@@ -5,7 +5,7 @@ require_once ('Models/Admin.php');
 $model = new Admin();
 
 echo 'I am a var dump <br/>';
-var_dump($_POST);
+print_r($_POST);
 // Check for the country selection
 
 if(isset($_POST['country-selection-admin']))
