@@ -52,12 +52,12 @@ if(isset($_POST['def-graphs']))
 
 
 
-session_start();
-if($_SESSION['isSignedIn'])
-{
+//session_start();
+//if($_SESSION['isSignedIn'])
+//{
     require_once('Views/admin.phtml');
-}
-else
-{
-    header('Location: login.php');
-}
+//}
+//else
+//{
+//    header('Location: login.php');
+//}
