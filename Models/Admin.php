@@ -30,12 +30,17 @@ class Admin
         $output = "";
         $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
+        $sizeofrow = sizeof($data[0]);
+        echo "$sizeofrow";
+
+        
         for($i = 0; $i < $rowCount; $i++)
         {
             $row = $data[$i];
-            $jCount = sizeof($row);
+            $jCount = sizeof($data[$i]);
+            echo "$jCount";
             $output = $output . '<tr>';
-            for($j = 0; $j < 10; $j++)
+            for($j = 0; $j < $jCount; $j++)
             {
                 $output = $output . '<td>' . $row[$j] . '</td>';
             }
