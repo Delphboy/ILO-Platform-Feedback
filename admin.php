@@ -34,6 +34,8 @@ if(isset($_POST['GraphSubmit']))
     {
         case "PlatformVSWage":
             echo "<h2>attempt to set stuff</h2>";
+            echo $view->grdata;
+            echo "<h2>above is our precious data</h2>";
             //$view->grdata = $this->gr->platform_vs_wage();
               break;
 //        case "WagePerCountry":
