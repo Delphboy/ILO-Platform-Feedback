@@ -324,9 +324,9 @@
             <?php
             if(isset($view->grdata)) :
             {
-                echo $view->grdata; // print JSON
-                    echo "<script type=\"text/javascript\">platform_vs_wage(<?php echo $view->grdata; ?>);</script>";
-                echo $view->JSFunc;
+                echo $view->grdata; // print JSON ?>
+                    <script type="text/javascript">platform_vs_wage(<?php echo $view->grdata; ?>);</script>
+               <?php echo $view->JSFunc;
                     echo '<h3>where is my graph</h3>';
             }
             endif;
