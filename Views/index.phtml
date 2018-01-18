@@ -3,7 +3,7 @@ require_once('Views/template/headerUser.phtml'); ?>
 <?php 
 if (isset($_POST['submit'])) {
 	
-	$url = 'https://www.google.com/recapcha/api/siteverify';
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
 }
@@ -20,7 +20,7 @@ else
 ?>
 <?php if(isset($_GET['Capchapass']))?>
 {
-<div class="Form">Message Sent</div>
+	<div class="Form">Message Sent</div>
 }
 <?php if(isset($_GET['Capchafail']))?>
 {
@@ -367,7 +367,7 @@ else
                 </div>
             </div>
 	        
-           <div> <input class="login101-form-btn g-recaptcha" type="submit" value="submit" name="submit" data-sitekey="6Lc2O0EUAAAAAArfppJMAidoH6ZlWClHZxrKYOBb" data-callback='onSubmit'>
+           <div> <input class="g-recaptcha" type="submit" value="submit" name="submit" data-sitekey="6Lc2O0EUAAAAAArfppJMAidoH6ZlWClHZxrKYOBb" data-callback='onSubmit'>
            </div>
         </form>
     </div>
