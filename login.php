@@ -1,5 +1,9 @@
 <?php
 session_start();
+if($_SESSION['isSignedIn'])
+{
+    header('Location: admin.php');
+}
 
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
