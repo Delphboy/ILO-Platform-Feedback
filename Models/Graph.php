@@ -133,8 +133,8 @@ class Graph
         $table = array();
         $table['cols'] = array(
 
-            array('label' => 'time looking', 'type' => 'number'),
-            array('label' => 'time working', 'type' => 'number')
+            array('label' => 'wage', 'type' => 'number'),
+            array('label' => 'rating', 'type' => 'number')
         );
 
         foreach($result as $r) {
@@ -144,8 +144,8 @@ class Graph
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
-            $temp[] = array('v' => (int) $r['hours_spent_looking']);
-            $temp[] = array('v' => (int) $r['hours_spent_working']);
+            $temp[] = array('v' => (int) $r['wage']);
+            $temp[] = array('v' => (int) $r['rating']);
 
 
             $rows[] = array('c' => $temp);
