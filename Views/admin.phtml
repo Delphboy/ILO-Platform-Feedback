@@ -348,7 +348,7 @@
     </div>
 </div>
 <script type="text/javascript">
-        $('form').submit(function(e) {
+        $('#chart_form').submit(function(e) {
                 // Post the form data to page.php
                 $.post('return_data.php', $(this).serialize(), function(resp) {
                         // Set the response data into the #div2
