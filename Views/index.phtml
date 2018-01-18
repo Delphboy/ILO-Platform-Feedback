@@ -7,9 +7,11 @@ if (isset($_POST['submit'])) {
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
 }
-$data = json_decode ($response);
 
-if (isset($data->success) AND $data->success==true)
+	$data = json_decode ($response);
+
+
+if (isset($data->success) AND ($data->success==true))
 {
 	header ('Location: index.php?Captchapass=True');
 }
