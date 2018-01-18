@@ -39,13 +39,14 @@ if(isset($_POST['submit'])){
 		//var_dump ($dbHandle);
 		$dbHandle->execute();
 		
-	}else{
-	
-	echo '<script language = "javascript">';
-	echo 'alert("FAIL")';
-	echo '</script>';
-	
 	}
+//	else{
+//
+//	echo '<script language = "javascript">';
+//	echo 'alert("FAIL")';
+//	echo '</script>';
+//
+//	}
 	
 }
 
