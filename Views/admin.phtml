@@ -301,7 +301,7 @@
 
                 </select>
             </label>
-            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" />
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" id="table_submit" />
                 <!--            <input type="text" id="" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>-->
         </form>
         <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="platform" />
@@ -368,7 +368,7 @@
                 e.preventDefault();
                 return false;
         });
-        $('#myTable').click( function() {
+        $('#table_submit').click( function() {
                 var table = $('#myTable').tableToJSON(); // Convert the table into a javascript object
                 console.log(table);
                 alert(JSON.stringify(table));
