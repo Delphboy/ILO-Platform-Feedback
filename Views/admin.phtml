@@ -369,11 +369,6 @@
                 e.preventDefault();
                 return false;
         });
-        $('#table_submit').click( function() {
-                var table = $('#myTable').tableToJSON(); // Convert the table into a javascript object
-                console.log(table);
-                alert(JSON.stringify(table));
-        });
 
         $(function () {
                 $("[#jsonplz").click(function () {
