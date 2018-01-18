@@ -53,19 +53,19 @@ if(isset($_POST['submit'])) {
 //	else {
 //		header ('Location: index.php?CaptchaFail=True');
 //	}
-}
-else
-{
-	echo "<h1>no cigar</h1>";
-}
-
-if(isset($_GET['CaptchaPass'])){
-	echo "<div class=\"form-check\">Message Sent</div>";
-}
-if(isset($_GET['CaptchaFail']))
-{
-	echo "<div class=\"form-check\">Captcha Failed</div>";
-}
+//}
+//else
+//{
+//	echo "<h1>no cigar</h1>";
+//}
+//
+//if(isset($_GET['CaptchaPass'])){
+//	echo "<div class=\"form-check\">Message Sent</div>";
+//}
+//if(isset($_GET['CaptchaFail']))
+//{
+//	echo "<div class=\"form-check\">Captcha Failed</div>";
+//}
 
 require_once('Views/index.phtml');
 
