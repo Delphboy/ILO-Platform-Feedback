@@ -17,7 +17,7 @@
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="/return_data.php" method="post" id="table_form">
             <label>
                     <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
@@ -306,16 +306,17 @@
         </form>
         <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="platform" />
         <input type="text" id="wageInput" onkeyup="searchByWage()" placeholder="=10" title="wage" />
-ß
+            <div id="tableToDisplay" class="tablescroll">
+<!--        --><?php
+//        if (isset($view->table))
+//        {
+//            echo "";
+//            echo $view->table;
+//            echo "";
+//        }
 
-        <?php
-        if (isset($view->table))
-        {
-            echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
-            echo $view->table;
-            echo "</div>";
-        }
-        ?>
+//        ?>
+            </div>
     </div>
 
     <!-- INFOGRAPHICS SHOWN HERE -->
@@ -350,6 +351,17 @@
                 $.post('return_data.php', $(this).serialize(), function(resp) {
                         // Set the response data into the #chart_div
                         $('#chart_div').html(resp);
+                });
+
+                // Cancel the actual form post so the page doesn't refresh
+                e.preventDefault();
+                return false;
+        });
+        $('#table_form').submit(function(e) {
+                // Post the form data to return_data.php
+                $.post('return_data.php', $(this).serialize(), function(resp) {
+                        // Set the response data into the #chart_div
+                        $('#tableToDisplay').html(resp);
                 });
 
                 // Cancel the actual form post so the page doesn't refresh

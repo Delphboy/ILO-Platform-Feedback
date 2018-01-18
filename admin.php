@@ -9,14 +9,14 @@ $model = new Admin();
 $gr = new Graph();
 
 // Check for the country selection
-if (isset($_POST['table-submit'])) {
-    $query = $_POST['country-selection-admin'];
-    $tableToDisplay = $model->createTable($query);
-
-    if ($tableToDisplay != "") {
-        $view->table = $tableToDisplay;
-    }
-}
+//if (isset($_POST['table-submit'])) {
+//    $query = $_POST['country-selection-admin'];
+//    $tableToDisplay = $model->createTable($query);
+//
+//    if ($tableToDisplay != "") {
+//        $view->table = $tableToDisplay;
+//    }
+//}
 
 //if (isset($_POST['GraphSubmit'])){
 //    switch ($_POST['def_graphs']) {

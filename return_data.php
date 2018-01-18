@@ -1,7 +1,10 @@
 <?php
 require_once('Models/Graph.php');
+require_once('Models/Admin.php');
+
 
 $gr = new Graph();
+$model = new Admin();
 
 $grdata = null;
 
@@ -28,4 +31,12 @@ $grdata = null;
             echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
             break;
     }
+
+$query = $_POST['country-selection-admin'];
+$tableToDisplay = $model->createTable($query);
+
+if ($tableToDisplay != "") {
+    $table = $tableToDisplay;
+    echo $table;
+}
 //echo "<p>This is text</p>";
