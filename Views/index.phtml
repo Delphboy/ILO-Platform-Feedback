@@ -1,5 +1,5 @@
 <?php
-require_once('../Views/template/headerUser.phtml'); ?>
+require_once('Views/template/headerUser.phtml'); ?>
 
 
 //ADDED
@@ -12,6 +12,10 @@ if (isset($_POST['submit'])) {
 	
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
 	$data = json_decode ($response);
+	echo $url;
+	echo $privatekey;
+	echo $response;
+	echo $data;
 	
 	if (isset($data->success) AND $data->success == true) {
 		//true?
@@ -40,7 +44,7 @@ if (isset($_POST['submit'])) {
 	<div class="form-check">Message Sent</div>
 	<?php}?>
 
-<?php if(isset($_GET['Captchafail'])){?>
+<?php if(isset($_GET['CaptchaFail'])){?>
 	<div class="form-check">Captcha Failed</div>
 	<?php}?>
 
@@ -394,4 +398,4 @@ if (isset($_POST['submit'])) {
     </div>
 </body>
 
-<?php require_once('../Views/template/footer.phtml'); ?>
+<?php require_once('Views/template/footer.phtml'); ?>
