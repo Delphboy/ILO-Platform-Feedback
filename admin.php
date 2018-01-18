@@ -33,6 +33,7 @@ if (isset($_POST['table-submit'])) {
 //    $rating_vs_wage = $gr->rating_vs_wage();
 //    $platform_by_rating = $gr->platform_by_rating();
 
+
 session_start();
 if ($_SESSION['isSignedIn']) {
     require_once('Views/admin.phtml');
