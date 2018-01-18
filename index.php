@@ -34,19 +34,30 @@ if(isset($_POST['submit'])) {
 
 if (isset($_POST['captcha-submit'])) {
 	
-	$url = 'https://www.google.com/recaptcha/api/siteverify';
-	$privatekey = "6LdtaEEUAAAAAIpHKMtXx2Tsf_zTcsHRlYDWGlK-";
-
-	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-	$data = json_decode ($response);
-
-	if (isset($data->success) AND $data->success == true) {
-		//true?
-		header ('Location: index.php?CaptchaPass=True');
-	}
-	else {
-		header ('Location: index.php?CaptchaFail=True');
-	}
+	echo "<h1>changed 1</h1>";
+	
+//	$url = 'https://www.google.com/recaptcha/api/siteverify';
+//	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
+//
+//	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+//	$data = json_decode ($response);
+//	echo $url;
+//	echo $privatekey;
+//	echo $response;
+//	echo $data;
+//
+//	if (isset($data->success) AND $data->success == true) {
+//		//true?
+//		header ('Location: index.php?CaptchaPass=True');
+//	}
+//	else {
+//		header ('Location: index.php?CaptchaFail=True');
+//	}
+}
+else
+{
+	echo "<h1>no cigar</h1>";
+}
 
 if(isset($_GET['CaptchaPass'])){
 	echo "<div class=\"form-check\">Message Sent</div>";
@@ -56,5 +67,5 @@ if(isset($_GET['CaptchaFail']))
 	echo "<div class=\"form-check\">Captcha Failed</div>";
 }
 
-require_once('Views/index.phtml');?>
+require_once('Views/index.phtml');
 
