@@ -11,6 +11,7 @@ require_once('database.php');
 
 class Graph
 {
+
     function platform_vs_wage(){
         $conn = database::Instance();
         $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
@@ -63,9 +64,9 @@ class Graph
     }
 
     function wage_per_country(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $this->conn->resultSet();
+        $conn = database::Instance();
+        $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -94,9 +95,9 @@ class Graph
     }
 
     function platform_popularity(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $this->conn->resultSet();
+        $conn = database::Instance();
+        $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -125,9 +126,9 @@ class Graph
     }
 
     function rating_vs_wage(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
-        $result = $this->conn->resultSet();
+        $conn = database::Instance();
+        $conn->query('SELECT hours_spent_looking, hours_spent_working FROM review');
+        $result = $conn->resultSet();
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -155,9 +156,9 @@ class Graph
     }
 
     function platform_by_rating(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $this->conn->resultSet();
+        $conn = database::Instance();
+        $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -182,16 +183,16 @@ class Graph
     }
 
     function gender_vs_wage(){
-        $this->conn = database::Instance();
-        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2
+        $conn = database::Instance();
+        $conn->query('SELECT wage, AVG(wage) as food1, null as Food2
     where gender = :female;
 
     UNION ALL
 
         SELECT Anganbadi_ID, null as food1, food as Food2
     where Month = 10');
-        $this->conn->bind(':female',"F");
-        $result = $this->conn->resultSet();
+        $conn->bind(':female',"F");
+        $result = $conn->resultSet();
 
         $rows = array();
         $table = array();

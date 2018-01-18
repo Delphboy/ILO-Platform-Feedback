@@ -30,6 +30,7 @@ function myFunction1() {
  * CHART FILTERS
  */
 function platform_vs_wage(jsontable){
+    google.charts.load('43', {'packages':['corechart']});
     alert(jsontable);
     //Create our data table out of JSON data  loaded from server.
     var data = new google.visualization.DataTable(jsontable);
@@ -48,6 +49,7 @@ function platform_vs_wage(jsontable){
 }
 
 function wage_per_country(jsontable){
+    google.charts.load('43', {'packages':['corechart']});
     var data = new google.visualization.DataTable(jsontable);
     var barchart_options =
         {
@@ -62,6 +64,7 @@ function wage_per_country(jsontable){
 }
 
 function platform_popularity(jsontable) {
+    google.charts.load('43', {'packages':['corechart']});
     var data = new google.visualization.DataTable(jsontable);
     var piechart_options =
         {
@@ -75,6 +78,7 @@ function platform_popularity(jsontable) {
     chart.draw(data, piechart_options);
 }
 function rating_vs_wage(jsontable){
+    google.charts.load('43', {'packages':['corechart']});
     var data = new google.visualization.DataTable(jsontable);
     var piechart_options =
         {
@@ -91,6 +95,7 @@ function rating_vs_wage(jsontable){
 }
 
 function platform_by_rating(jsontable){
+    google.charts.load('43', {'packages':['corechart']});
     var data = new google.visualization.DataTable(jsontable);
     var piechart_options =
         {

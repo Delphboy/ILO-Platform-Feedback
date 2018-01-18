@@ -27,7 +27,7 @@ if(isset($_POST['GraphSubmit']))
     {
         case "PlatformVSWage":
             $view->grdata = $gr->platform_vs_wage();
-            $view->JSFunc =  '<script type="text/javascript">platform_vs_wage(' . $view->grdata . ');</script>';
+            $view->JSFunc =  '<script type="text/javascript">platform_vs_wage(<?php echo $view->grdata; ?>);</script>';
             break;
     }
 
