@@ -1,35 +1,22 @@
+<?php require_once("Views/template/headerAdmin.phtml");?>
+
+<!--Load the Ajax API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.charts.load('43', {'packages':['corechart']});
+</script>
+<!-- Import JavaScript Filter Functions -->
+<script type="text/javascript" src="../js/filters.js"></script>
+
+<body>
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12" >
-        <?php
-        /**
-         * Created by PhpStorm.
-         * User: sagiu
-         * Date: 16/01/2018
-         * Time: 11:34
-         */
-        // recieve request
-        $sql = $_POST["click"];
-        //$sql = $_POST["country"];
-
-        //Data Base Connect to be removed when proved working
-
-        $host="den1.mysql3.gear.host";
-        $dbName="gr2";
-        $user = "gr2";
-        $pass = 'gr0up2t357db!';
-
-        //$dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $sqlQuery = $sql; // put your students table name
-        //echo $sqlQuery;  //helpful for debugging to see what SQL query has been created
-        $statement = $dbHandle->prepare($sqlQuery); // prepare PDO statement
-        $statement->execute();   // execute the PDO statement
-        ?>
         <!--Table-->
-
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <label> <select name="click" class="searchOp">
+            <label> <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -282,203 +269,46 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="Input Country">
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
         </form>
 
-        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type">
-        <!--<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search by column 3" title="Type">-->
-        <!--<input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search by column 4" title="Type">-->
-        <!--<input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search by column 5" title="Type">-->
-        <!--<input type="text" id="myInput5" onkeyup="myFunction5()" placeholder="Search by column 6" title="Type">-->
-        <!--<input type="text" id="myInput6" onkeyup="myFunction6()" placeholder="Search by column 7" title="Type">-->
-        <!--<input type="text" id="myInput7" onkeyup="myFunction7()" placeholder="Search by column 8" title="Type">-->
-        <!--<input type="text" id="myInput8" onkeyup="myFunction8()" placeholder="Search by column 9" title="Type">-->
-        <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
-        <div class="tablescroll">
-            <?php
-            echo "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
-            while ($row = $statement->fetch())
-            {
-                echo"<tr><td>". $row[0] ."</td>
-             <td>". $row[1] ."</td>
-             <td>". $row[2] ."</td>
-             <td>". $row[3] ."</td>
-             <td>". $row[4] ."</td>
-             <td>". $row[5] ."</td>
-             <td>". $row[6] ."</td>
-             <td>". $row[7] ."</td>
-             <td>". $row[8] ."</td>
-             <td>". $row[9];}
-            echo "</table>";
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type" />
 
-            //close connect
-            $dbHandle = null;
-            ?>
-        </div>
-        <!--Filter Choices-->
-<!--        <form action="/tests/testFilter.php" method="post">-->
-<!--            <label> <select name = "click">-->
-<!--                    <option value = 'select * from gr2.user'>select all users</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 1'>get all admin</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 0'>get all non admin</option>-->
-<!--                    <option value = 'select * from gr2.review'>select all reviews</option>-->
-<!---->
-<!--                </select> </label> <input type="submit" placeholder="Select SQL Query" value="Quick Search">-->
-<!--        </form>-->
-
-        <!--JScript to help filter-->
-
-        <script>
-            function myFunction1() {
-                // Declare variables
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput1");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
+                <?php
+                if(isset($view->table))
+                {
+                        echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
+                        echo $view->table;
+                        echo "</div>";
                 }
-            }
-        </script>
+                ?>
     </div>
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12" >
-        <head>
-            <!--Load the Ajax API-->
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+                <select name="def-graphs" class="searchOp">
+                    <option id="placeholder" value="placeholder">Choose graph</option>
+                    <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
+                    <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
+                    <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
+                    <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
+                    <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
+                </select>
+                    <input type="submit" value="Generate Graph" name="GraphSubmit"/>
+            </form>
 
+            <div id="chart_div">
             <?php
-            require ('Models/Graph.php');
-            $gr = new Graph();
-            $platform_vs_wage = $gr->platform_vs_wage();
-            //print_r($platform_vs_wage);
-            $wage_per_country = $gr->wage_per_country();
-            $platform_popularity = $gr->platform_popularity();
-            $rating_vs_wage = $gr->rating_vs_wage();
-            $platform_by_rating = $gr->platform_by_rating();
-
+            if(isset($view->JSFunc))
+            {
+                echo $view->grdata; // print JSON
+                echo $view->JSFunc;
+                echo $view->grdata;
+                echo ');</script>';
+            }
             ?>
-            <script type="text/javascript">
-                // Load the Visualization API and the corechart package.
-                google.charts.load('current', {'packages':['corechart']});
-                // Set a callback to run when the Google Visualization API is loaded.
-                //        google.charts.setOnLoadCallback();
-
-
-                function platform_vs_wage(){
-                    //Create our data table out of JSON data  loaded from server.
-                    var data = new google.visualization.DataTable(<?php echo $platform_vs_wage; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Platform vs Average Wage',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-
-                    // Instantiate and draw our chart, passing in some options.
-                    // Do not forget to check your div ID
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function wage_per_country(){
-                    var data = new google.visualization.DataTable(<?php echo $wage_per_country; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Average Wage per Country',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function platform_popularity() {
-                    var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Average Platform Popularity',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-                function rating_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $rating_vs_wage; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Hours Looking vs Hours Working',
-                        hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
-                        vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function platform_by_rating(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Platform by Average Rating',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function gender_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Barchart',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-            </script>
-        </head>
-
-        <select name="def-graphs" class="searchOp">
-            <option id="placeholder" value="placeholder">Choose graph</option>
-            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform by Avg wage barchart</option>
-            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
-            <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
-            <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
-            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
-        </select>
-
-
-        <div id="chart_div">
-        </div>
+            </div>
     </div>
 </div>
+</body>
