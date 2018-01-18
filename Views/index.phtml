@@ -1,366 +1,355 @@
 <?php
-require_once ('template/headerUser.phtml');
+	require_once('template/headerUser.phtml');
 ?>
 
-<!--
-User PAGE
-if an admin were to log in then they will be taken to this page.
+
+	<!--
+    User PAGE
+    if an admin were to log in then they will be taken to this page.
 c
-Contents:
-	- Will have a survey
--->
-<body class = "container-login100">
+    Contents:
+        - Will have a survey
+ -->
+<body class="container-login100">
 
 
-<div class = "wrap-login101">
-	<form class = "form-style" method = "post" action = "<?php echo $_SERVER['PHP_SELF'];?>">
-            <span class = "survey-title">
+    <div class="wrap-login101">
+        <form class="form-style" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <span class="survey-title">
                     Survey
                 </span>
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Platform:</label>
-			<div class = "input100">
-				<label> <select class = "searchOp" name = "platform" required>
-					<option class = "searchItem" value = "AMT">AMT</option>
-					<option class = "searchItem" value = "UpWork">UpWork</option>
-					<option class = "searchItem" value = "Fiverr">Fiverr</option>
-					<option class = "searchItem" value = "ClickWork">ClickWork</option>
-				</select> </label>
-			</div>
-		</div>
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Time spent looking for work:</label> <label
-			class = "surveyText-sub">In Hours</label> <label> <input class = "input100" name = "timelooking"
-			                                                         type = "number" maxlength = "6"
-			                                                         max = "200" min = "1" step = "1"
-			                                                         oninput = "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-			                                                         required> </label>
-		</div>
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Time spent working on task:</label> <label
-			class = "surveyText-sub">In Hours</label> <label> <input class = "input100" name = "timeworking"
-			                                                         type = "number" maxlength = "6"
-			                                                         max = "200" min = "1" step = "1"
-			                                                         oninput = "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-			                                                         required> </label>
-		</div>
-		
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Wage:</label> <label class = "surveyText-sub">(Currency/hr)</label>
-			<div class = "currency">
-				<div class = "inputCurrency">
-					<label> <select class = "searchOp" name = "CurrencySign" required>
-						<option class = "searchItem" value = "GBP">£</option>
-						<option class = "searchItem" value = "USD">$</option>
-						<option class = "searchItem" value = "EUR">€</option>
-						<option class = "searchItem" value = "YEN">¥</option>
-					</select> </label>
-				</div>
-				<label> <input class = "inputCurrency inputCurrency-text" name = "wage" type = "number"
-				               maxlength = "6" max = "200" min = "0" step = "0.01"
-				               oninput = "if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-				               required> </label>
-			</div>
-		</div>
-		
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Gender</label>
-			<div class = "input100">
-				<label> <select name = "gender" class = "searchOp">
-					<option class = "searchItem" value = "M">Male</option>
-					<option class = "searchItem" value = "F">Female</option>
-					<option class = "searchItem" value = "O">Prefer not to Say</option>
-				</select> </label>
-			</div>
-		</div>
-		
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Age</label>
-			<div class = "input100">
-				<label> <input class = "searchOp" name = "age" type = "number" maxlength = "2" max = "99" min = "0"
-				               required> </label>
-			</div>
-		</div>
-		
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Country</label>
-			<div class = "input100">
-				<label> <select name = "country" class = "searchOp">
-					<option class = "searchItem" value = "AF">Afghanistan</option>
-					<option class = "searchItem" value = "AX">Åland Islands</option>
-					<option class = "searchItem" value = "AL">Albania</option>
-					<option class = "searchItem" value = "DZ">Algeria</option>
-					<option class = "searchItem" value = "AS">American Samoa</option>
-					<option class = "searchItem" value = "AD">Andorra</option>
-					<option class = "searchItem" value = "AO">Angola</option>
-					<option class = "searchItem" value = "AI">Anguilla</option>
-					<option class = "searchItem" value = "AQ">Antarctica</option>
-					<option class = "searchItem" value = "AG">Antigua and Barbuda</option>
-					<option class = "searchItem" value = "AR">Argentina</option>
-					<option class = "searchItem" value = "AM">Armenia</option>
-					<option class = "searchItem" value = "AW">Aruba</option>
-					<option class = "searchItem" value = "AU">Australia</option>
-					<option class = "searchItem" value = "AT">Austria</option>
-					<option class = "searchItem" value = "AZ">Azerbaijan</option>
-					<option class = "searchItem" value = "BS">Bahamas</option>
-					<option class = "searchItem" value = "BH">Bahrain</option>
-					<option class = "searchItem" value = "BD">Bangladesh</option>
-					<option class = "searchItem" value = "BB">Barbados</option>
-					<option class = "searchItem" value = "BY">Belarus</option>
-					<option class = "searchItem" value = "BE">Belgium</option>
-					<option class = "searchItem" value = "BZ">Belize</option>
-					<option class = "searchItem" value = "BJ">Benin</option>
-					<option class = "searchItem" value = "BM">Bermuda</option>
-					<option class = "searchItem" value = "BT">Bhutan</option>
-					<option class = "searchItem" value = "BO">Bolivia, Plurinational State of</option>
-					<option class = "searchItem" value = "BQ">Bonaire, Sint Eustatius and Saba</option>
-					<option class = "searchItem" value = "BA">Bosnia and Herzegovina</option>
-					<option class = "searchItem" value = "BW">Botswana</option>
-					<option class = "searchItem" value = "BV">Bouvet Island</option>
-					<option class = "searchItem" value = "BR">Brazil</option>
-					<option class = "searchItem" value = "IO">British Indian Ocean Territory</option>
-					<option class = "searchItem" value = "BN">Brunei Darussalam</option>
-					<option class = "searchItem" value = "BG">Bulgaria</option>
-					<option class = "searchItem" value = "BF">Burkina Faso</option>
-					<option class = "searchItem" value = "BI">Burundi</option>
-					<option class = "searchItem" value = "KH">Cambodia</option>
-					<option class = "searchItem" value = "CM">Cameroon</option>
-					<option class = "searchItem" value = "CA">Canada</option>
-					<option class = "searchItem" value = "CV">Cape Verde</option>
-					<option class = "searchItem" value = "KY">Cayman Islands</option>
-					<option class = "searchItem" value = "CF">Central African Republic</option>
-					<option class = "searchItem" value = "TD">Chad</option>
-					<option class = "searchItem" value = "CL">Chile</option>
-					<option class = "searchItem" value = "CN">China</option>
-					<option class = "searchItem" value = "CX">Christmas Island</option>
-					<option class = "searchItem" value = "CC">Cocos (Keeling) Islands</option>
-					<option class = "searchItem" value = "CO">Colombia</option>
-					<option class = "searchItem" value = "KM">Comoros</option>
-					<option class = "searchItem" value = "CG">Congo</option>
-					<option class = "searchItem" value = "CD">Congo, the Democratic Republic of the</option>
-					<option class = "searchItem" value = "CK">Cook Islands</option>
-					<option class = "searchItem" value = "CR">Costa Rica</option>
-					<option class = "searchItem" value = "CI">Côte d'Ivoire</option>
-					<option class = "searchItem" value = "HR">Croatia</option>
-					<option class = "searchItem" value = "CU">Cuba</option>
-					<option class = "searchItem" value = "CW">Curaçao</option>
-					<option class = "searchItem" value = "CY">Cyprus</option>
-					<option class = "searchItem" value = "CZ">Czech Republic</option>
-					<option class = "searchItem" value = "DK">Denmark</option>
-					<option class = "searchItem" value = "DJ">Djibouti</option>
-					<option class = "searchItem" value = "DM">Dominica</option>
-					<option class = "searchItem" value = "DO">Dominican Republic</option>
-					<option class = "searchItem" value = "EC">Ecuador</option>
-					<option class = "searchItem" value = "EG">Egypt</option>
-					<option class = "searchItem" value = "SV">El Salvador</option>
-					<option class = "searchItem" value = "GQ">Equatorial Guinea</option>
-					<option class = "searchItem" value = "ER">Eritrea</option>
-					<option class = "searchItem" value = "EE">Estonia</option>
-					<option class = "searchItem" value = "ET">Ethiopia</option>
-					<option class = "searchItem" value = "FK">Falkland Islands (Malvinas)</option>
-					<option class = "searchItem" value = "FO">Faroe Islands</option>
-					<option class = "searchItem" value = "FJ">Fiji</option>
-					<option class = "searchItem" value = "FI">Finland</option>
-					<option class = "searchItem" value = "FR">France</option>
-					<option class = "searchItem" value = "GF">French Guiana</option>
-					<option class = "searchItem" value = "PF">French Polynesia</option>
-					<option class = "searchItem" value = "TF">French Southern Territories</option>
-					<option class = "searchItem" value = "GA">Gabon</option>
-					<option class = "searchItem" value = "GM">Gambia</option>
-					<option class = "searchItem" value = "GE">Georgia</option>
-					<option class = "searchItem" value = "DE">Germany</option>
-					<option class = "searchItem" value = "GH">Ghana</option>
-					<option class = "searchItem" value = "GI">Gibraltar</option>
-					<option class = "searchItem" value = "GR">Greece</option>
-					<option class = "searchItem" value = "GL">Greenland</option>
-					<option class = "searchItem" value = "GD">Grenada</option>
-					<option class = "searchItem" value = "GP">Guadeloupe</option>
-					<option class = "searchItem" value = "GU">Guam</option>
-					<option class = "searchItem" value = "GT">Guatemala</option>
-					<option class = "searchItem" value = "GG">Guernsey</option>
-					<option class = "searchItem" value = "GN">Guinea</option>
-					<option class = "searchItem" value = "GW">Guinea-Bissau</option>
-					<option class = "searchItem" value = "GY">Guyana</option>
-					<option class = "searchItem" value = "HT">Haiti</option>
-					<option class = "searchItem" value = "HM">Heard Island and McDonald Islands</option>
-					<option class = "searchItem" value = "VA">Holy See (Vatican City State)</option>
-					<option class = "searchItem" value = "HN">Honduras</option>
-					<option class = "searchItem" value = "HK">Hong Kong</option>
-					<option class = "searchItem" value = "HU">Hungary</option>
-					<option class = "searchItem" value = "IS">Iceland</option>
-					<option class = "searchItem" value = "IN">India</option>
-					<option class = "searchItem" value = "ID">Indonesia</option>
-					<option class = "searchItem" value = "IR">Iran, Islamic Republic of</option>
-					<option class = "searchItem" value = "IQ">Iraq</option>
-					<option class = "searchItem" value = "IE">Ireland</option>
-					<option class = "searchItem" value = "IM">Isle of Man</option>
-					<option class = "searchItem" value = "IL">Israel</option>
-					<option class = "searchItem" value = "IT">Italy</option>
-					<option class = "searchItem" value = "JM">Jamaica</option>
-					<option class = "searchItem" value = "JP">Japan</option>
-					<option class = "searchItem" value = "JE">Jersey</option>
-					<option class = "searchItem" value = "JO">Jordan</option>
-					<option class = "searchItem" value = "KZ">Kazakhstan</option>
-					<option class = "searchItem" value = "KE">Kenya</option>
-					<option class = "searchItem" value = "KI">Kiribati</option>
-					<option class = "searchItem" value = "KP">Korea, Democratic People's Republic of</option>
-					<option class = "searchItem" value = "KR">Korea, Republic of</option>
-					<option class = "searchItem" value = "KW">Kuwait</option>
-					<option class = "searchItem" value = "KG">Kyrgyzstan</option>
-					<option class = "searchItem" value = "LA">Lao People's Democratic Republic</option>
-					<option class = "searchItem" value = "LV">Latvia</option>
-					<option class = "searchItem" value = "LB">Lebanon</option>
-					<option class = "searchItem" value = "LS">Lesotho</option>
-					<option class = "searchItem" value = "LR">Liberia</option>
-					<option class = "searchItem" value = "LY">Libya</option>
-					<option class = "searchItem" value = "LI">Liechtenstein</option>
-					<option class = "searchItem" value = "LT">Lithuania</option>
-					<option class = "searchItem" value = "LU">Luxembourg</option>
-					<option class = "searchItem" value = "MO">Macao</option>
-					<option class = "searchItem" value = "MK">Macedonia, the former Yugoslav Republic of
-					</option>
-					<option class = "searchItem" value = "MG">Madagascar</option>
-					<option class = "searchItem" value = "MW">Malawi</option>
-					<option class = "searchItem" value = "MY">Malaysia</option>
-					<option class = "searchItem" value = "MV">Maldives</option>
-					<option class = "searchItem" value = "ML">Mali</option>
-					<option class = "searchItem" value = "MT">Malta</option>
-					<option class = "searchItem" value = "MH">Marshall Islands</option>
-					<option class = "searchItem" value = "MQ">Martinique</option>
-					<option class = "searchItem" value = "MR">Mauritania</option>
-					<option class = "searchItem" value = "MU">Mauritius</option>
-					<option class = "searchItem" value = "YT">Mayotte</option>
-					<option class = "searchItem" value = "MX">Mexico</option>
-					<option class = "searchItem" value = "FM">Micronesia, Federated States of</option>
-					<option class = "searchItem" value = "MD">Moldova, Republic of</option>
-					<option class = "searchItem" value = "MC">Monaco</option>
-					<option class = "searchItem" value = "MN">Mongolia</option>
-					<option class = "searchItem" value = "ME">Montenegro</option>
-					<option class = "searchItem" value = "MS">Montserrat</option>
-					<option class = "searchItem" value = "MA">Morocco</option>
-					<option class = "searchItem" value = "MZ">Mozambique</option>
-					<option class = "searchItem" value = "MM">Myanmar</option>
-					<option class = "searchItem" value = "NA">Namibia</option>
-					<option class = "searchItem" value = "NR">Nauru</option>
-					<option class = "searchItem" value = "NP">Nepal</option>
-					<option class = "searchItem" value = "NL">Netherlands</option>
-					<option class = "searchItem" value = "NC">New Caledonia</option>
-					<option class = "searchItem" value = "NZ">New Zealand</option>
-					<option class = "searchItem" value = "NI">Nicaragua</option>
-					<option class = "searchItem" value = "NE">Niger</option>
-					<option class = "searchItem" value = "NG">Nigeria</option>
-					<option class = "searchItem" value = "NU">Niue</option>
-					<option class = "searchItem" value = "NF">Norfolk Island</option>
-					<option class = "searchItem" value = "MP">Northern Mariana Islands</option>
-					<option class = "searchItem" value = "NO">Norway</option>
-					<option class = "searchItem" value = "OM">Oman</option>
-					<option class = "searchItem" value = "PK">Pakistan</option>
-					<option class = "searchItem" value = "PW">Palau</option>
-					<option class = "searchItem" value = "PS">Palestinian Territory, Occupied</option>
-					<option class = "searchItem" value = "PA">Panama</option>
-					<option class = "searchItem" value = "PG">Papua New Guinea</option>
-					<option class = "searchItem" value = "PY">Paraguay</option>
-					<option class = "searchItem" value = "PE">Peru</option>
-					<option class = "searchItem" value = "PH">Philippines</option>
-					<option class = "searchItem" value = "PN">Pitcairn</option>
-					<option class = "searchItem" value = "PL">Poland</option>
-					<option class = "searchItem" value = "PT">Portugal</option>
-					<option class = "searchItem" value = "PR">Puerto Rico</option>
-					<option class = "searchItem" value = "QA">Qatar</option>
-					<option class = "searchItem" value = "RE">Réunion</option>
-					<option class = "searchItem" value = "RO">Romania</option>
-					<option class = "searchItem" value = "RU">Russian Federation</option>
-					<option class = "searchItem" value = "RW">Rwanda</option>
-					<option class = "searchItem" value = "BL">Saint Barthélemy</option>
-					<option class = "searchItem" value = "SH">Saint Helena, Ascension and Tristan da Cunha
-					</option>
-					<option class = "searchItem" value = "KN">Saint Kitts and Nevis</option>
-					<option class = "searchItem" value = "LC">Saint Lucia</option>
-					<option class = "searchItem" value = "MF">Saint Martin (French part)</option>
-					<option class = "searchItem" value = "PM">Saint Pierre and Miquelon</option>
-					<option class = "searchItem" value = "VC">Saint Vincent and the Grenadines</option>
-					<option class = "searchItem" value = "WS">Samoa</option>
-					<option class = "searchItem" value = "SM">San Marino</option>
-					<option class = "searchItem" value = "ST">Sao Tome and Principe</option>
-					<option class = "searchItem" value = "SA">Saudi Arabia</option>
-					<option class = "searchItem" value = "SN">Senegal</option>
-					<option class = "searchItem" value = "RS">Serbia</option>
-					<option class = "searchItem" value = "SC">Seychelles</option>
-					<option class = "searchItem" value = "SL">Sierra Leone</option>
-					<option class = "searchItem" value = "SG">Singapore</option>
-					<option class = "searchItem" value = "SX">Sint Maarten (Dutch part)</option>
-					<option class = "searchItem" value = "SK">Slovakia</option>
-					<option class = "searchItem" value = "SI">Slovenia</option>
-					<option class = "searchItem" value = "SB">Solomon Islands</option>
-					<option class = "searchItem" value = "SO">Somalia</option>
-					<option class = "searchItem" value = "ZA">South Africa</option>
-					<option class = "searchItem" value = "GS">South Georgia and the South Sandwich Islands
-					</option>
-					<option class = "searchItem" value = "SS">South Sudan</option>
-					<option class = "searchItem" value = "ES">Spain</option>
-					<option class = "searchItem" value = "LK">Sri Lanka</option>
-					<option class = "searchItem" value = "SD">Sudan</option>
-					<option class = "searchItem" value = "SR">Suriname</option>
-					<option class = "searchItem" value = "SJ">Svalbard and Jan Mayen</option>
-					<option class = "searchItem" value = "SZ">Swaziland</option>
-					<option class = "searchItem" value = "SE">Sweden</option>
-					<option class = "searchItem" value = "CH">Switzerland</option>
-					<option class = "searchItem" value = "SY">Syrian Arab Republic</option>
-					<option class = "searchItem" value = "TW">Taiwan, Province of China</option>
-					<option class = "searchItem" value = "TJ">Tajikistan</option>
-					<option class = "searchItem" value = "TZ">Tanzania, United Republic of</option>
-					<option class = "searchItem" value = "TH">Thailand</option>
-					<option class = "searchItem" value = "TL">Timor-Leste</option>
-					<option class = "searchItem" value = "TG">Togo</option>
-					<option class = "searchItem" value = "TK">Tokelau</option>
-					<option class = "searchItem" value = "TO">Tonga</option>
-					<option class = "searchItem" value = "TT">Trinidad and Tobago</option>
-					<option class = "searchItem" value = "TN">Tunisia</option>
-					<option class = "searchItem" value = "TR">Turkey</option>
-					<option class = "searchItem" value = "TM">Turkmenistan</option>
-					<option class = "searchItem" value = "TC">Turks and Caicos Islands</option>
-					<option class = "searchItem" value = "TV">Tuvalu</option>
-					<option class = "searchItem" value = "UG">Uganda</option>
-					<option class = "searchItem" value = "UA">Ukraine</option>
-					<option class = "searchItem" value = "AE">United Arab Emirates</option>
-					<option class = "searchItem" value = "GB">United Kingdom</option>
-					<option class = "searchItem" value = "US">United States</option>
-					<option class = "searchItem" value = "UM">United States Minor Outlying Islands</option>
-					<option class = "searchItem" value = "UY">Uruguay</option>
-					<option class = "searchItem" value = "UZ">Uzbekistan</option>
-					<option class = "searchItem" value = "VU">Vanuatu</option>
-					<option class = "searchItem" value = "VE">Venezuela, Bolivarian Republic of</option>
-					<option class = "searchItem" value = "VN">Viet Nam</option>
-					<option class = "searchItem" value = "VG">Virgin Islands, British</option>
-					<option class = "searchItem" value = "VI">Virgin Islands, U.S.</option>
-					<option class = "searchItem" value = "WF">Wallis and Futuna</option>
-					<option class = "searchItem" value = "EH">Western Sahara</option>
-					<option class = "searchItem" value = "YE">Yemen</option>
-					<option class = "searchItem" value = "ZM">Zambia</option>
-					<option class = "searchItem" value = "ZW">Zimbabwe</option>
-				</select> </label>
-			</div>
-		</div>
-		
-		<div class = "wrap-input100 validate-input">
-			<label class = "surveyText">Rating</label>
-			<div class = "input100">
-				<label> <select class = "searchOp" name = "rating">
-					<option class = "searchItem" value = "0">0 Star</option>
-					<option class = "searchItem" value = "1">1 Star</option>
-					<option class = "searchItem" value = "2">2 Star</option>
-					<option class = "searchItem" value = "3">3 Star</option>
-					<option class = "searchItem" value = "4">4 Star</option>
-					<option class = "searchItem" value = "5">5 Star</option>
-				</select> </label>
-			</div>
-		</div>
-		
-		
-		<div class = "g-recaptcha" data-sitekey = "6LeBZkEUAAAAAJBFx6kK9CB4sMrxBf0ZthIdlFji"></div>
-	
-	</form>
-</div>
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Platform:</label>
+                <div class="input100">
+                    <select class="searchOp" name="platform" required>
+                        <option class="searchItem" value="AMT">AMT</option>
+                        <option class="searchItem" value="UpWork">UpWork</option>
+                        <option class="searchItem" value="Fiverr">Fiverr</option>
+                        <option class="searchItem" value="ClickWork">ClickWork</option>
+                    </select>
+                </div>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText" >Time spent looking for work:</label>
+                <label class="surveyText-sub">In Hours</label>
+                <input class="input100" name="timelooking" type="number" maxlength="6" max="200" min="1" step="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
+            </div>
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Time spent working on task:</label>
+                <label class="surveyText-sub">In Hours</label>
+                <input class="input100" name="timeworking" type="number" maxlength="6" max="200" min="1" step="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Wage:</label>
+                <label class="surveyText-sub">(Currency/hr)</label>
+                <div class="currency">
+                    <div class="inputCurrency">
+                        <select class="searchOp" name="CurrencySign" required>
+                            <option class="searchItem" value="GBP">£</option>
+                            <option class="searchItem" value="USD">$</option>
+                            <option class="searchItem" value="EUR">€</option>
+                            <option class="searchItem" value="YEN">¥</option>
+                        </select>
+                    </div>
+                    <input class="inputCurrency inputCurrency-text" name="wage" type="number" maxlength="6" max="200" min="0" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Gender</label>
+                <div class="input100">
+                    <select name="gender" class="searchOp">
+                        <option class="searchItem" value="M">Male</option>
+                        <option class="searchItem" value="F">Female</option>
+                        <option class="searchItem" value="O">Prefer not to Say</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Age</label>
+                <div class="input100">
+                    <input class="searchOp" name="age" type="number" maxlength="2" max="99" min="0" required>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Country</label>
+                <div class="input100">
+                    <select name="country" class="searchOp">
+                        <option class="searchItem" value="AF">Afghanistan</option>
+                        <option class="searchItem" value="AX">Åland Islands</option>
+                        <option class="searchItem" value="AL">Albania</option>
+                        <option class="searchItem" value="DZ">Algeria</option>
+                        <option class="searchItem" value="AS">American Samoa</option>
+                        <option class="searchItem" value="AD">Andorra</option>
+                        <option class="searchItem" value="AO">Angola</option>
+                        <option class="searchItem" value="AI">Anguilla</option>
+                        <option class="searchItem" value="AQ">Antarctica</option>
+                        <option class="searchItem" value="AG">Antigua and Barbuda</option>
+                        <option class="searchItem" value="AR">Argentina</option>
+                        <option class="searchItem" value="AM">Armenia</option>
+                        <option class="searchItem" value="AW">Aruba</option>
+                        <option class="searchItem" value="AU">Australia</option>
+                        <option class="searchItem" value="AT">Austria</option>
+                        <option class="searchItem" value="AZ">Azerbaijan</option>
+                        <option class="searchItem" value="BS">Bahamas</option>
+                        <option class="searchItem" value="BH">Bahrain</option>
+                        <option class="searchItem" value="BD">Bangladesh</option>
+                        <option class="searchItem" value="BB">Barbados</option>
+                        <option class="searchItem" value="BY">Belarus</option>
+                        <option class="searchItem" value="BE">Belgium</option>
+                        <option class="searchItem" value="BZ">Belize</option>
+                        <option class="searchItem" value="BJ">Benin</option>
+                        <option class="searchItem" value="BM">Bermuda</option>
+                        <option class="searchItem" value="BT">Bhutan</option>
+                        <option class="searchItem" value="BO">Bolivia, Plurinational State of</option>
+                        <option class="searchItem" value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                        <option class="searchItem" value="BA">Bosnia and Herzegovina</option>
+                        <option class="searchItem" value="BW">Botswana</option>
+                        <option class="searchItem" value="BV">Bouvet Island</option>
+                        <option class="searchItem" value="BR">Brazil</option>
+                        <option class="searchItem" value="IO">British Indian Ocean Territory</option>
+                        <option class="searchItem" value="BN">Brunei Darussalam</option>
+                        <option class="searchItem" value="BG">Bulgaria</option>
+                        <option class="searchItem" value="BF">Burkina Faso</option>
+                        <option class="searchItem" value="BI">Burundi</option>
+                        <option class="searchItem" value="KH">Cambodia</option>
+                        <option class="searchItem" value="CM">Cameroon</option>
+                        <option class="searchItem" value="CA">Canada</option>
+                        <option class="searchItem" value="CV">Cape Verde</option>
+                        <option class="searchItem" value="KY">Cayman Islands</option>
+                        <option class="searchItem" value="CF">Central African Republic</option>
+                        <option class="searchItem" value="TD">Chad</option>
+                        <option class="searchItem" value="CL">Chile</option>
+                        <option class="searchItem" value="CN">China</option>
+                        <option class="searchItem" value="CX">Christmas Island</option>
+                        <option class="searchItem" value="CC">Cocos (Keeling) Islands</option>
+                        <option class="searchItem" value="CO">Colombia</option>
+                        <option class="searchItem" value="KM">Comoros</option>
+                        <option class="searchItem" value="CG">Congo</option>
+                        <option class="searchItem" value="CD">Congo, the Democratic Republic of the</option>
+                        <option class="searchItem" value="CK">Cook Islands</option>
+                        <option class="searchItem" value="CR">Costa Rica</option>
+                        <option class="searchItem" value="CI">Côte d'Ivoire</option>
+                        <option class="searchItem" value="HR">Croatia</option>
+                        <option class="searchItem" value="CU">Cuba</option>
+                        <option class="searchItem" value="CW">Curaçao</option>
+                        <option class="searchItem" value="CY">Cyprus</option>
+                        <option class="searchItem" value="CZ">Czech Republic</option>
+                        <option class="searchItem" value="DK">Denmark</option>
+                        <option class="searchItem" value="DJ">Djibouti</option>
+                        <option class="searchItem" value="DM">Dominica</option>
+                        <option class="searchItem" value="DO">Dominican Republic</option>
+                        <option class="searchItem" value="EC">Ecuador</option>
+                        <option class="searchItem" value="EG">Egypt</option>
+                        <option class="searchItem" value="SV">El Salvador</option>
+                        <option class="searchItem" value="GQ">Equatorial Guinea</option>
+                        <option class="searchItem" value="ER">Eritrea</option>
+                        <option class="searchItem" value="EE">Estonia</option>
+                        <option class="searchItem" value="ET">Ethiopia</option>
+                        <option class="searchItem" value="FK">Falkland Islands (Malvinas)</option>
+                        <option class="searchItem" value="FO">Faroe Islands</option>
+                        <option class="searchItem" value="FJ">Fiji</option>
+                        <option class="searchItem" value="FI">Finland</option>
+                        <option class="searchItem" value="FR">France</option>
+                        <option class="searchItem" value="GF">French Guiana</option>
+                        <option class="searchItem" value="PF">French Polynesia</option>
+                        <option class="searchItem" value="TF">French Southern Territories</option>
+                        <option class="searchItem" value="GA">Gabon</option>
+                        <option class="searchItem" value="GM">Gambia</option>
+                        <option class="searchItem" value="GE">Georgia</option>
+                        <option class="searchItem" value="DE">Germany</option>
+                        <option class="searchItem" value="GH">Ghana</option>
+                        <option class="searchItem" value="GI">Gibraltar</option>
+                        <option class="searchItem" value="GR">Greece</option>
+                        <option class="searchItem" value="GL">Greenland</option>
+                        <option class="searchItem" value="GD">Grenada</option>
+                        <option class="searchItem" value="GP">Guadeloupe</option>
+                        <option class="searchItem" value="GU">Guam</option>
+                        <option class="searchItem" value="GT">Guatemala</option>
+                        <option class="searchItem" value="GG">Guernsey</option>
+                        <option class="searchItem" value="GN">Guinea</option>
+                        <option class="searchItem" value="GW">Guinea-Bissau</option>
+                        <option class="searchItem" value="GY">Guyana</option>
+                        <option class="searchItem" value="HT">Haiti</option>
+                        <option class="searchItem" value="HM">Heard Island and McDonald Islands</option>
+                        <option class="searchItem" value="VA">Holy See (Vatican City State)</option>
+                        <option class="searchItem" value="HN">Honduras</option>
+                        <option class="searchItem" value="HK">Hong Kong</option>
+                        <option class="searchItem" value="HU">Hungary</option>
+                        <option class="searchItem" value="IS">Iceland</option>
+                        <option class="searchItem" value="IN">India</option>
+                        <option class="searchItem" value="ID">Indonesia</option>
+                        <option class="searchItem" value="IR">Iran, Islamic Republic of</option>
+                        <option class="searchItem" value="IQ">Iraq</option>
+                        <option class="searchItem" value="IE">Ireland</option>
+                        <option class="searchItem" value="IM">Isle of Man</option>
+                        <option class="searchItem" value="IL">Israel</option>
+                        <option class="searchItem" value="IT">Italy</option>
+                        <option class="searchItem" value="JM">Jamaica</option>
+                        <option class="searchItem" value="JP">Japan</option>
+                        <option class="searchItem" value="JE">Jersey</option>
+                        <option class="searchItem" value="JO">Jordan</option>
+                        <option class="searchItem" value="KZ">Kazakhstan</option>
+                        <option class="searchItem" value="KE">Kenya</option>
+                        <option class="searchItem" value="KI">Kiribati</option>
+                        <option class="searchItem" value="KP">Korea, Democratic People's Republic of</option>
+                        <option class="searchItem" value="KR">Korea, Republic of</option>
+                        <option class="searchItem" value="KW">Kuwait</option>
+                        <option class="searchItem" value="KG">Kyrgyzstan</option>
+                        <option class="searchItem" value="LA">Lao People's Democratic Republic</option>
+                        <option class="searchItem" value="LV">Latvia</option>
+                        <option class="searchItem" value="LB">Lebanon</option>
+                        <option class="searchItem" value="LS">Lesotho</option>
+                        <option class="searchItem" value="LR">Liberia</option>
+                        <option class="searchItem" value="LY">Libya</option>
+                        <option class="searchItem" value="LI">Liechtenstein</option>
+                        <option class="searchItem" value="LT">Lithuania</option>
+                        <option class="searchItem" value="LU">Luxembourg</option>
+                        <option class="searchItem" value="MO">Macao</option>
+                        <option class="searchItem" value="MK">Macedonia, the former Yugoslav Republic of</option>
+                        <option class="searchItem" value="MG">Madagascar</option>
+                        <option class="searchItem" value="MW">Malawi</option>
+                        <option class="searchItem" value="MY">Malaysia</option>
+                        <option class="searchItem" value="MV">Maldives</option>
+                        <option class="searchItem" value="ML">Mali</option>
+                        <option class="searchItem" value="MT">Malta</option>
+                        <option class="searchItem" value="MH">Marshall Islands</option>
+                        <option class="searchItem" value="MQ">Martinique</option>
+                        <option class="searchItem" value="MR">Mauritania</option>
+                        <option class="searchItem" value="MU">Mauritius</option>
+                        <option class="searchItem" value="YT">Mayotte</option>
+                        <option class="searchItem" value="MX">Mexico</option>
+                        <option class="searchItem" value="FM">Micronesia, Federated States of</option>
+                        <option class="searchItem" value="MD">Moldova, Republic of</option>
+                        <option class="searchItem" value="MC">Monaco</option>
+                        <option class="searchItem" value="MN">Mongolia</option>
+                        <option class="searchItem" value="ME">Montenegro</option>
+                        <option class="searchItem" value="MS">Montserrat</option>
+                        <option class="searchItem" value="MA">Morocco</option>
+                        <option class="searchItem" value="MZ">Mozambique</option>
+                        <option class="searchItem" value="MM">Myanmar</option>
+                        <option class="searchItem" value="NA">Namibia</option>
+                        <option class="searchItem" value="NR">Nauru</option>
+                        <option class="searchItem" value="NP">Nepal</option>
+                        <option class="searchItem" value="NL">Netherlands</option>
+                        <option class="searchItem" value="NC">New Caledonia</option>
+                        <option class="searchItem" value="NZ">New Zealand</option>
+                        <option class="searchItem" value="NI">Nicaragua</option>
+                        <option class="searchItem" value="NE">Niger</option>
+                        <option class="searchItem" value="NG">Nigeria</option>
+                        <option class="searchItem" value="NU">Niue</option>
+                        <option class="searchItem" value="NF">Norfolk Island</option>
+                        <option class="searchItem" value="MP">Northern Mariana Islands</option>
+                        <option class="searchItem" value="NO">Norway</option>
+                        <option class="searchItem" value="OM">Oman</option>
+                        <option class="searchItem" value="PK">Pakistan</option>
+                        <option class="searchItem" value="PW">Palau</option>
+                        <option class="searchItem" value="PS">Palestinian Territory, Occupied</option>
+                        <option class="searchItem" value="PA">Panama</option>
+                        <option class="searchItem" value="PG">Papua New Guinea</option>
+                        <option class="searchItem" value="PY">Paraguay</option>
+                        <option class="searchItem" value="PE">Peru</option>
+                        <option class="searchItem" value="PH">Philippines</option>
+                        <option class="searchItem" value="PN">Pitcairn</option>
+                        <option class="searchItem" value="PL">Poland</option>
+                        <option class="searchItem" value="PT">Portugal</option>
+                        <option class="searchItem" value="PR">Puerto Rico</option>
+                        <option class="searchItem" value="QA">Qatar</option>
+                        <option class="searchItem" value="RE">Réunion</option>
+                        <option class="searchItem" value="RO">Romania</option>
+                        <option class="searchItem" value="RU">Russian Federation</option>
+                        <option class="searchItem" value="RW">Rwanda</option>
+                        <option class="searchItem" value="BL">Saint Barthélemy</option>
+                        <option class="searchItem" value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                        <option class="searchItem" value="KN">Saint Kitts and Nevis</option>
+                        <option class="searchItem" value="LC">Saint Lucia</option>
+                        <option class="searchItem" value="MF">Saint Martin (French part)</option>
+                        <option class="searchItem" value="PM">Saint Pierre and Miquelon</option>
+                        <option class="searchItem" value="VC">Saint Vincent and the Grenadines</option>
+                        <option class="searchItem" value="WS">Samoa</option>
+                        <option class="searchItem" value="SM">San Marino</option>
+                        <option class="searchItem" value="ST">Sao Tome and Principe</option>
+                        <option class="searchItem" value="SA">Saudi Arabia</option>
+                        <option class="searchItem" value="SN">Senegal</option>
+                        <option class="searchItem" value="RS">Serbia</option>
+                        <option class="searchItem" value="SC">Seychelles</option>
+                        <option class="searchItem" value="SL">Sierra Leone</option>
+                        <option class="searchItem" value="SG">Singapore</option>
+                        <option class="searchItem" value="SX">Sint Maarten (Dutch part)</option>
+                        <option class="searchItem" value="SK">Slovakia</option>
+                        <option class="searchItem" value="SI">Slovenia</option>
+                        <option class="searchItem" value="SB">Solomon Islands</option>
+                        <option class="searchItem" value="SO">Somalia</option>
+                        <option class="searchItem" value="ZA">South Africa</option>
+                        <option class="searchItem" value="GS">South Georgia and the South Sandwich Islands</option>
+                        <option class="searchItem" value="SS">South Sudan</option>
+                        <option class="searchItem" value="ES">Spain</option>
+                        <option class="searchItem" value="LK">Sri Lanka</option>
+                        <option class="searchItem" value="SD">Sudan</option>
+                        <option class="searchItem" value="SR">Suriname</option>
+                        <option class="searchItem" value="SJ">Svalbard and Jan Mayen</option>
+                        <option class="searchItem" value="SZ">Swaziland</option>
+                        <option class="searchItem" value="SE">Sweden</option>
+                        <option class="searchItem" value="CH">Switzerland</option>
+                        <option class="searchItem" value="SY">Syrian Arab Republic</option>
+                        <option class="searchItem" value="TW">Taiwan, Province of China</option>
+                        <option class="searchItem" value="TJ">Tajikistan</option>
+                        <option class="searchItem" value="TZ">Tanzania, United Republic of</option>
+                        <option class="searchItem" value="TH">Thailand</option>
+                        <option class="searchItem" value="TL">Timor-Leste</option>
+                        <option class="searchItem" value="TG">Togo</option>
+                        <option class="searchItem" value="TK">Tokelau</option>
+                        <option class="searchItem" value="TO">Tonga</option>
+                        <option class="searchItem" value="TT">Trinidad and Tobago</option>
+                        <option class="searchItem" value="TN">Tunisia</option>
+                        <option class="searchItem" value="TR">Turkey</option>
+                        <option class="searchItem" value="TM">Turkmenistan</option>
+                        <option class="searchItem" value="TC">Turks and Caicos Islands</option>
+                        <option class="searchItem" value="TV">Tuvalu</option>
+                        <option class="searchItem" value="UG">Uganda</option>
+                        <option class="searchItem" value="UA">Ukraine</option>
+                        <option class="searchItem" value="AE">United Arab Emirates</option>
+                        <option class="searchItem" value="GB">United Kingdom</option>
+                        <option class="searchItem" value="US">United States</option>
+                        <option class="searchItem" value="UM">United States Minor Outlying Islands</option>
+                        <option class="searchItem" value="UY">Uruguay</option>
+                        <option class="searchItem" value="UZ">Uzbekistan</option>
+                        <option class="searchItem" value="VU">Vanuatu</option>
+                        <option class="searchItem" value="VE">Venezuela, Bolivarian Republic of</option>
+                        <option class="searchItem" value="VN">Viet Nam</option>
+                        <option class="searchItem" value="VG">Virgin Islands, British</option>
+                        <option class="searchItem" value="VI">Virgin Islands, U.S.</option>
+                        <option class="searchItem" value="WF">Wallis and Futuna</option>
+                        <option class="searchItem" value="EH">Western Sahara</option>
+                        <option class="searchItem" value="YE">Yemen</option>
+                        <option class="searchItem" value="ZM">Zambia</option>
+                        <option class="searchItem" value="ZW">Zimbabwe</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Rating</label>
+                <div class="input100">
+	                <label> <select class = "searchOp" name = "rating">
+			                <option class = "searchItem" value = "0">0 Star</option>
+			                <option class = "searchItem" value = "1">1 Star</option>
+			                <option class = "searchItem" value = "2">2 Star</option>
+			                <option class = "searchItem" value = "3">3 Star</option>
+			                <option class = "searchItem" value = "4">4 Star</option>
+			                <option class = "searchItem" value = "5">5 Star</option>
+		                </select> </label>
+                </div>
+            </div>
+	        
+           
+	           <div class="g-recaptcha" data-sitekey="6LeBZkEUAAAAAJBFx6kK9CB4sMrxBf0ZthIdlFji"></div>
+           
+        </form>
+    </div>
 </body>
-	
-	<?php require_once ('template/footer.phtml'); ?>
+
+<?php require_once('template/footer.phtml'); ?>
