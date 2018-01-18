@@ -376,8 +376,8 @@
         $('#jsonplz').click( function() {
 
                 var table = $('#myTable').tableToJSON({
-                        ignoreColumns : [0, 13],
-                        headings : ['Platform', 'Wage', 'Currency', 'hours', 'hours', 'gender', 'age', 'rating', 'country', 'rating2', 'rating3', 'rating4']
+                        includeColumns : [2, 8],
+                        headings : ['Wage','rating']
                 });
                 console.log(table);
                 alert(JSON.stringify(table));
