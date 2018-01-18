@@ -304,12 +304,13 @@
             <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" />
                 <!--            <input type="text" id="" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>-->
         </form>
-        <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>
-        <input type="text" id="wageInput" onkeyup="searchByWage()" placeholder="=10" title="Type"/>
+        <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="platform" />
+        <input type="text" id="wageInput" onkeyup="searchByWage()" placeholder="=10" title="wage" />
 
 
         <?php
-        if (isset($view->table)) {
+        if (isset($view->table))
+        {
             echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
             echo $view->table;
             echo "</div>";
