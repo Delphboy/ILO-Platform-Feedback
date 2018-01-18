@@ -373,13 +373,13 @@
                 return false;
         });
 
+        //converts the table to json
         $('#jsonplz').click( function() {
 
                 var table = $('#myTable').tableToJSON({
-                        onlyColumns : [2, 8],
-                        headings : ['Wage','rating']
+                        onlyColumns : [2, 8], //uses only these columns in the table
+                        headings : ['Wage','rating'] //labels data and reads from first <tr>
                 });
-                rating_vs_wage(table);
                 console.log(table);
                 alert(JSON.stringify(table));
         });
