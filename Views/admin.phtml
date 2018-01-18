@@ -299,10 +299,11 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" />
+            <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>
+<!--            <input type="text" id="" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>-->
         </form>
 
-        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type"/>
 
         <?php
         if (isset($view->table)) {

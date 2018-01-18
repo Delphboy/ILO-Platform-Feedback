@@ -5,10 +5,10 @@
 /**
  * TABLE FILTERS
  */
-function myFunction1() {
+function searchByPlatform() {
     // Declare variables
     var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput1");
+    input = document.getElementById("platformInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
