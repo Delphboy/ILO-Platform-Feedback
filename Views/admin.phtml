@@ -337,7 +337,9 @@
             <?php
             if (isset($view->grdata)) {
                 echo "<p>$view->grdata</p>"; // print JSON
-                echo '<script type="text/javascript">wage_per_country(<?php echo $view->grdata;?>);</script>';
+                echo "<script type=\"text/javascript\">
+                    var val = '<?php echo $view->grdata; ?>'
+                    wage_per_country(val);</script>";
 
                 //echo $view->JSFunc;
                 echo '<h3>where is my graph</h3>';
