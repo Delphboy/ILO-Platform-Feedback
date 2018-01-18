@@ -18,9 +18,15 @@ if(isset($_POST['submit'])) {
     $age = $_POST['age'];
     $country = $_POST['country'];
     $rating = $_POST['rating'];
+    $pay = $_POST['ratingPay'];
+    $conditions = $_POST['ratingConditions'];
+    $description = $_POST['ratingDesc'];
+    $comment = $_POST['comment'];
+
+    var_dump($_POST);
 
     $dbHandle = database::Instance();
-    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country);";
+    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country, rating_pay, rating_conditions, rating_description, comment) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country, :ratingPay, :ratingConditions, :ratingDesc, :user_comment);";
     $dbHandle->query($query);
 
     $dbHandle->bind(':platform',$platform);
@@ -32,5 +38,11 @@ if(isset($_POST['submit'])) {
     $dbHandle->bind(':age',$age);
     $dbHandle->bind(':rating',$rating);
     $dbHandle->bind(':country',$country);
+    $dbHandle->bind(':ratingPay', $pay);
+    $dbHandle->bind(':ratingConditions', $conditions);
+    $dbHandle->bind(':ratingDesc', $description);
+    $dbHandle->bind(':user_comment', $comment);
     $dbHandle->execute();
+
+    require_once('Views/success.phtml');
 }

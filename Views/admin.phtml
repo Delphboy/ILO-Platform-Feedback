@@ -18,7 +18,8 @@
     <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label> <select name="country-selection-admin" class="searchOp">
+            <label>
+                    <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -298,14 +299,18 @@
                     <option value="select * from gr2.review where country like 'ZM';">Zambia</option>
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
-                </select> </label>
-            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
+                </select>
+            </label>
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" />
+                <!--            <input type="text" id="" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>-->
         </form>
-
-        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type"/>
+        <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="platform" />
+        <input type="text" id="wageInput" onkeyup="searchByWage()" placeholder="=10" title="wage" />
+ß
 
         <?php
-        if (isset($view->table)) {
+        if (isset($view->table))
+        {
             echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
             echo $view->table;
             echo "</div>";
