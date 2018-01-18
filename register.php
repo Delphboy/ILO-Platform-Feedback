@@ -15,16 +15,18 @@ spl_autoload_register(function($class)
 if(isset($_POST['submit']))
 {
     $email = $_POST['email'];
-    $password = $_POST['psw'];
+    echo $password = hash("md2",$_POST['psw']);
     $admin = '1';
 
     $dbHandle = database::Instance();
-    $query  ="INSERT INTO user(password, email, isAdministrator) VALUES (:psw, :email, :admin)";
+    $query = "INSERT INTO gr2.user(password, email, isAdministrator) 
+              VALUES (:psw, :email, :admin)";
     $dbHandle->query($query);
 
-    $dbHandle->bind(':email', $email);
     $dbHandle->bind(':psw', $password);
+    $dbHandle->bind(':email', $email);
     $dbHandle->bind(':admin', $admin);
     $dbHandle->execute();
+
 }
 
