@@ -24,12 +24,12 @@ else
 <?php if(isset($_GET['Captchapass']))?>
 {
 	<div class="Form">Message Sent</div>
-	<form method="post" action="index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
+	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
 }
 <?php if(isset($_GET['Captchafail']))?>
 {
 <div class="Form">Captcha Failed</div>
-	<form method="post" action="index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
+	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
 }
 	
 	<!--
