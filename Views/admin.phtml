@@ -300,12 +300,14 @@
 
             <div id="chart_div">
             <?php
-            if(isset($view->JSFunc))
+            if(isset($view->grdata)) :
             {
                 echo $view->grdata; // print JSON
+                    echo "<script type=\"text/javascript\">platform_vs_wage(<?php echo $view->grdata; ?>);</script>";
                 echo $view->JSFunc;
                     echo '<h3>where is my graph</h3>';
             }
+            endif;
             ?>
             </div>
     </div>
