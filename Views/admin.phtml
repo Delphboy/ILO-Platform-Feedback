@@ -376,7 +376,7 @@
         $('#jsonplz').click( function() {
 
                 var table = $('#myTable').tableToJSON({
-                        includeColumns : [2, 8],
+                        onlyColumns : [2, 8],
                         headings : ['Wage','rating']
                 });
                 console.log(table);
