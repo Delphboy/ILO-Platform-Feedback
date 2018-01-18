@@ -18,14 +18,14 @@ if (isset($_POST['table-submit'])) {
     }
 }
 
-if (isset($_POST['GraphSubmit'])){
-    switch ($_POST['def_graphs']) {
-        case "PlatformVSWage":
-            $view->grdata = $gr->platform_vs_wage();
-            break;
-    }
-    echo $view->grdata;
-}
+//if (isset($_POST['GraphSubmit'])){
+//    switch ($_POST['def_graphs']) {
+//        case "PlatformVSWage":
+//            $view->grdata = $gr->platform_vs_wage();
+//            break;
+//    }
+//    echo $view->grdata;
+//}
 //    $platform_vs_wage = $gr->platform_vs_wage();
 ////print_r($platform_vs_wage);
 //    $wage_per_country = $gr->wage_per_country();

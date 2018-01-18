@@ -351,7 +351,7 @@
                 $("#graph_submit").click(function(){ // Button is clicked
                         var def_graphs = $("#def_graphs").val();
                         $.ajax({ // do AJAX
-                                    url: "admin.php", // in form.php
+                                    url: "return_data.php", // in form.php
                                     method: "POST", // with POST
                                     data: {def_graphs = def_graphs},    // in PHP, $_POST['username'] is the value of your username input box
                             success: function(data) {
