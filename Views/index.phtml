@@ -11,16 +11,23 @@ $data = json_decode ($response);
 
 if (isset($data->success) AND $data->success==true)
 {
-	
-	header ('Location: index.php?Captcha=Pass');
-	
+	header ('Location: index.php?Captchapass=True');
 }
 else
 {
-	header ('Location: index.php?Captcha=Fail');
-	
+	header ('Location: index.php?Captchafail=True');
 }
-?>
+
+is(isset($_GET['Capchapass']))
+{?>
+<div class="Form">Message Sent</div>
+}
+<?php is(isset($_GET['Capchafail']))
+{?>
+<div class="Form">Captcha Failed</div>
+}
+
+
 	
 	
 	
