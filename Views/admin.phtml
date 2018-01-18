@@ -315,7 +315,7 @@
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="" method="post" >
+        <form action="" method="post" onsubmit="return false">
             <select name="def-graphs" class="searchOp">
                 <option id="placeholder" value="placeholder">Choose graph</option>
                 <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
@@ -330,7 +330,7 @@
                 <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating
                 </option>
             </select>
-            <input type="button" value="Generate Graph" name="GraphSubmit"/>
+            <input type="submit" value="Generate Graph" name="GraphSubmit"/>
         </form>
 
         <div id="chart_div">
