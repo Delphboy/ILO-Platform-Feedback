@@ -1,5 +1,9 @@
 <?php
 require_once('../Views/template/headerUser.phtml'); ?>
+
+
+//ADDED
+
 <?php
 if (isset($_POST['submit'])) {
 	
@@ -19,6 +23,8 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+//END OF ADDED
+
 	<!--
     User PAGE
     if an admin were to log in then they will be taken to this page.
@@ -27,18 +33,20 @@ if (isset($_POST['submit'])) {
         - Will have a survey
  -->
 <body class="container-login100">
-<?php if(isset($_GET['Captchapass']))?>
-	{
-	<div class="form-check">Message Sent</div>
-<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
-	}
 
-<?php if(isset($_GET['Captchafail']))?>
-	{
-	
+//ADDED
+
+<?php if(isset($_GET['CaptchaPass'])){?>
+	<div class="form-check">Message Sent</div>
+	<?php}?>
+
+<?php if(isset($_GET['Captchafail'])){?>
 	<div class="form-check">Captcha Failed</div>
-	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
-		}
+	<?php}?>
+
+//END OF ADD
+
+
     <div class="wrap-login101">
         <form class="form-style" method="post" action="/index.php">
             <span class="survey-title">
@@ -372,14 +380,14 @@ if (isset($_POST['submit'])) {
             </div>
 	        
            <div>
-	
+//ADDED
 	           <button
 			           class="g-recaptcha"
 			           data-sitekey="6Lc2O0EUAAAAAArfppJMAidoH6ZlWClHZxrKYOBb"
 			           data-callback="YourOnSubmitFn" id="submit">
 		           Submit
 	           </button>
-	           
+//END OF ADDED
 <!--	           <input class="g-recaptcha" type="submit" id="submit" value="submit" name="submit" data-sitekey="6Lc2O0EUAAAAAArfppJMAidoH6ZlWClHZxrKYOBb" data-callback='onSubmit'>-->
            </div>
         </form>
