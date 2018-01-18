@@ -5,11 +5,11 @@ $gr = new Graph();
 
 $grdata = null;
 
-if (isset($_POST['GraphSubmit'])){
-//    switch ($_POST['def_graphs']) {
-//        case "PlatformVSWage":
+//if (isset($_POST['GraphSubmit'])){
+    switch ($_POST['def_graphs']) {
+        case "PlatformVSWage":
             $grdata = $gr->platform_vs_wage();
-//            break;
+            break;
 //    }
 }
 //echo "<p>This is text</p>";
