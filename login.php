@@ -4,8 +4,8 @@ session_start();
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
 {
-    $userEmail = htmlentities($_POST['username']);
-    $userPassword = htmlentities($_POST['password']);
+    echo $userEmail = $_POST['username'];
+    echo $userPassword = hash("md2", $_POST['password']);
     $loginModel = new Login();
     $auth = $loginModel->signIn($userEmail, $userPassword);
     if($auth)
