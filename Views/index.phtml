@@ -17,21 +17,17 @@ else
 {
 	header ('Location: index.php?Captchafail=True');
 }
-
-is(isset($_GET['Capchapass']))
-{?>
+?>
+<?php if(isset($_GET['Capchapass']))?>
+{
 <div class="Form">Message Sent</div>
 }
-<?php is(isset($_GET['Capchafail']))
-{?>
+<?php if(isset($_GET['Capchafail']))?>
+{
 <div class="Form">Captcha Failed</div>
 }
-
-
 	
-	
-	
-}<!--
+	<!--
     User PAGE
     if an admin were to log in then they will be taken to this page.
 
