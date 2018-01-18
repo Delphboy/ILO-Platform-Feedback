@@ -331,19 +331,10 @@
                 </option>
             </select>
             <input type="submit" value="Graph PLZ" name="GraphSubmit" />
+                <button type="button" value="Graphs PLZ" name="graph_submit" id="graph_submit">Gimme graph</button>
         </form>
 
         <div id="chart_div">
-                <script type="text/javascript">
-                        var auto_refresh = setInterval(
-                            function ()
-                            {
-                                    $('#load_me').load('showdata.jsp').fadeIn("slow");
-                            }, 10000); // autorefresh the content of the div after
-                                       //every 10000 milliseconds(10sec)
-                </script>
-                <div id="load_me"> <%@ include file="showdata.jsp" %></div>
-
                 <?php
             if (isset($view->grdata)) {
                 echo "<p>$view->grdata</p>"; // print JSON
@@ -355,4 +346,18 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" >
+        $(document).ready(function(){ // Initialize when document is ready
+                $("#graph_submit").click(function(){ // Button is clicked
+                        var def_graphs = $("#def_graphs").val();
+                        $.ajax({ // do AJAX
+                                    url: "admin.php", // in form.php
+                                    method: "POST", // with POST
+                                    data: {def_graphs = def_graphs},    // in PHP, $_POST['username'] is the value of your username input box
+                            success: function(data) {
+                                platform_vs_wage(data);
+                        }
+                });
+                });
+        });</script>
 </body>
