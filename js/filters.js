@@ -5,6 +5,11 @@
 /**
  * TABLE FILTERS
  */
+function updateTable()
+{
+
+}
+
 function searchByPlatform() {
     // Declare variables
     var input, filter, table, tr, td, i;
@@ -23,6 +28,34 @@ function searchByPlatform() {
                 tr[i].style.display = "none";
             }
         }
+    }
+}
+
+/**
+ * Take the wage condition from the field
+ * Remove spaces
+ * first character is the condition (=<>)
+ * remaining characters should be numeric and used for condition
+ */
+function searchByWage()
+{
+    var conditionString = document.getElementById("wageInput");
+    var condition = conditionString.get(0);
+    var value = conditionString.substring(0);
+    switch (condition)
+    {
+        case '=':
+            alert(value + '=');
+            break;
+        case '<':
+            alert(value + '<');
+            break;
+        case '>':
+            alert(value + '>');
+            break;
+        default:
+            alert('Unrecognised search condition');
+            break;
     }
 }
 
