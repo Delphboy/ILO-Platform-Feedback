@@ -37,6 +37,6 @@ $tableToDisplay = $model->createTable($query);
 
 if ($tableToDisplay != "") {
     $table = $tableToDisplay;
-    echo $table;
+    echo "$table";
 }
 //echo "<p>This is text</p>";
