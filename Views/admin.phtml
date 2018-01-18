@@ -315,8 +315,8 @@
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="" method="post" onsubmit="return false">
-            <select name="def-graphs" class="searchOp">
+        <form action="" method="post">
+            <select name="def_graphs" class="searchOp" id="def_graphs">
                 <option id="placeholder" value="placeholder">Choose graph</option>
                 <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
                 <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart
@@ -330,20 +330,42 @@
                 <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating
                 </option>
             </select>
-            <input type="submit" value="Generate Graph" name="GraphSubmit"/>
+            <button type="button" value="Generate Graph" name="GraphSubmit" onclick="insertData()">Graph plz</button>
         </form>
 
         <div id="chart_div">
-            <?php
-            if (isset($view->grdata)) {
-                echo "<p>$view->grdata</p>"; // print JSON
-                echo "<script type=\"text/javascript\">
-                    platform_vs_wage('$view->grdata');</script>";
-                //echo $view->JSFunc;
-                echo '<h3>where is my graph</h3>';
-            }
-            ?>
+<!--            --><?php
+//            if (isset($view->grdata)) {
+//                echo "<p>$view->grdata</p>"; // print JSON
+//                echo "<script type=\"text/javascript\">
+//                    platform_vs_wage('$view->grdata');</script>";
+//                //echo $view->JSFunc;
+//                echo '<h3>where is my graph</h3>';
+//            }
+//            ?>
         </div>
     </div>
 </div>
 </body>
+<script type="text/javascript">
+
+        function insertData() {
+                var def_graphs =$("#def_graphs").val();
+
+// AJAX code to send data to php file.
+                $.ajax({
+                        type: "POST",
+                        url: "get_data.php",
+                        data: {def_graphs:def_graphs},
+                        dataType: "JSON",
+                        success: function(data) {
+                                $("#chart_div").html(data);
+                        },
+                        error: function(err) {
+                                alert(err);
+                        }
+                });
+
+        }
+
+</script>
