@@ -53,6 +53,15 @@ if (isset($_POST['captcha-submit'])) {
 	else {
 		header ('Location: index.php?CaptchaFail=True');
 	}
-	
-	require_once('Views/index.phtml');
 }
+
+if(isset($_GET['CaptchaPass'])){
+	echo "<div class=\"form-check\">Message Sent</div>";
+}
+if(isset($_GET['CaptchaFail']))
+{
+	echo "<div class=\"form-check\">Captcha Failed</div>";
+}
+
+require_once('Views/index.phtml');
+
