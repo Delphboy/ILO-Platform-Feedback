@@ -40,15 +40,16 @@ if(isset($_POST['submit'])){
 		$dbHandle->execute();
 		
 	}
-//	else{
-//
-//	echo '<script language = "javascript">';
-//	echo 'alert("FAIL")';
-//	echo '</script>';
-//
-//	}
+	else{
+
+	echo '<script language = "javascript">';
+	echo 'alert("FAIL")';
+	echo '</script>';
+
+	}
 	
 }
+
 
 require_once('Views/index.phtml');
 
