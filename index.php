@@ -37,14 +37,14 @@ if (isset($_POST['captcha-submit'])) {
 	echo "<h1>changed 1</h1>";
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
-	$privatekey = "6LeBZkEUAAAAALA7BucgHtmn5UyJvdREgwn5JVw_";
+	$privatekey = "6LdtaEEUAAAAAIpHKMtXx2Tsf_zTcsHRlYDWGlK-";
 
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
 	$data = json_decode ($response);
-	echo $url;
-	echo $privatekey;
-	echo $response;
-	echo $data;
+	echo $url."ECHOED";
+	echo $privatekey."ECHOED";
+	echo $response."ECHOED";
+	echo $data."ECHOED";
 
 	if (isset($data->success) AND $data->success == true) {
 		//true?
