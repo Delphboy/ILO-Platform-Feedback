@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) {
     $rating = $_POST['rating'];
 
     $dbHandle = database::Instance();
-    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country,rating_pay, rating_conditions,rating_description,comment) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country, 7,7,7,'steve');";
+    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country);";
     $dbHandle->query($query);
 
     $dbHandle->bind(':platform',$platform);
@@ -32,19 +32,19 @@ if(isset($_POST['submit'])) {
     $dbHandle->execute();
 }
 
-if (isset($_POST['submit'])) {
-	
-	echo "<h1>changed 1</h1>";
-	
-	$url = 'https://www.google.com/recaptcha/api/siteverify';
-	$privatekey = "6LdtaEEUAAAAAIpHKMtXx2Tsf_zTcsHRlYDWGlK-";
-
-	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-	$data = json_decode ($response);
-	echo $url;
-	echo $privatekey;
-	echo $response;
-	echo $data;
+//if (isset($_POST['submit'])) {
+//
+//	echo "<h1>changed 1</h1>";
+//
+//	$url = 'https://www.google.com/recaptcha/api/siteverify';
+//	$privatekey = "6LdtaEEUAAAAAIpHKMtXx2Tsf_zTcsHRlYDWGlK-";
+//
+//	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+//	$data = json_decode ($response);
+//	echo $url;
+//	echo $privatekey;
+//	echo $response;
+//	echo $data;
 
 //	if (isset($data->success) AND $data->success == true) {
 //		//true?
