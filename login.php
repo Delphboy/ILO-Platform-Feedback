@@ -8,8 +8,8 @@ if($_SESSION['isSignedIn'])
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
 {
-    echo $userEmail = $_POST['username'];
-    echo $userPassword = hash("md2", $_POST['password']);
+    $userEmail = $_POST['username'];
+    $userPassword = $_POST['password'];
     $loginModel = new Login();
     $auth = $loginModel->signIn($userEmail, $userPassword);
     if($auth)
