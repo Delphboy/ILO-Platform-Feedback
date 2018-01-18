@@ -31,7 +31,7 @@ function myFunction1() {
  */
 function platform_vs_wage(jsontable){
     google.charts.load('43', {'packages':['corechart']});
-    alert(jsontable);
+    //alert(jsontable);
     //Create our data table out of JSON data  loaded from server.
     var data = new google.visualization.DataTable(jsontable);
     var barchart_options =
