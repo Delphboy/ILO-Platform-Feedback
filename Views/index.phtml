@@ -5,28 +5,7 @@ require_once('Views/template/headerUser.phtml'); ?>
 //ADDED
 
 <?php
-if (isset($_POST['submit'])) {
-	
-	echo "changed 1";
-	
-	$url = 'https://www.google.com/recaptcha/api/siteverify';
-	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
-	
-	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-	$data = json_decode ($response);
-	echo $url;
-	echo $privatekey;
-	echo $response;
-	echo $data;
-	
-	if (isset($data->success) AND $data->success == true) {
-		//true?
-		header ('Location: index.php?CaptchaPass=True');
-	}
-	else {
-		header ('Location: index.php?CaptchaFail=True');
-	}
-}
+
 ?>
 
 //END OF ADDED
@@ -54,7 +33,7 @@ c
 
 
     <div class="wrap-login101">
-        <form class="form-style" method="post" action="/index.php">
+        <form class="form-style" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <span class="survey-title">
                     Survey
                 </span>
@@ -390,7 +369,7 @@ c
 	           <button
 			           class="g-recaptcha"
 			           data-sitekey="6Lc2O0EUAAAAAArfppJMAidoH6ZlWClHZxrKYOBb"
-			           data-callback="YourOnSubmitFn" name="submit">
+			           data-callback="YourOnSubmitFn" name="captcha-submit">
 		           Submit
 	           </button>
 //END OF ADDED

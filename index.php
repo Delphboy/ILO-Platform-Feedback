@@ -34,3 +34,26 @@ if(isset($_POST['submit'])) {
     $dbHandle->bind(':country',$country);
     $dbHandle->execute();
 }
+
+if (isset($_POST['captcha-submit'])) {
+	
+	echo "changed 1";
+	
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
+	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
+	
+	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+	$data = json_decode ($response);
+	echo $url;
+	echo $privatekey;
+	echo $response;
+	echo $data;
+	
+	if (isset($data->success) AND $data->success == true) {
+		//true?
+		header ('Location: index.php?CaptchaPass=True');
+	}
+	else {
+		header ('Location: index.php?CaptchaFail=True');
+	}
+}
