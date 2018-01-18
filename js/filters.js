@@ -110,8 +110,7 @@ function platform_by_rating(jsontable){
 }
 
 function drawBasic() {
-    google.load('visualization', '1.0', {'packages':['corechart']});
-    //google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(function() {
         var data = google.visualization.arrayToDataTable([
             ['City', '2010 Population',],
