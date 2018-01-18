@@ -1,6 +1,30 @@
 <?php
 require_once('Views/template/headerUser.phtml'); ?>
-<!--
+<?php 
+if (isset($_POST['submit'])) {
+	
+	$url = 'https://www.google.com/recapcha/api/siteverify';
+	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
+	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+}
+$data = json_decode ($response);
+
+if (isset($data->success) AND $data->success==true)
+{
+	
+	header ('Location: index.php?Captcha=Pass');
+	
+}
+else
+{
+	header ('Location: index.php?Captcha=Fail');
+	
+}
+?>
+	
+	
+	
+}<!--
     User PAGE
     if an admin were to log in then they will be taken to this page.
 
