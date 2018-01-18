@@ -56,5 +56,5 @@ if(isset($_GET['CaptchaFail']))
 	echo "<div class=\"form-check\">Captcha Failed</div>";
 }
 
-require_once('Views/index.phtml');
+require_once('Views/index.phtml');?>
 
