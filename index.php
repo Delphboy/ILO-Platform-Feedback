@@ -34,7 +34,7 @@ if(isset($_POST['submit'])) {
 
 if (isset($_POST['captcha-submit'])) {
 	
-	echo "changed 1";
+	echo "<h1>changed 1</h1>";
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
@@ -53,6 +53,10 @@ if (isset($_POST['captcha-submit'])) {
 	else {
 		header ('Location: index.php?CaptchaFail=True');
 	}
+}
+else
+{
+	echo "<h1>no cigar</h1>";
 }
 
 if(isset($_GET['CaptchaPass'])){
