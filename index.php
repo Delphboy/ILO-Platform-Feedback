@@ -3,6 +3,16 @@ require_once('Models/index.php');
 require_once('Models/database.php');
 $survey = new index();
 
+if(isset($_POST['submit'])){
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
+	$privatekey = "6LfwdUEUAAAAAH5VxW0dyFQpBYR1hFBeA3q0l1A0";
+	
+	$response = file_get_contents ($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+	
+	$data = json_decode ($response);
+	
+}
+
 //If the data has been submitted
 if(isset($_POST['submit'])) {
 //pull data from database [ IT WORKS! LEAVE IT ALONE!!!! thank you ]
