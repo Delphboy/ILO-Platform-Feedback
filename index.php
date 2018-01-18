@@ -11,6 +11,16 @@ if(isset($_POST['submit'])){
 	
 	$data = json_decode ($response);
 	
+	if(isset($data->success) AND $data->success==true){
+		
+	echo "<h1>PASS</h1>";
+		
+	}else{
+	
+	echo "<h1>FAIL</h1>";
+	
+	}
+	
 }
 
 //If the data has been submitted
