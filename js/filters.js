@@ -63,9 +63,8 @@ function searchByWage()
  * CHART FILTERS
  */
 function platform_vs_wage(jsontable){
-    google.charts.load('43', {'packages':['corechart']});
-    //alert(jsontable);
-    //Create our data table out of JSON data  loaded from server.
+    google.charts.load('43', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(function () {
     var data = new google.visualization.DataTable(jsontable);
     var barchart_options =
         {
@@ -79,6 +78,7 @@ function platform_vs_wage(jsontable){
     // Do not forget to check your div ID
     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
     chart.draw(data, barchart_options);
+    })
 }
 
 function wage_per_country(jsontable) {

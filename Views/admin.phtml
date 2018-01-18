@@ -320,56 +320,41 @@
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="" method="post">
+        <form action="/return_data.php" method="post" id="chart_form">
             <select name="def_graphs" class="searchOp" id="def_graphs">
                 <option id="placeholder" value="placeholder">Choose graph</option>
                 <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
-                <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart
+                <option id="graph2" value="WagePerCountry"> Avg Wage per country barchart
                 </option>
-                <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity
+                <option id="graph3" value="PlatformPopularity"> Platform popularity
                     piechart
                 </option>
-                <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time
+                <option id="graph4" value="RatingVSWage">Scatter chart of time looking vs time
                     working
                 </option>
-                <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating
+                <option id="graph5" value="PlatformByRating">Platform by Avg rating
                 </option>
             </select>
-            <button type="button" value="Generate Graph" name="GraphSubmit" onclick="insertData()">Graph plz</button>
+            <input type="submit" value="Graph PLZ" name="GraphSubmit" />
         </form>
 
-        <div id="chart_div">
-<!--            --><?php
-//            if (isset($view->grdata)) {
-//                echo "<p>$view->grdata</p>"; // print JSON
-//                echo "<script type=\"text/javascript\">
-//                    platform_vs_wage('$view->grdata');</script>";
-//                //echo $view->JSFunc;
-//                echo '<h3>where is my graph</h3>';
-//            }
-//            ?>
+
+            <div id="chart_div">
+
         </div>
     </div>
 </div>
-</body>
 <script type="text/javascript">
+        $('#chart_form').submit(function(e) {
+                // Post the form data to return_data.php
+                $.post('return_data.php', $(this).serialize(), function(resp) {
+                        // Set the response data into the #chart_div
+                        $('#chart_div').html(resp);
+                });
 
-    function insertData() {
-        var def_graphs = $("#def_graphs").val();
-// AJAX code to send data to php file.
-        $.ajax({
-            type: "POST",
-            url: "admin.php",
-            data: {def_graphs: def_graphs},
-            dataType: "JSON",
-            success: function (data) {
-                platform_vs_wage(<?php echo $view->grdata; ?>);
-                $("#chart_div").html(data);
-            },
-            error: function (err) {
-                alert(err);
-            }
+                // Cancel the actual form post so the page doesn't refresh
+                e.preventDefault();
+                return false;
         });
-
-    }
 </script>
+</body>
