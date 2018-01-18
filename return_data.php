@@ -1,12 +1,7 @@
 <?php
 
-
 $gr = new Graph();
 
-switch ($_POST['def_graphs']) {
-        case "PlatformVSWage":
-            $view->grdata = $gr->platform_vs_wage();
-            break;
-    }
+$grdata = $gr->platform_vs_wage();
 
-    echo $view->grdata;
+echo "<script type=\"text/javascript\">platform_vs_wage('$grdata');</script>";

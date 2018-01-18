@@ -315,7 +315,7 @@
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="" method="post">
+        <form action="/return_data.php" method="post" id="chart_form">
             <select name="def_graphs" class="searchOp" id="def_graphs">
                 <option id="placeholder" value="placeholder">Choose graph</option>
                 <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
@@ -330,11 +330,12 @@
                 <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating
                 </option>
             </select>
-            <input type="submit" value="Graph PLZ" name="GraphSubmit" />
-                <button type="button" value="Graphs PLZ" name="graph_submit" id="graph_submit">Gimme graph</button>
+<!--            <input type="submit" value="Graph PLZ" name="GraphSubmit" />-->
         </form>
+            <button type="button" value="Graphs PLZ" name="graph_submit" id="graph_submit">Gimme graph</button>
 
-        <div id="chart_div">
+
+            <div id="chart_div">
                 <?php
             if (isset($view->grdata)) {
                 echo "<p>$view->grdata</p>"; // print JSON
@@ -347,17 +348,21 @@
     </div>
 </div>
 <script type="text/javascript" >
-        $(document).ready(function(){ // Initialize when document is ready
-                $("#graph_submit").click(function(){ // Button is clicked
-                        var def_graphs = $("#def_graphs").val();
+        $(function() {
+           $("#graph_submit").click(function(evt){ // Button is clicked
                         $.ajax({ // do AJAX
-                                    url: "return_data.php", // in form.php
-                                    method: "POST", // with POST
-                                    data: {def_graphs = def_graphs},    // in PHP, $_POST['username'] is the value of your username input box
+                                    url: $("#chart_form").attr( 'action' ),
+                                    data: $("#chart_form").serialize(),
+                                dataType: 'html',
+
+                                method: "POST", // with POST
                             success: function(data) {
-                                platform_vs_wage(data);
-                        }
+                                    $('#chart_div').html(data);
+
+                            }
                 });
-                });
+                   evt.preventDefault();
+
+           });
         });</script>
 </body>
