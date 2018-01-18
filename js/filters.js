@@ -15,7 +15,6 @@ function searchByPlatform() {
     var input, filter, table, tr, td, i;
     input = document.getElementById("platformInput");
     filter = input.value.toUpperCase();
-    alert(filter);
     table = document.getElementById("tableToDisplay");
     tr = table.getElementsByTagName("tr");
 
@@ -38,27 +37,27 @@ function searchByPlatform() {
  * first character is the condition (=<>)
  * remaining characters should be numeric and used for condition
  */
-// function searchByWage()
-// {
-//     var conditionString = document.getElementById("wageInput");
-//     var condition = conditionString.get(0);
-//     var value = conditionString.substring(0);
-//     switch (condition)
-//     {
-//         case '=':
-//             alert(value + '=');
-//             break;
-//         case '<':
-//             alert(value + '<');
-//             break;
-//         case '>':
-//             alert(value + '>');
-//             break;
-//         default:
-//             alert('Unrecognised search condition');
-//             break;
-//     }
-// }
+function searchByWage()
+{
+    var conditionString = document.getElementById("wageInput");
+    var condition = conditionString.get(0);
+    var value = conditionString.substring(0);
+    switch (condition)
+    {
+        case '=':
+            alert(value + '=');
+            break;
+        case '<':
+            alert(value + '<');
+            break;
+        case '>':
+            alert(value + '>');
+            break;
+        default:
+            alert('Unrecognised search condition');
+            break;
+    }
+}
 
 /**
  * CHART FILTERS
