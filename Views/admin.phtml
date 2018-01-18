@@ -1,35 +1,24 @@
+<?php require_once("Views/template/headerAdmin.phtml"); ?>
+
+<!--Load the Ajax API-->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+    google.load('visualization', '1.0', {'packages': ['corechart']});
+
+</script>
+<!-- Import JavaScript Filter Functions -->
+<script type="text/javascript" src="../js/filters.js"></script>
+
+<body>
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
-    <div class="sec1 col-md-5 col-xs-12" >
-        <?php
-        /**
-         * Created by PhpStorm.
-         * User: sagiu
-         * Date: 16/01/2018
-         * Time: 11:34
-         */
-        // recieve request
-        $sql = $_POST["click"];
-        //$sql = $_POST["country"];
-
-        //Data Base Connect to be removed when proved working
-
-        $host="den1.mysql3.gear.host";
-        $dbName="gr2";
-        $user = "gr2";
-        $pass = 'gr0up2t357db!';
-
-        //$dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $dbHandle = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
-        $sqlQuery = $sql; // put your students table name
-        //echo $sqlQuery;  //helpful for debugging to see what SQL query has been created
-        $statement = $dbHandle->prepare($sqlQuery); // prepare PDO statement
-        $statement->execute();   // execute the PDO statement
-        ?>
+    <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
-
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <label> <select name="click" class="searchOp">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label> <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
                     <option value="select * from gr2.review where country like 'AF';">Afghanistan</option>
                     <option value="select * from gr2.review where country like 'AX';">Åland Islands</option>
@@ -57,13 +46,16 @@
                     <option value="select * from gr2.review where country like 'BJ';">Benin</option>
                     <option value="select * from gr2.review where country like 'BM';">Bermuda</option>
                     <option value="select * from gr2.review where country like 'BT';">Bhutan</option>
-                    <option value="select * from gr2.review where country like 'BO';">Bolivia, Plurinational State of</option>
-                    <option value="select * from gr2.review where country like 'BQ';">Bonaire, Sint Eustatius and Saba</option>
+                    <option value="select * from gr2.review where country like 'BO';">Bolivia, Plurinational State of
+                    </option>
+                    <option value="select * from gr2.review where country like 'BQ';">Bonaire, Sint Eustatius and Saba
+                    </option>
                     <option value="select * from gr2.review where country like 'BA';">Bosnia and Herzegovina</option>
                     <option value="select * from gr2.review where country like 'BW';">Botswana</option>
                     <option value="select * from gr2.review where country like 'BV';">Bouvet Island</option>
                     <option value="select * from gr2.review where country like 'BR';">Brazil</option>
-                    <option value="select * from gr2.review where country like 'IO';">British Indian Ocean Territory</option>
+                    <option value="select * from gr2.review where country like 'IO';">British Indian Ocean Territory
+                    </option>
                     <option value="select * from gr2.review where country like 'BN';">Brunei Darussalam</option>
                     <option value="select * from gr2.review where country like 'BG';">Bulgaria</option>
                     <option value="select * from gr2.review where country like 'BF';">Burkina Faso</option>
@@ -82,7 +74,9 @@
                     <option value="select * from gr2.review where country like 'CO';">Colombia</option>
                     <option value="select * from gr2.review where country like 'KM';">Comoros</option>
                     <option value="select * from gr2.review where country like 'CG';">Congo</option>
-                    <option value="select * from gr2.review where country like 'CD';">Congo, the Democratic Republic of the</option>
+                    <option value="select * from gr2.review where country like 'CD';">Congo, the Democratic Republic of
+                        the
+                    </option>
                     <option value="select * from gr2.review where country like 'CK';">Cook Islands</option>
                     <option value="select * from gr2.review where country like 'CR';">Costa Rica</option>
                     <option value="select * from gr2.review where country like 'CI';">Côte d'Ivoire</option>
@@ -102,14 +96,16 @@
                     <option value="select * from gr2.review where country like 'ER';">Eritrea</option>
                     <option value="select * from gr2.review where country like 'EE';">Estonia</option>
                     <option value="select * from gr2.review where country like 'ET';">Ethiopia</option>
-                    <option value="select * from gr2.review where country like 'FK';">Falkland Islands (Malvinas)</option>
+                    <option value="select * from gr2.review where country like 'FK';">Falkland Islands (Malvinas)
+                    </option>
                     <option value="select * from gr2.review where country like 'FO';">Faroe Islands</option>
                     <option value="select * from gr2.review where country like 'FJ';">Fiji</option>
                     <option value="select * from gr2.review where country like 'FI';">Finland</option>
                     <option value="select * from gr2.review where country like 'FR';">France</option>
                     <option value="select * from gr2.review where country like 'GF';">French Guiana</option>
                     <option value="select * from gr2.review where country like 'PF';">French Polynesia</option>
-                    <option value="select * from gr2.review where country like 'TF';">French Southern Territories</option>
+                    <option value="select * from gr2.review where country like 'TF';">French Southern Territories
+                    </option>
                     <option value="select * from gr2.review where country like 'GA';">Gabon</option>
                     <option value="select * from gr2.review where country like 'GM';">Gambia</option>
                     <option value="select * from gr2.review where country like 'GE';">Georgia</option>
@@ -127,8 +123,11 @@
                     <option value="select * from gr2.review where country like 'GW';">Guinea-Bissau</option>
                     <option value="select * from gr2.review where country like 'GY';">Guyana</option>
                     <option value="select * from gr2.review where country like 'HT';">Haiti</option>
-                    <option value="select * from gr2.review where country like 'HM';">Heard Island and McDonald Islands</option>
-                    <option value="select * from gr2.review where country like 'VA';">Holy See (Vatican City State)</option>
+                    <option value="select * from gr2.review where country like 'HM';">Heard Island and McDonald
+                        Islands
+                    </option>
+                    <option value="select * from gr2.review where country like 'VA';">Holy See (Vatican City State)
+                    </option>
                     <option value="select * from gr2.review where country like 'HN';">Honduras</option>
                     <option value="select * from gr2.review where country like 'HK';">Hong Kong</option>
                     <option value="select * from gr2.review where country like 'HU';">Hungary</option>
@@ -148,11 +147,14 @@
                     <option value="select * from gr2.review where country like 'KZ';">Kazakhstan</option>
                     <option value="select * from gr2.review where country like 'KE';">Kenya</option>
                     <option value="select * from gr2.review where country like 'KI';">Kiribati</option>
-                    <option value="select * from gr2.review where country like 'KP';">Korea, Democratic People's Republic of</option>
+                    <option value="select * from gr2.review where country like 'KP';">Korea, Democratic People's
+                        Republic of
+                    </option>
                     <option value="select * from gr2.review where country like 'KR';">Korea, Republic of</option>
                     <option value="select * from gr2.review where country like 'KW';">Kuwait</option>
                     <option value="select * from gr2.review where country like 'KG';">Kyrgyzstan</option>
-                    <option value="select * from gr2.review where country like 'LA';">Lao People's Democratic Republic</option>
+                    <option value="select * from gr2.review where country like 'LA';">Lao People's Democratic Republic
+                    </option>
                     <option value="select * from gr2.review where country like 'LV';">Latvia</option>
                     <option value="select * from gr2.review where country like 'LB';">Lebanon</option>
                     <option value="select * from gr2.review where country like 'LS';">Lesotho</option>
@@ -162,7 +164,9 @@
                     <option value="select * from gr2.review where country like 'LT';">Lithuania</option>
                     <option value="select * from gr2.review where country like 'LU';">Luxembourg</option>
                     <option value="select * from gr2.review where country like 'MO';">Macao</option>
-                    <option value="select * from gr2.review where country like 'MK';">Macedonia, the former Yugoslav Republic of</option>
+                    <option value="select * from gr2.review where country like 'MK';">Macedonia, the former Yugoslav
+                        Republic of
+                    </option>
                     <option value="select * from gr2.review where country like 'MG';">Madagascar</option>
                     <option value="select * from gr2.review where country like 'MW';">Malawi</option>
                     <option value="select * from gr2.review where country like 'MY';">Malaysia</option>
@@ -175,7 +179,8 @@
                     <option value="select * from gr2.review where country like 'MU';">Mauritius</option>
                     <option value="select * from gr2.review where country like 'YT';">Mayotte</option>
                     <option value="select * from gr2.review where country like 'MX';">Mexico</option>
-                    <option value="select * from gr2.review where country like 'FM';">Micronesia, Federated States of</option>
+                    <option value="select * from gr2.review where country like 'FM';">Micronesia, Federated States of
+                    </option>
                     <option value="select * from gr2.review where country like 'MD';">Moldova, Republic of</option>
                     <option value="select * from gr2.review where country like 'MC';">Monaco</option>
                     <option value="select * from gr2.review where country like 'MN';">Mongolia</option>
@@ -200,7 +205,8 @@
                     <option value="select * from gr2.review where country like 'OM';">Oman</option>
                     <option value="select * from gr2.review where country like 'PK';">Pakistan</option>
                     <option value="select * from gr2.review where country like 'PW';">Palau</option>
-                    <option value="select * from gr2.review where country like 'PS';">Palestinian Territory, Occupied</option>
+                    <option value="select * from gr2.review where country like 'PS';">Palestinian Territory, Occupied
+                    </option>
                     <option value="select * from gr2.review where country like 'PA';">Panama</option>
                     <option value="select * from gr2.review where country like 'PG';">Papua New Guinea</option>
                     <option value="select * from gr2.review where country like 'PY';">Paraguay</option>
@@ -216,12 +222,16 @@
                     <option value="select * from gr2.review where country like 'RU';">Russian Federation</option>
                     <option value="select * from gr2.review where country like 'RW';">Rwanda</option>
                     <option value="select * from gr2.review where country like 'BL';">Saint Barthélemy</option>
-                    <option value="select * from gr2.review where country like 'SH';">Saint Helena, Ascension and Tristan da Cunha</option>
+                    <option value="select * from gr2.review where country like 'SH';">Saint Helena, Ascension and
+                        Tristan da Cunha
+                    </option>
                     <option value="select * from gr2.review where country like 'KN';">Saint Kitts and Nevis</option>
                     <option value="select * from gr2.review where country like 'LC';">Saint Lucia</option>
-                    <option value="select * from gr2.review where country like 'MF';">Saint Martin (French part)</option>
+                    <option value="select * from gr2.review where country like 'MF';">Saint Martin (French part)
+                    </option>
                     <option value="select * from gr2.review where country like 'PM';">Saint Pierre and Miquelon</option>
-                    <option value="select * from gr2.review where country like 'VC';">Saint Vincent and the Grenadines</option>
+                    <option value="select * from gr2.review where country like 'VC';">Saint Vincent and the Grenadines
+                    </option>
                     <option value="select * from gr2.review where country like 'WS';">Samoa</option>
                     <option value="select * from gr2.review where country like 'SM';">San Marino</option>
                     <option value="select * from gr2.review where country like 'ST';">Sao Tome and Principe</option>
@@ -237,7 +247,9 @@
                     <option value="select * from gr2.review where country like 'SB';">Solomon Islands</option>
                     <option value="select * from gr2.review where country like 'SO';">Somalia</option>
                     <option value="select * from gr2.review where country like 'ZA';">South Africa</option>
-                    <option value="select * from gr2.review where country like 'GS';">South Georgia and the South Sandwich Islands</option>
+                    <option value="select * from gr2.review where country like 'GS';">South Georgia and the South
+                        Sandwich Islands
+                    </option>
                     <option value="select * from gr2.review where country like 'SS';">South Sudan</option>
                     <option value="select * from gr2.review where country like 'ES';">Spain</option>
                     <option value="select * from gr2.review where country like 'LK';">Sri Lanka</option>
@@ -250,7 +262,8 @@
                     <option value="select * from gr2.review where country like 'SY';">Syrian Arab Republic</option>
                     <option value="select * from gr2.review where country like 'TW';">Taiwan, Province of China</option>
                     <option value="select * from gr2.review where country like 'TJ';">Tajikistan</option>
-                    <option value="select * from gr2.review where country like 'TZ';">Tanzania, United Republic of</option>
+                    <option value="select * from gr2.review where country like 'TZ';">Tanzania, United Republic of
+                    </option>
                     <option value="select * from gr2.review where country like 'TH';">Thailand</option>
                     <option value="select * from gr2.review where country like 'TL';">Timor-Leste</option>
                     <option value="select * from gr2.review where country like 'TG';">Togo</option>
@@ -267,11 +280,15 @@
                     <option value="select * from gr2.review where country like 'AE';">United Arab Emirates</option>
                     <option value="select * from gr2.review where country like 'GB';">United Kingdom</option>
                     <option value="select * from gr2.review where country like 'US';">United States</option>
-                    <option value="select * from gr2.review where country like 'UM';">United States Minor Outlying Islands</option>
+                    <option value="select * from gr2.review where country like 'UM';">United States Minor Outlying
+                        Islands
+                    </option>
                     <option value="select * from gr2.review where country like 'UY';">Uruguay</option>
                     <option value="select * from gr2.review where country like 'UZ';">Uzbekistan</option>
                     <option value="select * from gr2.review where country like 'VU';">Vanuatu</option>
-                    <option value="select * from gr2.review where country like 'VE';">Venezuela, Bolivarian Republic of</option>
+                    <option value="select * from gr2.review where country like 'VE';">Venezuela, Bolivarian Republic
+                        of
+                    </option>
                     <option value="select * from gr2.review where country like 'VN';">Viet Nam</option>
                     <option value="select * from gr2.review where country like 'VG';">Virgin Islands, British</option>
                     <option value="select * from gr2.review where country like 'VI';">Virgin Islands, U.S.</option>
@@ -282,203 +299,57 @@
                     <option value="select * from gr2.review where country like 'ZW';">Zimbabwe</option>
 
                 </select> </label>
-            <input type="submit" class="login100-form-btn" placeholder="Select Country" value="Input Country">
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit">
         </form>
 
-        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type">
-        <!--<input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search by column 3" title="Type">-->
-        <!--<input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search by column 4" title="Type">-->
-        <!--<input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search by column 5" title="Type">-->
-        <!--<input type="text" id="myInput5" onkeyup="myFunction5()" placeholder="Search by column 6" title="Type">-->
-        <!--<input type="text" id="myInput6" onkeyup="myFunction6()" placeholder="Search by column 7" title="Type">-->
-        <!--<input type="text" id="myInput7" onkeyup="myFunction7()" placeholder="Search by column 8" title="Type">-->
-        <!--<input type="text" id="myInput8" onkeyup="myFunction8()" placeholder="Search by column 9" title="Type">-->
-        <!--<input type="text" id="myInput9" onkeyup="myFunction9()" placeholder="Search by column 10" title="Type">-->
-        <div class="tablescroll">
-            <?php
-            echo "<table id='myTable' class='table table-striped col-md-5 col-xs-12'>";
-            while ($row = $statement->fetch())
-            {
-                echo"<tr><td>". $row[0] ."</td>
-             <td>". $row[1] ."</td>
-             <td>". $row[2] ."</td>
-             <td>". $row[3] ."</td>
-             <td>". $row[4] ."</td>
-             <td>". $row[5] ."</td>
-             <td>". $row[6] ."</td>
-             <td>". $row[7] ."</td>
-             <td>". $row[8] ."</td>
-             <td>". $row[9];}
-            echo "</table>";
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search by Platform" title="Type"/>
 
-            //close connect
-            $dbHandle = null;
-            ?>
-        </div>
-        <!--Filter Choices-->
-<!--        <form action="/tests/testFilter.php" method="post">-->
-<!--            <label> <select name = "click">-->
-<!--                    <option value = 'select * from gr2.user'>select all users</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 1'>get all admin</option>-->
-<!--                    <option value = 'select * from gr2.user where isAdministrator = 0'>get all non admin</option>-->
-<!--                    <option value = 'select * from gr2.review'>select all reviews</option>-->
-<!---->
-<!--                </select> </label> <input type="submit" placeholder="Select SQL Query" value="Quick Search">-->
-<!--        </form>-->
-
-        <!--JScript to help filter-->
-
-        <script>
-            function myFunction1() {
-                // Declare variables
-                var input, filter, table, tr, td, i;
-                input = document.getElementById("myInput1");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("myTable");
-                tr = table.getElementsByTagName("tr");
-
-                // Loop through all table rows, and hide those who don't match the search query
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[1];
-                    if (td) {
-                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-        </script>
+        <?php
+        if (isset($view->table)) {
+            echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
+            echo $view->table;
+            echo "</div>";
+        }
+        ?>
     </div>
 
     <!-- INFOGRAPHICS SHOWN HERE -->
-    <div class="sec2 col-md-7 col-xs-12" >
-        <head>
-            <!--Load the Ajax API-->
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-            <?php
-            require ('Models/Graph.php');
-            $gr = new Graph();
-            $platform_vs_wage = $gr->platform_vs_wage();
-            //print_r($platform_vs_wage);
-            $wage_per_country = $gr->wage_per_country();
-            $platform_popularity = $gr->platform_popularity();
-            $rating_vs_wage = $gr->rating_vs_wage();
-            $platform_by_rating = $gr->platform_by_rating();
-
-            ?>
-            <script type="text/javascript">
-                // Load the Visualization API and the corechart package.
-                google.charts.load('current', {'packages':['corechart']});
-                // Set a callback to run when the Google Visualization API is loaded.
-                //        google.charts.setOnLoadCallback();
+    <div class="sec2 col-md-7 col-xs-12">
+        <form action="/return_data.php" method="post" id="chart_form">
+            <select name="def_graphs" class="searchOp" id="def_graphs">
+                <option id="placeholder" value="placeholder">Choose graph</option>
+                <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
+                <option id="graph2" value="WagePerCountry"> Avg Wage per country barchart
+                </option>
+                <option id="graph3" value="PlatformPopularity"> Platform popularity
+                    piechart
+                </option>
+                <option id="graph4" value="RatingVSWage">Scatter chart of time looking vs time
+                    working
+                </option>
+                <option id="graph5" value="PlatformByRating">Platform by Avg rating
+                </option>
+            </select>
+            <input type="submit" value="Graph PLZ" name="GraphSubmit" />
+        </form>
 
 
-                function platform_vs_wage(){
-                    //Create our data table out of JSON data  loaded from server.
-                    var data = new google.visualization.DataTable(<?php echo $platform_vs_wage; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Platform vs Average Wage',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
+            <div id="chart_div">
 
-                    // Instantiate and draw our chart, passing in some options.
-                    // Do not forget to check your div ID
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function wage_per_country(){
-                    var data = new google.visualization.DataTable(<?php echo $wage_per_country; ?>);
-                    var barchart_options =
-                    {
-                        title: 'Average Wage per Country',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, barchart_options);
-                }
-
-                function platform_popularity() {
-                    var data = new google.visualization.DataTable(<?php echo $platform_popularity; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Average Platform Popularity',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-                function rating_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $rating_vs_wage; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Hours Looking vs Hours Working',
-                        hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
-                        vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function platform_by_rating(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Platform by Average Rating',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-                function gender_vs_wage(){
-                    var data = new google.visualization.DataTable(<?php echo $platform_by_rating; ?>);
-                    var piechart_options =
-                    {
-                        title: 'Barchart',
-                        width: 600,
-                        height: 600,
-                        legend: 'none'
-                    };
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, piechart_options);
-                }
-
-            </script>
-        </head>
-
-        <select name="def-graphs" class="searchOp">
-            <option id="placeholder" value="placeholder">Choose graph</option>
-            <option id="graph1" value="PlatformVSWage" onclick="platform_vs_wage()"> Platform by Avg wage barchart</option>
-            <option id="graph2" value="WagePerCountry" onclick="wage_per_country()"> Avg Wage per country barchart</option>
-            <option id="graph3" value="PlatformPopularity" onclick="platform_popularity()"> Platform popularity piechart</option>
-            <option id="graph4" value="TimeVSTime" onclick="rating_vs_wage()">Scatter chart of time looking vs time working</option>
-            <option id="graph5" value="PlatformByRating" onclick="platform_by_rating()">Platform by Avg rating</option>
-        </select>
-
-
-        <div id="chart_div">
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        $('#chart_form').submit(function(e) {
+                // Post the form data to return_data.php
+                $.post('return_data.php', $(this).serialize(), function(resp) {
+                        // Set the response data into the #chart_div
+                        $('#chart_div').html(resp);
+                });
+
+                // Cancel the actual form post so the page doesn't refresh
+                e.preventDefault();
+                return false;
+        });
+</script>
+</body>
