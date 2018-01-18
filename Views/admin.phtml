@@ -374,7 +374,11 @@
         });
 
         $('#jsonplz').click( function() {
-                var table = $('#myTable').tableToJSON();
+
+                var table = $('#myTable').tableToJSON({
+                        ignoreColumns : [0, 13],
+                        headings : ['Platform', 'Wage', 'Currency', 'hours', 'hours', 'gender', 'age', 'rating', 'country', 'rating2', 'rating3', 'rating4']
+                });
                 console.log(table);
                 alert(JSON.stringify(table));
         });
