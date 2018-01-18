@@ -1,20 +1,13 @@
 <?php
 require_once('../Views/template/headerUser.phtml'); ?>
 <?php
-echo "a";
-print_r ($_POST);
 if (isset($_POST['submit'])) {
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
 	
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-	
-	echo $response;
-	
-	
 	$data = json_decode ($response);
-	
 	
 	if (isset($data->success) AND $data->success == true) {
 		//true?
@@ -26,18 +19,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php if(isset($_GET['Captchapass']))?>
-{
-	<div class="Form">Message Sent</div>
-	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
-}
-
-<?php if(isset($_GET['Captchafail']))?>
-{
-<div class="Form">Captcha Failed</div>
-	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
-}
-	
 	<!--
     User PAGE
     if an admin were to log in then they will be taken to this page.
@@ -46,6 +27,18 @@ if (isset($_POST['submit'])) {
         - Will have a survey
  -->
 <body class="container-login100">
+<?php if(isset($_GET['Captchapass']))?>
+	{
+	<div class="form-check">Message Sent</div>
+<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
+	}
+
+<?php if(isset($_GET['Captchafail']))?>
+	{
+	
+	<div class="form-check">Captcha Failed</div>
+	<form method="post" action="/index.php" onsubmit="window.open('','my_form_target', 'width=300,height=200', true); this.target='my_form_target';" >
+		}
     <div class="wrap-login101">
         <form class="form-style" method="post" action="/index.php">
             <span class="survey-title">
