@@ -1,6 +1,6 @@
 <?php
 
-
+$view = new stdClass();
 $gr = new Graph();
 switch ($_POST['def-graphs'])
     {
