@@ -332,26 +332,18 @@
             </select>
             <input type="submit" value="Graph PLZ" name="GraphSubmit" />
         </form>
-<!--            <button type="button" value="Graphs PLZ" name="graph_submit" id="graph_submit">Gimme graph</button>-->
 
 
             <div id="chart_div">
-                <?php
-//            if (isset($view->grdata)) {
-//                echo "<p>$view->grdata</p>"; // print JSON
-//                echo "<script type=\"text/javascript\">
-//                    platform_vs_wage('$view->grdata');</script>";
-//                echo '<h3>where is my graph</h3>';
-//            }
-            ?>
+
         </div>
     </div>
 </div>
 <script type="text/javascript">
         $('#chart_form').submit(function(e) {
-                // Post the form data to page.php
+                // Post the form data to return_data.php
                 $.post('return_data.php', $(this).serialize(), function(resp) {
-                        // Set the response data into the #div2
+                        // Set the response data into the #chart_div
                         $('#chart_div').html(resp);
                 });
 
