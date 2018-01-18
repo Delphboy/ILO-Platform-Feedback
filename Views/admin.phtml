@@ -368,5 +368,10 @@
                 e.preventDefault();
                 return false;
         });
+        $('#myTable').click( function() {
+                var table = $('#myTable').tableToJSON(); // Convert the table into a javascript object
+                console.log(table);
+                alert(JSON.stringify(table));
+        });
 </script>
 </body>
