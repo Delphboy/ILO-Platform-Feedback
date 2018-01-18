@@ -334,7 +334,17 @@
         </form>
 
         <div id="chart_div">
-            <?php
+                <script type="text/javascript">
+                        var auto_refresh = setInterval(
+                            function ()
+                            {
+                                    $('#load_me').load('showdata.jsp').fadeIn("slow");
+                            }, 10000); // autorefresh the content of the div after
+                                       //every 10000 milliseconds(10sec)
+                </script>
+                <div id="load_me"> <%@ include file="showdata.jsp" %></div>
+
+                <?php
             if (isset($view->grdata)) {
                 echo "<p>$view->grdata</p>"; // print JSON
                 echo "<script type=\"text/javascript\">
