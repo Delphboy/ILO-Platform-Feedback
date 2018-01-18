@@ -201,3 +201,125 @@ max-height: 80vh;
     border-radius: 50px;
     box-shadow: black 0 0 5px;
 }
+
+/*Slider */
+.slidecontainer{
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 50px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 25px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.range_options
+{
+    font-family: Montserrat-Bold;
+    font-weight: bold;
+}
+
+.slider_option1
+{
+    display: inline;
+}
+
+
+.slider_option2
+{
+    display: inline;
+    margin-left: 104px;
+}
+
+.slider_option3
+{
+    display: inline;
+    margin-left: 110px;
+}
+
+.slider_option4
+{
+    display: inline;
+    margin-left: 95px;
+}
+
+.slider_option5
+{
+    display: inline;
+    margin-left: 75px;
+}
+
+.slider_option6
+{
+    display: inline;
+}
+
+.slider_option7
+{
+    display: inline;
+    margin-left: 25px;
+}
+
+.slider_option8
+{
+    display: inline;
+    margin-left: 75px;
+}
+
+.slider_option9
+{
+    display: inline;
+    margin-left: 85px;
+}
+
+.slider_option10
+{
+    display: inline;
+    margin-left: 100px;
+}
+
+/*comment box*/
+.comment
+{
+    background-color: #E6E6E6;
+    width: 600px;
+    display: block;
+    position: relative;
+    height: 150px;
+}
+
+.inputComment
+{
+    height: auto;
+    margin-bottom: 10px;
+}

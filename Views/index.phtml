@@ -22,6 +22,17 @@
                         <option class="searchItem" value="UpWork">UpWork</option>
                         <option class="searchItem" value="Fiverr">Fiverr</option>
                         <option class="searchItem" value="ClickWork">ClickWork</option>
+                        <option class="searchItem" value="Toptal">Toptal</option>
+                        <option class="searchItem" value="Elance">Elance</option>
+                        <option class="searchItem" value="Freelancer">Freelancer</option>
+                        <option class="searchItem" value="Craigslist">Craigslist</option>
+                        <option class="searchItem" value="Guru">Guru</option>
+                        <option class="searchItem" value="Peopleperhour">Peopleperhour</option>
+                        <option class="searchItem" value="GetACoder">GetACoder</option>
+                        <option class="searchItem" value="iFreelance">iFreelance</option>
+                        <option class="searchItem" value="Project4hire">Project4hire</option>
+                        <option class="searchItem" value="CrowdSource">CrowdSource</option>
+
                     </select>
                 </div>
             </div>
@@ -359,7 +370,6 @@
                 <label class="surveyText">Rating</label>
                 <div class="input100">
                     <select class="searchOp" name="rating">
-                        <option class="searchItem" value="0">0 Star</option>
                         <option class="searchItem" value="1">1 Star</option>
                         <option class="searchItem" value="2">2 Star</option>
                         <option class="searchItem" value="3">3 Star</option>
@@ -368,6 +378,56 @@
                     </select>
                 </div>
             </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Rating - How satisfied were you with the pay?</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingPay">
+                    <ul class="range_options">
+                        <li class="slider_option1" value="1">VERY BAD</li>
+                        <li class="slider_option2" value="2">BAD</li>
+                        <li class="slider_option3" value="3">SATISFACTORY</li>
+                        <li class="slider_option4" value="4">GOOD</li>
+                        <li class="slider_option5" value="5">VERY GOOD</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Rating - How satisfied were you with the working conditions?</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingConditions">
+                    <ul class="range_options">
+                        <li class="slider_option1" value="1">VERY BAD</li>
+                        <li class="slider_option2" value="2">BAD</li>
+                        <li class="slider_option3" value="3">SATISFACTORY</li>
+                        <li class="slider_option4" value="4">GOOD</li>
+                        <li class="slider_option5" value="5">VERY GOOD</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input">
+                <label class="surveyText">Rating - Did the task meet the description outlined on the site?</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingDesc">
+                    <ul class="range_options">
+                        <li class="slider_option6" value="1">VERY DIFFERENT</li>
+                        <li class="slider_option7" value="2">DIFFERENT</li>
+                        <li class="slider_option8" value="3">CLOSE ENOUGH</li>
+                        <li class="slider_option9" value="4">SIMILAR</li>
+                        <li class="slider_option10" value="5">EXACT</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <label class="surveyText">Leave your thoughts on the job...</label>
+                <div class="input100 inputComment">
+                    <textarea class="comment" maxlength="300" name="comment" placeholder="Leave a comment..."></textarea>
+                </div>
+            </div>
+
             <input class="login101-form-btn" type="submit" value="submit" name="submit">
         </form>
     </div>
