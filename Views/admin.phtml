@@ -370,19 +370,10 @@
                 return false;
         });
 
-                $('#jsonplz').click(function () {
-                        var array1 = [];
-                        $("#myTable.DataRow").each(function () {
-                                var amount = $(this).find('td').eq(2).text().trim();
-                                if (!isNaN(amount) && parseFloat(amount) > 0) {
-                                        var firstTableData = {};
-                                        firstTableData.Id = $(this).find('td').eq(0).text().trim();
-                                        firstTableData.Name = $(this).find('td').eq(0).text().trim();
-                                        firstTableData.Amount = amount
-                                        array1.push(firstTableData);
-                                }
-                        });
-                        alert(JSON.stringify(array1));
-                });
+        $('#jsonplz').click( function() {
+                var table = $('#myTable').tableToJSON();
+                console.log(table);
+                alert(JSON.stringify(table));
+        });
 </script>
 </body>
