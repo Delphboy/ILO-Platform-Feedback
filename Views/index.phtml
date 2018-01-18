@@ -1,8 +1,8 @@
 <?php
-//require_once('../Views/template/headerUser.phtml'); ?>
+require_once('../Views/template/headerUser.phtml'); ?>
 <?php
 echo "a";
-echo $_POST;
+print_r ($_POST);
 if (isset($_POST['submit'])) {
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
