@@ -30,7 +30,6 @@ if(isset($_POST['GraphSubmit']))
             $view->JSFunc =  '<script type="text/javascript">platform_vs_wage(<?php echo $view->grdata; ?>);</script>';
             break;
     }
-
 //    $platform_vs_wage = $gr->platform_vs_wage();
 ////print_r($platform_vs_wage);
 //    $wage_per_country = $gr->wage_per_country();
