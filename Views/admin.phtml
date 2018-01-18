@@ -303,7 +303,7 @@
             if(isset($view->grdata)) :
             {
                 echo $view->grdata; // print JSON
-                    echo "<script type=\"text/javascript\">platform_vs_wage(<?php echo $view->grdata; ?>);</script>";
+                    echo "<script type=\"text/javascript\">drawBasic();</script>";
                 echo $view->JSFunc;
                     echo '<h3>where is my graph</h3>';
             }
