@@ -7,6 +7,8 @@ require_once('Views/template/headerUser.phtml'); ?>
 <?php
 if (isset($_POST['submit'])) {
 	
+	echo "changed 1";
+	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
 	
