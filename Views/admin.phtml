@@ -334,39 +334,37 @@
         </form>
 
         <div id="chart_div">
-            <?php
-            if (isset($view->grdata)) {
-                echo "<p>$view->grdata</p>"; // print JSON
-                echo "<script type=\"text/javascript\">
-                    platform_vs_wage('$view->grdata');</script>";
-                //echo $view->JSFunc;
-                echo '<h3>where is my graph</h3>';
-            }
-            ?>
+<!--            --><?php
+//            if (isset($view->grdata)) {
+//                echo "<p>$view->grdata</p>"; // print JSON
+//                echo "<script type=\"text/javascript\">
+//                    platform_vs_wage('$view->grdata');</script>";
+//                //echo $view->JSFunc;
+//                echo '<h3>where is my graph</h3>';
+//            }
+//            ?>
         </div>
     </div>
 </div>
 </body>
 <script type="text/javascript">
 
-        function insertData() {
-                var def_graphs =$("#def_graphs").val();
-
+    function insertData() {
+        var def_graphs = $("#def_graphs").val();
 // AJAX code to send data to php file.
-                $.ajax({
-                        type: "POST",
-                        url: "get_data.php",
-                        data: {def_graphs:def_graphs},
-                        dataType: "JSON",
-                        success: function(data) {
-                                platform_vs_wage(<?php echo $view->grdata; ?>);
-                                $("#chart_div").html(data);
-                        },
-                        error: function(err) {
-                                alert(err);
-                        }
-                });
+        $.ajax({
+            type: "POST",
+            url: "admin.php",
+            data: {def_graphs: def_graphs},
+            dataType: "JSON",
+            success: function (data) {
+                platform_vs_wage(<?php echo $view->grdata; ?>);
+                $("#chart_div").html(data);
+            },
+            error: function (err) {
+                alert(err);
+            }
+        });
 
-        }
-
+    }
 </script>
