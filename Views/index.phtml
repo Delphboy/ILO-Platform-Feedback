@@ -2,11 +2,17 @@
 require_once('../Views/template/headerUser.phtml'); ?>
 <?php
 echo "a";
+echo $_POST;
 if (isset($_POST['submit'])) {
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
 	$privatekey = "6Lc2O0EUAAAAALHpuswHfe0ruXAOV-jlMs6IKtdm";
+	
 	$response = file_get_contents ($url . "?secretkey=" . $privatekey . "&response=" . $_POST['g-captcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+	
+	echo $response;
+	
+	
 	$data = json_decode ($response);
 }
 
