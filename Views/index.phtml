@@ -1,6 +1,6 @@
 <?php
 require_once('Views/template/headerUser.phtml'); ?>
-<?php //
+<?php
 if (isset($_POST['submit'])) {
 	
 	$url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -12,11 +12,11 @@ if (isset($_POST['submit'])) {
 if (isset($data->success) AND $data->success==true)
 {
 	//true?
-	header ('Location: index.php?Captchapass=True');
+	header ('Location: index.php?CaptchaPass=True');
 }
 else
 {
-	header ('Location: index.php?Captchafail=True');
+	header ('Location: index.php?CaptchaFail=True');
 }
 ?>
 
@@ -41,7 +41,7 @@ else
  -->
 <body class="container-login100">
     <div class="wrap-login101">
-        <form class="form-style" method="post" action="index.php">
+        <form class="form-style" method="post" action="/index.php">
             <span class="survey-title">
                     Survey
                 </span>
