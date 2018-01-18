@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) {
     $rating = $_POST['rating'];
 
     $dbHandle = database::Instance();
-    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country);";
+    $query = "INSERT INTO review(platform, wage, currency, hours_spent_working, hours_spent_looking, gender, age, rating, country,rating_pay, rating_conditions,rating_description,comment) VALUES(:platform, :wage, :CurrencySign, :timeworking, :timelooking, :gender, :age, :rating, :country, 7,7,7,'steve');";
     $dbHandle->query($query);
 
     $dbHandle->bind(':platform',$platform);
