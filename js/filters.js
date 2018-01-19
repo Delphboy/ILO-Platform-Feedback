@@ -70,8 +70,8 @@ function drawBarChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 600,
-            height: 600,
+            width: 800,
+            height: 800,
             legend: 'none'
         };
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -86,8 +86,8 @@ function drawPieChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 600,
-            height: 600,
+            width: 800,
+            height: 800,
             legend: 'none'
         };
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -101,8 +101,8 @@ function drawAreaChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 600,
-            height: 600,
+            width: 800,
+            height: 800,
             legend: 'none'
         };
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
@@ -118,8 +118,8 @@ function wage_per_country(jsontable) {
         var barchart_options =
         {
             title: 'Average Wage per Country',
-            width: 600,
-            height: 600,
+            width: 800,
+            height: 800,
             legend: 'none'
         };
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -137,8 +137,8 @@ function rating_vs_wage(jsontable) {
         title: 'Hours Looking vs Hours Working',
         hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
         vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
-        width: 600,
-        height: 600,
+        width: 800,
+        height: 800,
         legend: 'none'
     };
     var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
