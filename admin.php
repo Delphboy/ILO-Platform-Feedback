@@ -7,7 +7,6 @@ require_once('Models/Graph.php');
 $view = new stdClass();
 $model = new Admin();
 $gr = new Graph();
-
 // Check for the country selection
 if (isset($_POST['table-submit'])) {
     $query = $_POST['country-selection-admin'];
