@@ -67,13 +67,25 @@ function drawBarChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
-        var barchart_options =
+        var rowcount = data.getNumberOfRows();
+        if (rowcount > 15){
+            var barchart_options =
         {
             title: '',
-            width: 1000,
-            chartArea: {width: '90%', height: '80%'},
+            width: 1500,
+            chartArea: {width: '80%', height: '80%'},
             height: 800,
         };
+        }
+        else{
+            var barchart_options =
+            {
+                title: '',
+                width: 1000,
+                chartArea: {width: '80%', height: '80%'},
+                height: 800,
+            };
+        }
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
     })
@@ -83,13 +95,24 @@ function drawPieChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
-        var barchart_options =
-        {
-            title: '',
-            width: 1000,
-            chartArea: {width: '90%', height: '80%'},
-            height: 800,
-        };
+        if (rowcount > 15){
+            var barchart_options =
+            {
+                title: '',
+                width: 1500,
+                chartArea: {width: '80%', height: '80%'},
+                height: 800,
+            };
+        }
+        else{
+            var barchart_options =
+            {
+                title: '',
+                width: 1000,
+                chartArea: {width: '80%', height: '80%'},
+                height: 800,
+            };
+        }
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
     })
@@ -98,13 +121,24 @@ function drawAreaChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
-        var barchart_options =
-        {
-            title: '',
-            width: 1000,
-            chartArea: {width: '90%', height: '80%'},
-            height: 800,
-        };
+        if (rowcount > 15){
+            var barchart_options =
+            {
+                title: '',
+                width: 1500,
+                chartArea: {width: '80%', height: '80%'},
+                height: 800,
+            };
+        }
+        else{
+            var barchart_options =
+            {
+                title: '',
+                width: 1000,
+                chartArea: {width: '80%', height: '80%'},
+                height: 800,
+            };
+        }
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
     })
