@@ -1,10 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['isSignedIn']))
-    if($_SESSION['isSignedIn'])
-    {
-        header('Location: admin.php');
-    }
+if($_SESSION['isSignedIn'])
+{
+    header('Location: admin.php');
+}
 
 require_once('Models/Login.php');
 if(isset($_POST['submit']))
@@ -30,16 +29,4 @@ require_once('Views/login.phtml');
 ?>
 
 
-<footer>
-    <!-- Scripts -->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    <script src="js/main.js"></script>
-    <script >
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-</footer>
+<?php require_once('Views/template/footer.phtml')?>
