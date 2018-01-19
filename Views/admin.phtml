@@ -325,20 +325,6 @@
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
         <form action="/return_data.php" method="post" id="chart_form">
-<!--            <select name="def_graphs" class="searchOp" id="def_graphs">-->
-<!--                <option id="placeholder" value="placeholder">Choose graph</option>-->
-<!--                <option id="graph1" value="SELECT platform, AVG(wage)  FROM review GROUP BY platform"> Platform by Avg wage barchart</option>-->
-<!--                <option id="graph2" value="SELECT country, AVG(wage) FROM review GROUP BY country"> Avg Wage per country barchart-->
-<!--                </option>-->
-<!--                <option id="graph3" value="SELECT platform, count(platform) FROM review GROUP BY platform"> Platform popularity-->
-<!--                    piechart-->
-<!--                </option>-->
-<!--                <option id="graph4" value="SELECT wage, rating FROM review">Scatter chart of time looking vs time-->
-<!--                    working-->
-<!--                </option>-->
-<!--                <option id="graph5" value="SELECT platform, AVG(rating) FROM review GROUP BY platform">Platform by Avg rating-->
-<!--                </option>-->
-<!--            </select>-->
                 <select name="var1" class="form-control">
                         <option value="">Choose var1</option>
                         <option value="platform">Platform</option>
@@ -358,8 +344,8 @@
                         <option value="GROUP BY country">Country</option>
                 </select>
                 <select name="chart" class="form-control">
-                        <option value="placeholder">Choose chart</option>
-                        <option value="barchart">Barchart</option>
+                        <option value="">Choose chart</option>
+                        <option value="barchart">barchart</option>
                         <option value="piechart">piechart</option>
                         <option value="scattergraph">scattergraph</option>
                 </select>
