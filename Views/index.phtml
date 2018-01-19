@@ -1,13 +1,19 @@
-<!--
-    User PAGE
-    if an admin were to log in then they will be taken to this page.
+<?php
+	require_once('template/headerUser.phtml');
+?>
 
+
+	<!--
+    User PAGE
+    if an admin were to log in then they will not be taken to this page.
     Contents:
         - Will have a survey
  -->
 <body class="container-login100">
+
+
     <div class="wrap-login101">
-        <form class="form-style" method="post" action="index.php">
+        <form class="form-style" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <span class="survey-title">
                     Survey
                 </span>
@@ -53,10 +59,38 @@
                 <div class="currency">
                     <div class="inputCurrency">
                         <select class="searchOp" name="CurrencySign" required>
-                            <option class="searchItem" value="GBP">£</option>
-                            <option class="searchItem" value="USD">$</option>
-                            <option class="searchItem" value="EUR">€</option>
-                            <option class="searchItem" value="YEN">¥</option>
+                            <option class="searchItem" value="EUR">EUR</option>
+                            <option class="searchItem" value="AUD">AUD</option>
+                            <option class="searchItem" value="BGN">BGN</option>
+                            <option class="searchItem" value="BRL">BRL</option>
+                            <option class="searchItem" value="CAD">CAD</option>
+                            <option class="searchItem" value="CHF">CHF</option>
+                            <option class="searchItem" value="CNY">CNY</option>
+                            <option class="searchItem" value="CZK">CZK</option>
+                            <option class="searchItem" value="DKK">DKK</option>
+                            <option class="searchItem" value="GBP">GBP</option>
+                            <option class="searchItem" value="HKD">HKD</option>
+                            <option class="searchItem" value="HRK">HRK</option>
+                            <option class="searchItem" value="HUF">HUF</option>
+                            <option class="searchItem" value="IDR">IDR</option>
+                            <option class="searchItem" value="ILS">ILS</option>
+                            <option class="searchItem" value="INR">INR</option>
+                            <option class="searchItem" value="JPY">JPY</option>
+                            <option class="searchItem" value="KRW">KRW</option>
+                            <option class="searchItem" value="MXN">MXN</option>
+                            <option class="searchItem" value="MYR">MYR</option>
+                            <option class="searchItem" value="NOK">NOK</option>
+                            <option class="searchItem" value="NZD">NZD</option>
+                            <option class="searchItem" value="PHP">PHP</option>
+                            <option class="searchItem" value="PLN">PLN</option>
+                            <option class="searchItem" value="RON">RON</option>
+                            <option class="searchItem" value="RUB">RUB</option>
+                            <option class="searchItem" value="SEK">SEK</option>
+                            <option class="searchItem" value="SGD">SGD</option>
+                            <option class="searchItem" value="THB">THB</option>
+                            <option class="searchItem" value="TRY">TRY</option>
+                            <option class="searchItem" value="USD">USD</option>
+                            <option class="searchItem" value="ZAR">ZAR</option>
                         </select>
                     </div>
                     <input class="inputCurrency inputCurrency-text" name="wage" type="number" maxlength="6" max="200" min="0" step="0.01" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required>
@@ -341,6 +375,7 @@
             <div class="wrap-input100 validate-input">
                 <label class="surveyText">Rating</label>
                 <div class="input100">
+                
                     <select class="searchOp" name="rating">
                         <option class="searchItem" value="1">1 Star</option>
                         <option class="searchItem" value="2">2 Star</option>
@@ -349,58 +384,60 @@
                         <option class="searchItem" value="5">5 Star</option>
                     </select>
                 </div>
+	        <div class="wrap-input100 validate-input">
+		        <label class="surveyText">Rating - How satisfied were you with the pay?</label>
+		        <div class="slidecontainer">
+			        <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingPay">
+			        <ul class="range_options">
+				        <li class="slider_option1" value="1">VERY BAD</li>
+				        <li class="slider_option2" value="2">BAD</li>
+				        <li class="slider_option3" value="3">SATISFACTORY</li>
+				        <li class="slider_option4" value="4">GOOD</li>
+				        <li class="slider_option5" value="5">VERY GOOD</li>
+			        </ul>
+		        </div>
+	        </div>
+	
+	        <div class="wrap-input100 validate-input">
+		        <label class="surveyText">Rating - How satisfied were you with the working conditions?</label>
+		        <div class="slidecontainer">
+			        <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingConditions">
+			        <ul class="range_options">
+				        <li class="slider_option1" value="1">VERY BAD</li>
+				        <li class="slider_option2" value="2">BAD</li>
+				        <li class="slider_option3" value="3">SATISFACTORY</li>
+				        <li class="slider_option4" value="4">GOOD</li>
+				        <li class="slider_option5" value="5">VERY GOOD</li>
+			        </ul>
+		        </div>
+	        </div>
+	
+	        <div class="wrap-input100 validate-input">
+		        <label class="surveyText">Rating - Did the task meet the description outlined on the site?</label>
+		        <div class="slidecontainer">
+			        <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingDesc">
+			        <ul class="range_options">
+				        <li class="slider_option6" value="1">VERY DIFFERENT</li>
+				        <li class="slider_option7" value="2">DIFFERENT</li>
+				        <li class="slider_option8" value="3">CLOSE ENOUGH</li>
+				        <li class="slider_option9" value="4">SIMILAR</li>
+				        <li class="slider_option10" value="5">EXACT</li>
+			        </ul>
+		        </div>
+	        </div>
+	
+	        <div>
+		        <label class="surveyText">Leave your thoughts on the job...</label>
+		        <div class="input100 inputComment">
+			        <textarea class="comment" maxlength="300" name="comment" placeholder="Leave a comment..."></textarea>
+		        </div>
+	        </div>
+	        <!--<input class="input-sm" type="submit" name="submit" value="SUBMIT">-->
+	        <div class="g-recaptcha" data-sitekey="6LfwdUEUAAAAACTw-6pesqkBgWBgaDKcrOgTH6ru"></div>
+	        <input class="login101-form-btn" type="submit" value="submit" name="submit">
             </div>
-
-            <div class="wrap-input100 validate-input">
-                <label class="surveyText">Rating - How satisfied were you with the pay?</label>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingPay">
-                    <ul class="range_options">
-                        <li class="slider_option1" value="1">VERY BAD</li>
-                        <li class="slider_option2" value="2">BAD</li>
-                        <li class="slider_option3" value="3">SATISFACTORY</li>
-                        <li class="slider_option4" value="4">GOOD</li>
-                        <li class="slider_option5" value="5">VERY GOOD</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="wrap-input100 validate-input">
-                <label class="surveyText">Rating - How satisfied were you with the working conditions?</label>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingConditions">
-                    <ul class="range_options">
-                        <li class="slider_option1" value="1">VERY BAD</li>
-                        <li class="slider_option2" value="2">BAD</li>
-                        <li class="slider_option3" value="3">SATISFACTORY</li>
-                        <li class="slider_option4" value="4">GOOD</li>
-                        <li class="slider_option5" value="5">VERY GOOD</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="wrap-input100 validate-input">
-                <label class="surveyText">Rating - Did the task meet the description outlined on the site?</label>
-                <div class="slidecontainer">
-                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange" name="ratingDesc">
-                    <ul class="range_options">
-                        <li class="slider_option6" value="1">VERY DIFFERENT</li>
-                        <li class="slider_option7" value="2">DIFFERENT</li>
-                        <li class="slider_option8" value="3">CLOSE ENOUGH</li>
-                        <li class="slider_option9" value="4">SIMILAR</li>
-                        <li class="slider_option10" value="5">EXACT</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div>
-                <label class="surveyText">Leave your thoughts on the job...</label>
-                <div class="input100 inputComment">
-                    <textarea class="comment" maxlength="300" name="comment" placeholder="Leave a comment..."></textarea>
-                </div>
-            </div>
-
-            <input class="login101-form-btn" type="submit" value="submit" name="submit">
         </form>
     </div>
 </body>
+
+<?php require_once('template/footer.phtml'); ?>
