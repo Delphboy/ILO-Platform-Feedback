@@ -9,10 +9,10 @@ $model = new Admin();
 $grdata = null;
 
 if (isset($_POST['def_graphs']))
-
     $query = $_POST['def_graphs'];
-    echo "<p> $query </p>";
-   // $grdata = $gr->platform_vs_wage($query);
+
+    $grdata = $gr->platform_vs_wage($query);
+    echo "<p> $grdata </p>";
     //echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
 
 //    switch ($_POST['def_graphs']) {
