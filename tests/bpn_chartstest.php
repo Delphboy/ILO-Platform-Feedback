@@ -71,8 +71,8 @@
             var piechart_options =
             {
                 title: 'Barchart',
-                hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
-                vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
+                hAxis: {title: 'wage', minValue: 0, maxValue: 20},
+                vAxis: {title: 'rating', minValue: 0, maxValue: 5},
                 width: 900,
                 height: 900,
                 legend: 'none'
