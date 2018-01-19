@@ -20,7 +20,7 @@
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
-        <form action="/return_data.php" method="post" id="table_form">
+        <form action="/admin.php" method="post" id="table_form">
             <label>
                     <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
@@ -324,7 +324,7 @@
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="/return_data.php" method="post" id="chart_form">
+        <form action="/admin.php" method="post" id="chart_form">
                 <select name="var1" class="form-control">
                         <option value="">Choose var1</option>
                         <option value="platform">Platform</option>
@@ -395,7 +395,7 @@
 <script type="text/javascript">
         $('#chart_form').submit(function(e) {
                 // Post the form data to return_data.php
-                $.post('return_data.php', $(this).serialize(), function(resp) {
+                $.post('admin.php', $(this).serialize(), function(resp) {
                         // Set the response data into the #chart_div
                         $('#chart_div').html(resp);
                 });
@@ -406,7 +406,7 @@
         });
         $('#table_form').submit(function(e) {
                 // Post the form data to return_data.php
-                $.post('return_data.php', $(this).serialize(), function(resp) {
+                $.post('admin.php', $(this).serialize(), function(resp) {
                         // Set the response data into the #chart_div
                         $('#tableToDisplay').html(resp);
                 });
