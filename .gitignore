@@ -3,3 +3,4 @@
 *.phar
 vendor/
 composer.lock
+TESTING/
