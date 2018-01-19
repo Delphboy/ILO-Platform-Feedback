@@ -33,7 +33,7 @@ class Login
         $dbConnection->bind(':email', $email);
         $dbConnection->execute();
         $row = $dbConnection->resultSet();
-        if(($row != NULL) && ($row[0][1] == $password))
+        if(($row != NULL) && password_verify($password, $row[0][1]))
         {
             return true;
         }

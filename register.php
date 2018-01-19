@@ -15,7 +15,8 @@ spl_autoload_register(function($class)
 if(isset($_POST['submit']))
 {
     $email = $_POST['email'];
-    echo $password = hash("md2",$_POST['psw']);
+    $password = password_hash(htmlentities($_POST['psw']), PASSWORD_BCRYPT);
+    echo "<h1>$password</h1>";
     $admin = '1';
 
     $dbHandle = database::Instance();
