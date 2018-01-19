@@ -83,7 +83,7 @@ function drawBarChart(jsontable) {
             {
                 title: '',
                 width: 800,
-                chartArea: {width: '80%', height: '80%'},
+                chartArea: {left: 30, top:5, width: '80%', height: '80%'},
                 height: 800,
             };
         }
@@ -112,7 +112,7 @@ function drawPieChart(jsontable) {
             {
                 title: '',
                 width: 800,
-                chartArea: {width: '80%', height: '80%'},
+                chartArea: {left: 30, top:5, width: '80%', height: '80%'},
                 height: 800,
             };
         }
@@ -140,7 +140,7 @@ function drawAreaChart(jsontable) {
             {
                 title: '',
                 width: 800,
-                chartArea: {width: '80%', height: '80%'},
+                chartArea: {left: 30, top:5, width: '80%', height: '80%'},
                 height: 800,
             };
         }
