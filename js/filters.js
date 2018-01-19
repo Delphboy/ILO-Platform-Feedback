@@ -96,6 +96,7 @@ function drawPieChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
+        var rowcount = data.getNumberOfRows();
         var barchart_options;
         if (rowcount > 15){
             barchart_options =
@@ -123,6 +124,7 @@ function drawAreaChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
+        var rowcount = data.getNumberOfRows();
         var barchart_options;
         if (rowcount > 15){
             barchart_options =
