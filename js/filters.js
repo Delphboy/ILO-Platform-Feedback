@@ -68,8 +68,9 @@ function drawBarChart(jsontable) {
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
         var rowcount = data.getNumberOfRows();
+        var barchart_options;
         if (rowcount > 15){
-            var barchart_options =
+            barchart_options =
         {
             title: '',
             width: 1500,
@@ -78,7 +79,7 @@ function drawBarChart(jsontable) {
         };
         }
         else{
-            var barchart_options =
+            barchart_options =
             {
                 title: '',
                 width: 1000,
@@ -95,8 +96,9 @@ function drawPieChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
+        var barchart_options;
         if (rowcount > 15){
-            var barchart_options =
+            barchart_options =
             {
                 title: '',
                 width: 1500,
@@ -105,7 +107,7 @@ function drawPieChart(jsontable) {
             };
         }
         else{
-            var barchart_options =
+            barchart_options =
             {
                 title: '',
                 width: 1000,
@@ -121,8 +123,9 @@ function drawAreaChart(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
         var data = new google.visualization.DataTable(jsontable);
+        var barchart_options;
         if (rowcount > 15){
-            var barchart_options =
+            barchart_options =
             {
                 title: '',
                 width: 1500,
@@ -131,7 +134,7 @@ function drawAreaChart(jsontable) {
             };
         }
         else{
-            var barchart_options =
+            barchart_options =
             {
                 title: '',
                 width: 1000,
