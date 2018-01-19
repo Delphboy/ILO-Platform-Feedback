@@ -8,6 +8,10 @@ $model = new Admin();
 
 $grdata = null;
 
+if (isset($_POST['def_graphs']))
+
+    $grdata = $gr->platform_vs_wage($_POST['def_graphs']);
+    echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
 
 //    switch ($_POST['def_graphs']) {
 //        case "PlatformVSWage":
@@ -32,15 +36,15 @@ $grdata = null;
 //            break;
 //    }
 
-$grdata = $gr->platform_vs_wage($_POST['def_graphs']);
-echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
 
 
-$query = $_POST['country-selection-admin'];
-$tableToDisplay = $model->createTable($query);
+if (isset($_POST['country-selection-admin'])){
+    $query = $_POST['country-selection-admin'];
+    $tableToDisplay = $model->createTable($query);
 
-if ($tableToDisplay != "") {
-    $table = $tableToDisplay;
-    echo "$table";
+    if ($tableToDisplay != "") {
+        $table = $tableToDisplay;
+        echo "$table";
+    }
 }
 //echo "<p>This is text</p>";
