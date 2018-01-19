@@ -74,7 +74,7 @@ function drawBarChart(jsontable) {
         {
             title: '',
             width: 1500,
-            chartArea: {width: '80%', height: '80%'},
+            chartArea: { left: 10, top: 10, width: '80%', height: '80%'},
             height: 800,
         };
         }
