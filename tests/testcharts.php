@@ -62,10 +62,6 @@
 			<script type="text/javascript">
 		
 		var $z= 2;
-	//	"<?php ////if (!empty($a))
-	//	   {
-	//	       echo $a;
-	//	   } ?>////" />
 	
 	// Load the Visualization API and the corechart package.
 	google.charts.load('current', {'packages':['corechart']});
