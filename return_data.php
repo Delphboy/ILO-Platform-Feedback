@@ -12,8 +12,7 @@ if (isset($_POST['def_graphs']))
     $query = $_POST['def_graphs'];
 
     $grdata = $gr->platform_vs_wage($query);
-    echo "<p> $grdata </p>";
-    //echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
+    echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
 
 //    switch ($_POST['def_graphs']) {
 //        case "PlatformVSWage":
