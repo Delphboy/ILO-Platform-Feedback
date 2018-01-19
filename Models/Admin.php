@@ -84,7 +84,8 @@ class Admin
                 {
                     $currencyType = $data[$rowno][3];//Get the currency [assuming currency is always at pos{3}]
                     $currencyType = $this->convertWage($currencyType); //returns the correct exchange rate
-                    $convertedWage = $data[$rowno][$colno] * $currencyType;//  wage * currency = EUO currency
+                    $convertedWage = $data[$rowno][$colno] / $currencyType;//
+                    //  wage * currency = EUO currency
                     $output = $output . '<td>' . $convertedWage . '</td>';
                 }
                 elseif($colno == 9) /* COUNTRY CLARIFICATION */
