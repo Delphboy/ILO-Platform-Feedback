@@ -75,16 +75,16 @@ function drawBarChart(jsontable) {
             title: '',
             width: 1500,
             chartArea: { left: 30, top: 5, width: '80%', height: '80%'},
-            height: 800,
+            height: 600,
         };
         }
         else{
             barchart_options =
             {
                 title: '',
-                width: 800,
+                width: 900,
                 chartArea: {left: 30, top:5, width: '80%', height: '80%'},
-                height: 800,
+                height: 600,
             };
         }
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -111,7 +111,7 @@ function drawPieChart(jsontable) {
             barchart_options =
             {
                 title: '',
-                width: 800,
+                width: 900,
                 chartArea: {left: 30, top:5, width: '80%', height: '80%'},
                 height: 600,
             };
@@ -139,7 +139,7 @@ function drawAreaChart(jsontable) {
             barchart_options =
             {
                 title: '',
-                width: 800,
+                width: 900,
                 chartArea: {left: 30, top:5, width: '80%', height: '80%'},
                 height: 600,
             };
