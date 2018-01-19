@@ -94,6 +94,21 @@ function drawPieChart(jsontable) {
         chart.draw(data, barchart_options);
     })
 }
+function drawAreaChart(jsontable) {
+    google.charts.load('43', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(function () {
+        var data = new google.visualization.DataTable(jsontable);
+        var barchart_options =
+        {
+            title: '',
+            width: 600,
+            height: 600,
+            legend: 'none'
+        };
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, barchart_options);
+    })
+}
 
 
 function wage_per_country(jsontable) {

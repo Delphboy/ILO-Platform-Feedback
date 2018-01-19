@@ -26,7 +26,7 @@ class Graph
         return $data;
     }
 
-    function getJson($statement, $label1, $label2){
+    function getJson2fields($statement, $label1, $label2){
 
         $result = $this->getData($statement);
 
@@ -63,6 +63,29 @@ class Graph
         $table['rows'] = $rows;
 
         // convert data into JSON format
+        $jsonTable = json_encode($table);
+        return $jsonTable;
+    }
+    function getJson3fields($statement, $label1, $label2, $label3){
+        $result = $this->getData($statement);
+
+        $rows = array();
+        $table = array();
+        $table['cols'] = array(
+            array('label' => "$label1", 'type' => 'string'),
+            array('label' => "$label2", 'type' => 'number'),
+            array('label' => "$label3", 'type' => 'number')
+        );
+
+        foreach($result as $r) {
+            $temp = array();
+            $temp[] = array('v' => (string) $r[$label1]);
+            $temp[] = array('v' => (real) $r[$label2]);
+            $temp[] = array('v' => (real) $r[$label3]);
+            $rows[] = array('c' => $temp);
+        }
+        $table['rows'] = $rows;
+
         $jsonTable = json_encode($table);
         return $jsonTable;
     }
