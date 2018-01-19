@@ -11,15 +11,15 @@ $grdata = null;
 if (isset($_POST['var1']) && isset($_POST['var2']))
     //$query = $_POST['def_graphs'];
     $query = 'SELECT '.$_POST['var1'].', '.$_POST['var2'].' FROM review '. $_POST['group'].";";
-    echo "<h3>$query</h3>";
+//    echo "<h3>$query</h3>";
 
     $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
-    echo "<p>$grdata</p>";
+//    echo "<p>$grdata</p>";
     if ($_POST['chart'] == 'barchart'){
-        //echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
+        echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
     }
     elseif ($_POST['chart'] == 'piechart'){
-        //echo "<script type=\"text/javascript\">drawPieChart('$grdata');</script>";
+        echo "<script type=\"text/javascript\">drawPieChart('$grdata');</script>";
 
     }
 
