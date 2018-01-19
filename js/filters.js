@@ -71,6 +71,7 @@ function drawBarChart(jsontable) {
         {
             title: '',
             width: 1000,
+            chartArea: {width: '100%', height: '80%'},
             height: 800,
         };
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -86,6 +87,7 @@ function drawPieChart(jsontable) {
         {
             title: '',
             width: 1000,
+            chartArea: {width: '100%', height: '80%'},
             height: 800,
         };
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -100,6 +102,7 @@ function drawAreaChart(jsontable) {
         {
             title: '',
             width: 1000,
+            chartArea: {width: '100%', height: '80%'},
             height: 800,
         };
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
