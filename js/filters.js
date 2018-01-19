@@ -69,7 +69,7 @@ function drawBarChart(jsontable) {
         var data = new google.visualization.DataTable(jsontable);
         var barchart_options =
         {
-            title: 'Platform vs Average Wage',
+            title: '',
             width: 600,
             height: 600,
             legend: 'none'
@@ -77,8 +77,39 @@ function drawBarChart(jsontable) {
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
     })
-
 }
+
+function drawPieChart(jsontable) {
+    google.charts.load('43', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(function () {
+        var data = new google.visualization.DataTable(jsontable);
+        var barchart_options =
+        {
+            title: '',
+            width: 600,
+            height: 600,
+            legend: 'none'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, barchart_options);
+    })
+}
+
+function platform_popularity(jsontable) {
+    google.charts.load('43', {'packages': ['corechart']});
+    var data = new google.visualization.DataTable(jsontable);
+    var piechart_options =
+    {
+        title: 'Average Platform Popularity',
+        width: 600,
+        height: 600,
+        legend: 'none'
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+
+    chart.draw(data, piechart_options);
+}
+
 function platform_vs_wage(jsontable){
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {
@@ -115,20 +146,7 @@ function wage_per_country(jsontable) {
     })
 }
 
-function platform_popularity(jsontable) {
-    google.charts.load('43', {'packages': ['corechart']});
-    var data = new google.visualization.DataTable(jsontable);
-    var piechart_options =
-    {
-        title: 'Average Platform Popularity',
-        width: 600,
-        height: 600,
-        legend: 'none'
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 
-    chart.draw(data, piechart_options);
-}
 function rating_vs_wage(jsontable) {
     google.charts.load('43', {'packages': ['corechart']});
     var data = new google.visualization.DataTable(jsontable);

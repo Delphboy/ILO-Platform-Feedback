@@ -14,8 +14,13 @@ if (isset($_POST['var1']) && isset($_POST['var2']))
 
 
     $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
-    echo "$grdata";
-    echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
+    if ($_POST['chart'] == 'barchart'){
+        echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
+    }
+    elseif ($_POST['chart'] == 'piechart'){
+        echo "<script type=\"text/javascript\">drawPieChart('$grdata');</script>";
+
+    }
 
 //    switch ($_POST['def_graphs']) {
 //        case "PlatformVSWage":
