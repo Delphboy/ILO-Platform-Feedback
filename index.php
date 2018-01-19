@@ -60,5 +60,5 @@ if(isset($_POST['submit'])){
 	echo '</script>';
 
 	}
-	
 }
+require_once('Views/index.phtml');
