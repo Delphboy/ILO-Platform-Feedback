@@ -104,7 +104,7 @@ function drawPieChart(jsontable) {
                 title: '',
                 width: 1500,
                 chartArea: { left: 30, top: 5, width: '80%', height: '80%'},
-                height: 800,
+                height: 600,
             };
         }
         else{
@@ -113,7 +113,7 @@ function drawPieChart(jsontable) {
                 title: '',
                 width: 800,
                 chartArea: {left: 30, top:5, width: '80%', height: '80%'},
-                height: 800,
+                height: 600,
             };
         }
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -132,7 +132,7 @@ function drawAreaChart(jsontable) {
                 title: '',
                 width: 1500,
                 chartArea: { left: 30, top: 5, width: '80%', height: '80%'},
-                height: 800,
+                height: 600,
             };
         }
         else{
@@ -141,7 +141,7 @@ function drawAreaChart(jsontable) {
                 title: '',
                 width: 800,
                 chartArea: {left: 30, top:5, width: '80%', height: '80%'},
-                height: 800,
+                height: 600,
             };
         }
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
