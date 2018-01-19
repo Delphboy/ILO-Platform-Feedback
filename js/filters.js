@@ -70,9 +70,8 @@ function drawBarChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 800,
+            width: 1000,
             height: 800,
-            legend: 'none'
         };
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
@@ -86,9 +85,8 @@ function drawPieChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 800,
+            width: 1000,
             height: 800,
-            legend: 'none'
         };
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
@@ -101,47 +99,11 @@ function drawAreaChart(jsontable) {
         var barchart_options =
         {
             title: '',
-            width: 800,
+            width: 1000,
             height: 800,
-            legend: 'none'
+            // legend: 'none'
         };
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, barchart_options);
     })
-}
-
-
-function wage_per_country(jsontable) {
-    google.charts.load('43', {'packages': ['corechart']});
-    google.charts.setOnLoadCallback(function () {
-        var data = new google.visualization.DataTable(jsontable);
-        var barchart_options =
-        {
-            title: 'Average Wage per Country',
-            width: 800,
-            height: 800,
-            legend: 'none'
-        };
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-        chart.draw(data, barchart_options);
-    })
-}
-
-
-function rating_vs_wage(jsontable) {
-    google.charts.load('43', {'packages': ['corechart']});
-    var data = new google.visualization.DataTable(jsontable);
-    var piechart_options =
-    {
-        title: 'Hours Looking vs Hours Working',
-        hAxis: {title: 'hours looking', minValue: 0, maxValue: 100},
-        vAxis: {title: 'hours working', minValue: 0, maxValue: 100},
-        width: 800,
-        height: 800,
-        legend: 'none'
-    };
-    var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-    chart.draw(data, piechart_options);
 }
