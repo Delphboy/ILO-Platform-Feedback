@@ -69,6 +69,7 @@ function drawBarChart(jsontable) {
         var data = new google.visualization.DataTable(jsontable);
         var barchart_options =
         {
+            title: 'Platform vs Average Wage',
             width: 600,
             height: 600,
             legend: 'none'

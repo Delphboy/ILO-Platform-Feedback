@@ -15,7 +15,7 @@ if (isset($_POST['var1']) && isset($_POST['var2']))
 
     $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
     echo "$grdata";
-    echo "<script type=\"text/javascript\">platform_vs_wage('$grdata');</script>";
+    echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
 
 //    switch ($_POST['def_graphs']) {
 //        case "PlatformVSWage":
