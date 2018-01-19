@@ -17,7 +17,7 @@ class Graph
 
     function __construct()
     {
-        $conn = database::Instance();
+        $this->conn = database::Instance();
     }
 
     function getData($statement){
@@ -28,7 +28,7 @@ class Graph
 
     function platform_vs_wage($statement){
 
-//        $this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
+        //$this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
         $result = $this->getData($statement);
 
         //echo 'Attempt to create arrays';
