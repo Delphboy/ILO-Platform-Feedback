@@ -28,7 +28,6 @@ class Graph
 
     function platform_vs_wage($statement){
 
-        //$this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
         $result = $this->getData($statement);
 
         //echo 'Attempt to create arrays';
@@ -68,10 +67,9 @@ class Graph
         return $jsonTable;
     }
 
-    function wage_per_country(){
+    function wage_per_country($statement){
 
-        $this->conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $this->conn->resultSet();
+        $result = $this->getData($statement);
 
         $rows = array();
         $table = array();
@@ -99,9 +97,8 @@ class Graph
         return $jsonTable;
     }
 
-    function platform_popularity(){
-        $this->conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $this->conn->resultSet();
+    function platform_popularity($statement){
+        $result = $this->getData($statement);
 
         $rows = array();
         $table = array();
@@ -129,9 +126,8 @@ class Graph
         return $jsonTable;
     }
 
-    function rating_vs_wage(){
-        $this->conn->query('SELECT wage, rating FROM review');
-        $result = $this->conn->resultSet();
+    function rating_vs_wage($statement){
+        $result = $this->getData($statement);
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -158,9 +154,8 @@ class Graph
         return $jsonTable;
     }
 
-    function platform_by_rating(){
-        $this->conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $this->conn->resultSet();
+    function platform_by_rating($statement){
+        $result = $this->getData($statement);
 
         $rows = array();
         $table = array();
@@ -184,38 +179,38 @@ class Graph
         return $jsonTable;
     }
 
-    function gender_vs_wage(){
-        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2
-    where gender = :female;
-
-    UNION ALL
-
-        SELECT Anganbadi_ID, null as food1, food as Food2
-    where Month = 10');
-        $this->conn->bind(':female',"F");
-        $result = $this->conn->resultSet();
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'average rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['AVG(rating)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
+//    function gender_vs_wage(){
+//        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2
+//    where gender = :female;
+//
+//    UNION ALL
+//
+//        SELECT Anganbadi_ID, null as food1, food as Food2
+//    where Month = 10');
+//        $this->conn->bind(':female',"F");
+//        $result = $this->conn->resultSet();
+//
+//        $rows = array();
+//        $table = array();
+//        $table['cols'] = array(
+//
+//            array('label' => 'platform', 'type' => 'string'),
+//            array('label' => 'average rating', 'type' => 'number')
+//        );
+//
+//        foreach($result as $r) {
+//
+//            $temp = array();
+//
+//            $temp[] = array('v' => (string) $r['platform']);
+//            $temp[] = array('v' => (real) $r['AVG(rating)']);
+//
+//            $rows[] = array('c' => $temp);
+//        }
+//        $table['rows'] = $rows;
+//        $jsonTable = json_encode($table);
+//        return $jsonTable;
+//    }
 
 
 
