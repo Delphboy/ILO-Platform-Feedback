@@ -67,117 +67,117 @@ class Graph
         return $jsonTable;
     }
 
-    function wage_per_country($statement){
-
-        $result = $this->getData($statement);
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'country', 'type' => 'string'),
-            array('label' => 'avg wage', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-
-            // the following line will be used to slice the Pie chart
-
-            // Values of each slice
-            $temp[] = array('v' => (string) $r['country']);
-            $temp[] = array('v' => (real) $r['AVG(wage)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
-
-    function platform_popularity($statement){
-        $result = $this->getData($statement);
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'percentage', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-
-            // the following line will be used to slice the Pie chart
-
-            // Values of each slice
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['count(platform)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
-
-    function rating_vs_wage($statement){
-        $result = $this->getData($statement);
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'wage', 'type' => 'number'),
-            array('label' => 'rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            // the following line will be used to slice the Pie chart
-
-            // Values of each slice
-            $temp[] = array('v' => (int) $r['wage']);
-            $temp[] = array('v' => (int) $r['rating']);
-
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
-
-    function platform_by_rating($statement){
-        $result = $this->getData($statement);
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'average rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['AVG(rating)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
+//    function wage_per_country($statement){
+//
+//        $result = $this->getData($statement);
+//
+//        $rows = array();
+//        $table = array();
+//        $table['cols'] = array(
+//
+//            array('label' => 'country', 'type' => 'string'),
+//            array('label' => 'avg wage', 'type' => 'number')
+//        );
+//
+//        foreach($result as $r) {
+//
+//            $temp = array();
+//
+//
+//            // the following line will be used to slice the Pie chart
+//
+//            // Values of each slice
+//            $temp[] = array('v' => (string) $r['country']);
+//            $temp[] = array('v' => (real) $r['AVG(wage)']);
+//
+//            $rows[] = array('c' => $temp);
+//        }
+//        $table['rows'] = $rows;
+//        $jsonTable = json_encode($table);
+//        return $jsonTable;
+//    }
+//
+//    function platform_popularity($statement){
+//        $result = $this->getData($statement);
+//
+//        $rows = array();
+//        $table = array();
+//        $table['cols'] = array(
+//
+//            array('label' => 'platform', 'type' => 'string'),
+//            array('label' => 'percentage', 'type' => 'number')
+//        );
+//
+//        foreach($result as $r) {
+//
+//            $temp = array();
+//
+//
+//            // the following line will be used to slice the Pie chart
+//
+//            // Values of each slice
+//            $temp[] = array('v' => (string) $r['platform']);
+//            $temp[] = array('v' => (real) $r['count(platform)']);
+//
+//            $rows[] = array('c' => $temp);
+//        }
+//        $table['rows'] = $rows;
+//        $jsonTable = json_encode($table);
+//        return $jsonTable;
+//    }
+//
+//    function rating_vs_wage($statement){
+//        $result = $this->getData($statement);
+//        $rows = array();
+//        $table = array();
+//        $table['cols'] = array(
+//
+//            array('label' => 'wage', 'type' => 'number'),
+//            array('label' => 'rating', 'type' => 'number')
+//        );
+//
+//        foreach($result as $r) {
+//
+//            $temp = array();
+//
+//            // the following line will be used to slice the Pie chart
+//
+//            // Values of each slice
+//            $temp[] = array('v' => (int) $r['wage']);
+//            $temp[] = array('v' => (int) $r['rating']);
+//
+//
+//            $rows[] = array('c' => $temp);
+//        }
+//        $table['rows'] = $rows;
+//        $jsonTable = json_encode($table);
+//        return $jsonTable;
+//    }
+//
+//    function platform_by_rating($statement){
+//        $result = $this->getData($statement);
+//
+//        $rows = array();
+//        $table = array();
+//        $table['cols'] = array(
+//
+//            array('label' => 'platform', 'type' => 'string'),
+//            array('label' => 'average rating', 'type' => 'number')
+//        );
+//
+//        foreach($result as $r) {
+//
+//            $temp = array();
+//
+//            $temp[] = array('v' => (string) $r['platform']);
+//            $temp[] = array('v' => (real) $r['AVG(rating)']);
+//
+//            $rows[] = array('c' => $temp);
+//        }
+//        $table['rows'] = $rows;
+//        $jsonTable = json_encode($table);
+//        return $jsonTable;
+//    }
 
 //    function gender_vs_wage(){
 //        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2

@@ -11,7 +11,7 @@ $grdata = null;
 if (isset($_POST['var1']) && isset($_POST['var2']))
     //$query = $_POST['def_graphs'];
     $query = 'SELECT '.$_POST['var1'].', '.$_POST['var2'].' FROM review '. $_POST['group'];
-
+    echo "$query";
 
     $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
     if ($_POST['chart'] == 'barchart'){
