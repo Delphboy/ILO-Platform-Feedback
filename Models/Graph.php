@@ -1,7 +1,7 @@
 <?php
 
-/**
- * Created by PhpStorm.
+/**Class intended to fetch data from MySQL database and encode them in a JSON format
+ * Created by Bilyana Neshkova.
  * User: stc567
  * Date: 1/16/18
  * Time: 10:29 AM
@@ -15,17 +15,30 @@ class Graph
 {
     private $conn;
 
+    /**
+     * Graph constructor creating a new object with connection to the database.
+     */
     function __construct()
     {
         $this->conn = database::Instance();
     }
 
+    /**
+     * @param $statement - SQL statement to be executed
+     * @return array - Array of all the records retrieved
+     */
     function getData($statement){
         $this->conn->query($statement);
         $data = $this->conn->resultSet();
         return $data;
     }
 
+    /**
+     * @param $statement - SQL query to be executed
+     * @param $label1 - Selection in field one
+     * @param $label2 - Selection in field two
+     * @return string - JSON encoded data
+     */
     function getJson2fields($statement, $label1, $label2){
 
         $result = $this->getData($statement);
@@ -66,6 +79,14 @@ class Graph
         $jsonTable = json_encode($table);
         return $jsonTable;
     }
+
+    /**
+     * @param $statement - SQL query to be executed
+     * @param $label1 - Selection in field one
+     * @param $label2 - Selection in field two
+     * @param $label3 - Selection in field three
+     * @return string - JSON encoded data
+     */
     function getJson3fields($statement, $label1, $label2, $label3){
         $result = $this->getData($statement);
 
@@ -89,34 +110,6 @@ class Graph
         $jsonTable = json_encode($table);
         return $jsonTable;
     }
-
-//    function rating_vs_wage($statement){
-//        $result = $this->getData($statement);
-//        $rows = array();
-//        $table = array();
-//        $table['cols'] = array(
-//
-//            array('label' => 'wage', 'type' => 'number'),
-//            array('label' => 'rating', 'type' => 'number')
-//        );
-//
-//        foreach($result as $r) {
-//
-//            $temp = array();
-//
-//            // the following line will be used to slice the Pie chart
-//
-//            // Values of each slice
-//            $temp[] = array('v' => (int) $r['wage']);
-//            $temp[] = array('v' => (int) $r['rating']);
-//
-//
-//            $rows[] = array('c' => $temp);
-//        }
-//        $table['rows'] = $rows;
-//        $jsonTable = json_encode($table);
-//        return $jsonTable;
-//    }
 
 
     function returnUSD($currency, $value){
