@@ -26,7 +26,7 @@ class Graph
         return $data;
     }
 
-    function platform_vs_wage($statement){
+    function getJson($statement, $label1, $label2){
 
         $result = $this->getData($statement);
 
@@ -43,8 +43,8 @@ class Graph
                 and string will be used for Slice title
             */
 
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'avg wage', 'type' => 'number')
+            array('label' => "$label1", 'type' => 'string'),
+            array('label' => "$label2", 'type' => 'number')
         );
 
         /* Extract the information from $result */
@@ -55,8 +55,8 @@ class Graph
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['AVG(wage)']);
+            $temp[] = array('v' => (string) $r[$label1]);
+            $temp[] = array('v' => (real) $r[$label2]);
             $rows[] = array('c' => $temp);
         }
 

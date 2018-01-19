@@ -62,6 +62,22 @@ function searchByWage()
 /**
  * CHART FILTERS
  */
+
+function drawBarChart(jsontable) {
+    google.charts.load('43', {'packages': ['corechart']});
+    google.charts.setOnLoadCallback(function () {
+        var data = new google.visualization.DataTable(jsontable);
+        var barchart_options =
+        {
+            width: 600,
+            height: 600,
+            legend: 'none'
+        };
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, barchart_options);
+    })
+
+}
 function platform_vs_wage(jsontable){
     google.charts.load('43', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(function () {

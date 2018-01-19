@@ -10,11 +10,12 @@ $grdata = null;
 
 if (isset($_POST['var1']) && isset($_POST['var2']))
     //$query = $_POST['def_graphs'];
-    $query = 'SELECT '.$_POST['var1'].$_POST['var2'].' FROM review '. $_POST['group'];
+    $query = 'SELECT '.$_POST['var1'].', '.$_POST['var2'].' FROM review '. $_POST['group'];
 
-    $grdata = $gr->platform_vs_wage($query);
+
+    $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
     echo "$grdata";
-//    echo "<script type=\"text/javascript\">platform_by_rating('$grdata');</script>";
+    echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
 
 //    switch ($_POST['def_graphs']) {
 //        case "PlatformVSWage":
