@@ -16,10 +16,10 @@ if (isset($_POST['var1']) && isset($_POST['var2']))
     $grdata = $gr->getJson($query, $_POST['var1'], $_POST['var2']);
     echo "<p>$grdata</p>";
     if ($_POST['chart'] == 'barchart'){
-        echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
+        //echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
     }
     elseif ($_POST['chart'] == 'piechart'){
-        echo "<script type=\"text/javascript\">drawPieChart('$grdata');</script>";
+        //echo "<script type=\"text/javascript\">drawPieChart('$grdata');</script>";
 
     }
 
