@@ -327,7 +327,7 @@
         <form action="/return_data.php" method="post" id="chart_form">
             <select name="def_graphs" class="searchOp" id="def_graphs">
                 <option id="placeholder" value="placeholder">Choose graph</option>
-                <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
+                <option id="graph1" value="SELECT platform, AVG(wage)  FROM review GROUP BY platform"> Platform by Avg wage barchart</option>
                 <option id="graph2" value="WagePerCountry"> Avg Wage per country barchart
                 </option>
                 <option id="graph3" value="PlatformPopularity"> Platform popularity

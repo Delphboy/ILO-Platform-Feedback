@@ -32,6 +32,8 @@ $grdata = null;
             break;
     }
 
+    $grdata = $gr->platform_vs_wage($_POST['def_graphs']);
+
 $query = $_POST['country-selection-admin'];
 $tableToDisplay = $model->createTable($query);
 

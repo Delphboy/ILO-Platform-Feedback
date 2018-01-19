@@ -9,13 +9,27 @@
 require_once('database.php');
 
 
+
+
 class Graph
 {
+    private $conn;
 
-    function platform_vs_wage(){
+    function __construct()
+    {
         $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+    }
+
+    function getData($statement){
+        $this->conn->query($statement);
+        $data = $this->conn->resultSet();
+        return $data;
+    }
+
+    function platform_vs_wage($statement){
+
+//        $this->conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
+        $result = $this->getData($statement);
 
         //echo 'Attempt to create arrays';
 
@@ -33,25 +47,17 @@ class Graph
             array('label' => 'platform', 'type' => 'string'),
             array('label' => 'avg wage', 'type' => 'number')
         );
+
         /* Extract the information from $result */
         foreach($result as $r) {
 
             $temp = array();
-            //print_r($r);
-//            print_r($r['platform']);
-            //echo '<br>';
-//            print_r($r['AVG(wage)']);
 
             // the following line will be used to slice the Pie chart
 
             // Values of each slice
             $temp[] = array('v' => (string) $r['platform']);
-
             $temp[] = array('v' => (real) $r['AVG(wage)']);
-            $plat = (string)$r['platform'];
-            $wage = (real)$r['AVG(wage)'];
-            //echo "<p> $wage</p>";
-
             $rows[] = array('c' => $temp);
         }
 
@@ -59,14 +65,13 @@ class Graph
 
         // convert data into JSON format
         $jsonTable = json_encode($table);
-        //print_r($jsonTable);
         return $jsonTable;
     }
 
     function wage_per_country(){
-        $conn = database::Instance();
-        $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $conn->resultSet();
+
+        $this->conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -95,9 +100,8 @@ class Graph
     }
 
     function platform_popularity(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+        $this->conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -126,9 +130,8 @@ class Graph
     }
 
     function rating_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT wage, rating FROM review');
-        $result = $conn->resultSet();
+        $this->conn->query('SELECT wage, rating FROM review');
+        $result = $this->conn->resultSet();
         $rows = array();
         $table = array();
         $table['cols'] = array(
@@ -156,9 +159,8 @@ class Graph
     }
 
     function platform_by_rating(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+        $this->conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
@@ -183,16 +185,15 @@ class Graph
     }
 
     function gender_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT wage, AVG(wage) as food1, null as Food2
+        $this->conn->query('SELECT wage, AVG(wage) as food1, null as Food2
     where gender = :female;
 
     UNION ALL
 
         SELECT Anganbadi_ID, null as food1, food as Food2
     where Month = 10');
-        $conn->bind(':female',"F");
-        $result = $conn->resultSet();
+        $this->conn->bind(':female',"F");
+        $result = $this->conn->resultSet();
 
         $rows = array();
         $table = array();
