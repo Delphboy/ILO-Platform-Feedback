@@ -72,7 +72,7 @@ class Graph
         $rows = array();
         $table = array();
         $table['cols'] = array(
-            array('label' => "$label1", 'type' => 'string'),
+            array('label' => "$label1", 'type' => 'number'),
             array('label' => "$label2", 'type' => 'number'),
             array('label' => "$label3", 'type' => 'number')
         );
