@@ -4,6 +4,9 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/jquery.tabletojson.js" type="text/javascript"></script>
+<script src="/js/jquery.tabletojson.min.js" type="text/javascript"></script>
+
 
 <script type="text/javascript">
     google.load('visualization', '1.0', {'packages': ['corechart']});
@@ -17,7 +20,7 @@
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="/admin.php" method="post" id="table_form">
             <label>
                     <select name="country-selection-admin" class="searchOp">
                     <option value="select * from gr2.review;">View All Data</option>
@@ -301,41 +304,88 @@
 
                 </select>
             </label>
-            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" />
+            <input type="submit" class="login100-form-btn" value="Select Country" name="table-submit" id="table_submit" />
                 <!--            <input type="text" id="" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="Type"/>-->
         </form>
         <input type="text" id="platformInput" onkeyup="searchByPlatform()" placeholder="Search by Platform" title="platform" />
         <input type="text" id="wageInput" onkeyup="searchByWage()" placeholder="=10" title="wage" />
-ß
+            <div id="tableToDisplay" class="tablescroll">
+<!--        --><?php
+//        if (isset($view->table))
+//        {
+//            echo "";
+//            echo $view->table;
+//            echo "";
+//        }
 
-        <?php
-        if (isset($view->table))
-        {
-            echo "<div id=\"tableToDisplay\" class=\"tablescroll\">";
-            echo $view->table;
-            echo "</div>";
-        }
-        ?>
+//        ?>
+            </div>
     </div>
+	
+
 
     <!-- INFOGRAPHICS SHOWN HERE -->
     <div class="sec2 col-md-7 col-xs-12">
-        <form action="/return_data.php" method="post" id="chart_form">
-            <select name="def_graphs" class="searchOp" id="def_graphs">
-                <option id="placeholder" value="placeholder">Choose graph</option>
-                <option id="graph1" value="PlatformVSWage"> Platform by Avg wage barchart</option>
-                <option id="graph2" value="WagePerCountry"> Avg Wage per country barchart
-                </option>
-                <option id="graph3" value="PlatformPopularity"> Platform popularity
-                    piechart
-                </option>
-                <option id="graph4" value="RatingVSWage">Scatter chart of time looking vs time
-                    working
-                </option>
-                <option id="graph5" value="PlatformByRating">Platform by Avg rating
-                </option>
-            </select>
+        <form action="/admin.php" method="post" id="chart_form">
+                <select name="var1" class="form-control">
+                        <option value="">Choose var1</option>
+                        <option value="platform">Platform</option>
+                        <option value="country">County</option>
+                        <option value="wage">Wage</option>
+                        <option value="gender">Gender</option>
+                        <option value="rating">Rating</option>
+                        <option value="rating_pay">Pay rating</option>
+                        <option value="rating_conditions">Conditions rating</option>
+                        <option value="rating_description">Description rating</option>
+                </select>
+                <select name="var2" class="form-control">
+                        <option value="">Choose var2</option>
+                        <option value="AVG(wage)">Average wage</option>
+                        <option value="COUNT(platform)">Platform count</option>
+                        <option value="rating">Rating</option>
+                        <option value="AVG(rating)">Average rating</option>
+                        <option value="AVG(age)">Average age</option>
+                        <option value="AVG(hours_spent_working)">Average hours working</option>
+                        <option value="AVG(hours_spent_looking)">Average hours looking</option>
+                        <option value="AVG(rating_pay)">Average pay rating</option>
+                        <option value="AVG(rating_conditions)">Average Conditions rating</option>
+                        <option value="AVG(rating_description)">Average Description rating</option>
+
+                </select>
+                <select name="var3" class="form-control">
+                        <option value="">Choose var2</option>
+                        <option value="AVG(wage)">Average wage</option>
+                        <option value="COUNT(platform)">Platform count</option>
+                        <option value="rating">Rating</option>
+                        <option value="AVG(rating)">Average rating</option>
+                        <option value="AVG(age)">Average age</option>
+                        <option value="AVG(hours_spent_working)">Average hours working</option>
+                        <option value="AVG(hours_spent_looking)">Average hours looking</option>
+                        <option value="AVG(rating_pay)">Average pay rating</option>
+                        <option value="AVG(rating_conditions)">Average Conditions rating</option>
+                        <option value="AVG(rating_description)">Average Description rating</option>
+
+                </select>
+                <select name="group" class="form-control">
+                        <option value="">Group by:</option>
+                        <option value="GROUP BY platform">Platform</option>
+                        <option value="GROUP BY country">Country</option>
+                        <option value="GROUP BY gender">Gender</option>
+                        <option value="GROUP BY rating">Rating</option>
+                        <option value="GROUP BY rating_pay">Pay Rating</option>
+                        <option value="GROUP BY rating_conditions">Conditions Rating</option>
+                        <option value="GROUP BY rating_description">Description Rating</option>
+                        <option value="GROUP BY wage">Wage</option>
+
+                </select>
+                <select name="chart" class="form-control">
+                        <option value="">Choose chart</option>
+                        <option value="barchart">barchart</option>
+                        <option value="piechart">piechart</option>
+                        <option value="areachart">areachart</option>
+                </select>
             <input type="submit" value="Graph PLZ" name="GraphSubmit" />
+<!--                <button id="jsonplz">json plz</button>-->
         </form>
 
 
@@ -347,9 +397,20 @@
 <script type="text/javascript">
         $('#chart_form').submit(function(e) {
                 // Post the form data to return_data.php
-                $.post('return_data.php', $(this).serialize(), function(resp) {
+                $.post('admin.php', $(this).serialize(), function(resp) {
                         // Set the response data into the #chart_div
                         $('#chart_div').html(resp);
+                });
+
+                // Cancel the actual form post so the page doesn't refresh
+                e.preventDefault();
+                return false;
+        });
+        $('#table_form').submit(function(e) {
+                // Post the form data to return_data.php
+                $.post('admin.php', $(this).serialize(), function(resp) {
+                        // Set the response data into the #chart_div
+                        $('#tableToDisplay').html(resp);
                 });
 
                 // Cancel the actual form post so the page doesn't refresh

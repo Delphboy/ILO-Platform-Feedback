@@ -156,8 +156,10 @@ body{
     background-color: white;
 }
 #chart_div{
+    max-width: 55vw;
+    overflow-x: scroll;
     display: inline-block;
-    margin: auto;
+    margin: 0;
 }
 .sec1{
 display: inline-block;
