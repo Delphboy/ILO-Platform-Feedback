@@ -82,7 +82,7 @@ function drawBarChart(jsontable) {
             barchart_options =
             {
                 title: '',
-                width: 1000,
+                width: 800,
                 chartArea: {width: '80%', height: '80%'},
                 height: 800,
             };
@@ -111,7 +111,7 @@ function drawPieChart(jsontable) {
             barchart_options =
             {
                 title: '',
-                width: 1000,
+                width: 800,
                 chartArea: {width: '80%', height: '80%'},
                 height: 800,
             };
@@ -139,7 +139,7 @@ function drawAreaChart(jsontable) {
             barchart_options =
             {
                 title: '',
-                width: 1000,
+                width: 800,
                 chartArea: {width: '80%', height: '80%'},
                 height: 800,
             };
