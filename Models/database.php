@@ -59,7 +59,8 @@ final class database
     /** Executes the last prepared query and returns all the rows of the results
      * @return array of arrays of data (each array is a row of data)
      */
-    public function resultSet(){
+    public function resultSet()
+    {
         $this->execute();
         return $this->statement->fetchAll();
     }
@@ -90,12 +91,9 @@ final class database
         }
         $this->statement->bindValue($param, $value, $type);
     }
-    /**
-     * Executes the last prepared query and returns a single row of the results
-     * @return a single row of the results from the last prepared query
-     */
-    //public function single(){
-    //   $this->execute();
-    //    return $this->statement->fetch();
-    //}
+
+    public function getStatement()
+    {
+        return $this->statement;
+    }
 }

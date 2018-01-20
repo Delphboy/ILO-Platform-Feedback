@@ -11,82 +11,80 @@ require_once('database.php');
 
 class Graph
 {
+    private $conn;
+    /**
+     * Graph constructor creating a new object with connection to the database.
+     */
+    function __construct()
+    {
+        $this->conn = database::Instance();
+    }
+    /**
+     * @param $statement - SQL statement to be executed
+     * @return array - Array of all the records retrieved
+     */
+    function getData($statement){
+        $this->conn->query($statement);
+        $data = $this->conn->resultSet();
+        return $data;
+    }
 
-    function platform_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(wage)  FROM review GROUP BY platform');
-        $result = $conn->resultSet();
-
+    /**
+     * @param $statement - SQL query to be executed
+     * @param $label1 - Selection in field one
+     * @param $label2 - Selection in field two
+     * @return string - JSON encoded data
+     */
+    function getJson2fields($statement, $label1, $label2){
+        $result = $this->getData($statement);
         //echo 'Attempt to create arrays';
-
         $rows = array();
         $table = array();
         $table['cols'] = array(
-
             // Labels for your chart, these represent the column titles.
             /*
                 note that one column is in "string" format and another one is in "number" format
                 as pie chart only required "numbers" for calculating percentage
                 and string will be used for Slice title
             */
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'avg wage', 'type' => 'number')
+            array('label' => "$label1", 'type' => 'string'),
+            array('label' => "$label2", 'type' => 'number')
         );
         /* Extract the information from $result */
         foreach($result as $r) {
-
             $temp = array();
-            //print_r($r);
-//            print_r($r['platform']);
-            //echo '<br>';
-//            print_r($r['AVG(wage)']);
-
             // the following line will be used to slice the Pie chart
-
             // Values of each slice
-            $temp[] = array('v' => (string) $r['platform']);
-
-            $temp[] = array('v' => (real) $r['AVG(wage)']);
-            $plat = (string)$r['platform'];
-            $wage = (real)$r['AVG(wage)'];
-            //echo "<p> $wage</p>";
-
+            $temp[] = array('v' => (string) $r[$label1]);
+            $temp[] = array('v' => (real) $r[$label2]);
             $rows[] = array('c' => $temp);
         }
-
         $table['rows'] = $rows;
-
         // convert data into JSON format
         $jsonTable = json_encode($table);
-        //print_r($jsonTable);
         return $jsonTable;
     }
-
-    function wage_per_country(){
-        $conn = database::Instance();
-        $conn->query('SELECT country, AVG(wage) FROM review GROUP BY country');
-        $result = $conn->resultSet();
-
+    /**
+     * @param $statement - SQL query to be executed
+     * @param $label1 - Selection in field one
+     * @param $label2 - Selection in field two
+     * @param $label3 - Selection in field three
+     * @return string - JSON encoded data
+     */
+    function getJson3fields($statement, $label1, $label2, $label3){
+        $result = $this->getData($statement);
         $rows = array();
         $table = array();
         $table['cols'] = array(
-
-            array('label' => 'country', 'type' => 'string'),
-            array('label' => 'avg wage', 'type' => 'number')
+            array('label' => "$label1", 'type' => 'string'),
+            array('label' => "$label2", 'type' => 'number'),
+            array('label' => "$label3", 'type' => 'number')
         );
-
         foreach($result as $r) {
-
             $temp = array();
-
-
-            // the following line will be used to slice the Pie chart
-
-            // Values of each slice
-            $temp[] = array('v' => (string) $r['country']);
-            $temp[] = array('v' => (real) $r['AVG(wage)']);
-
+            $temp[] = array('v' => (string) $r[$label1]);
+            $temp[] = array('v' => (real) $r[$label2]);
+            $temp[] = array('v' => (real) $r[$label3]);
             $rows[] = array('c' => $temp);
         }
         $table['rows'] = $rows;
@@ -94,130 +92,54 @@ class Graph
         return $jsonTable;
     }
 
-    function platform_popularity(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, count(platform) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
+    /**
+     * Take a 2D array, representing a table of results that is
+     * returned after an SQL query
+     * @param $results
+     */
+    public function convertResultsToJSON($results)
+    {
+        $JSONString = "[";
 
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'percentage', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
+        if($results == null)
+            $lastRow = 0;
+        else
+            $lastRow = sizeof($results);
 
 
-            // the following line will be used to slice the Pie chart
+        for($row = 0; $row < $lastRow; $row++)
+        {
+            $JSONString = $JSONString . "[";
 
-            // Values of each slice
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['count(platform)']);
+            if($results == null)
+                $lastCol = 0;
+            else
+                $lastCol = sizeof($results[$row]);
 
-            $rows[] = array('c' => $temp);
+
+            for($colCount = 0; $colCount < ($lastCol / 2); $colCount++)
+            {
+                $value = $results[$row][$colCount];
+                $JSONString = $JSONString . "'$value', ";
+            }
+
+            $JSONString = $JSONString . "]";
         }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
+        $JSONString = $JSONString . "]";
 
-    function rating_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT wage, rating FROM review');
-        $result = $conn->resultSet();
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'wage', 'type' => 'number'),
-            array('label' => 'rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            // the following line will be used to slice the Pie chart
-
-            // Values of each slice
-            $temp[] = array('v' => (int) $r['wage']);
-            $temp[] = array('v' => (int) $r['rating']);
-
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
-
-    function platform_by_rating(){
-        $conn = database::Instance();
-        $conn->query('SELECT platform, AVG(rating) FROM review GROUP BY platform');
-        $result = $conn->resultSet();
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'average rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['AVG(rating)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
-    }
-
-    function gender_vs_wage(){
-        $conn = database::Instance();
-        $conn->query('SELECT wage, AVG(wage) as food1, null as Food2
-    where gender = :female;
-
-    UNION ALL
-
-        SELECT Anganbadi_ID, null as food1, food as Food2
-    where Month = 10');
-        $conn->bind(':female',"F");
-        $result = $conn->resultSet();
-
-        $rows = array();
-        $table = array();
-        $table['cols'] = array(
-
-            array('label' => 'platform', 'type' => 'string'),
-            array('label' => 'average rating', 'type' => 'number')
-        );
-
-        foreach($result as $r) {
-
-            $temp = array();
-
-            $temp[] = array('v' => (string) $r['platform']);
-            $temp[] = array('v' => (real) $r['AVG(rating)']);
-
-            $rows[] = array('c' => $temp);
-        }
-        $table['rows'] = $rows;
-        $jsonTable = json_encode($table);
-        return $jsonTable;
+        return $JSONString;
     }
 
 
 
+
+
+    /**
+     * Hardcoded currency conversion algorithm
+     * @param $currency
+     * @param $value
+     * @return float
+     */
     function returnUSD($currency, $value){
         $output = $value;
         switch ($currency){

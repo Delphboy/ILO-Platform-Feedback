@@ -21,34 +21,34 @@ class Admin
         $this->ILODatabase = database::Instance();
     }
 
-    function createTable($statement)
+    /**
+     * Take the output of an SQL query and turn it into a table body (<tr> and <td>)
+     * @param $data
+     * @return string - HTML string to go between <table></table> tags
+     */
+    function generateTableBody($data)
     {
-        $this->ILODatabase->query($statement);
-        $data = $this->ILODatabase->resultSet();
+//        $this->ILODatabase->query($statement);
+//        $data = $this->ILODatabase->resultSet();
         $rowCount = sizeof($data); //No of rows
 
         $output = "";
-        $output = $output . '<table id="myTable" border="1" class="table table-striped col-md-5 col-xs-12">';
 
-        $colcount = count($data[0]);
-        for($rowno = 0; $rowno < $rowCount; $rowno++)
+        // Remove undefined offest error
+        if($data == null)
+            $colCount = 16;
+        else
+            $colCount = sizeof($data[0]);
+
+        for($rowNum = 0; $rowNum < $rowCount; $rowNum++)
         {
-//            $row = $data[$rowno];
-//            print_r($row);
-//            //echo "<br>";
-//            $colcount = count($row);
-
-
             $output = $output . '<tr>';
-
-            //hardcoded for the moment as $colcount doubles the size of the array
-            for($colno = 0; $colno < ($colcount/2); $colno++)
+            for($colNum = 0; $colNum < ($colCount/2); $colNum++)
             {
-                $output = $output . '<td>' . $data[$rowno][$colno] . '</td>';
+                $output = $output . '<td>' . $data[$rowNum][$colNum] . '</td>';
             }
             $output = $output . '</tr>';
         }
-        $output = $output . '</table>';
 
         return $output;
     }
