@@ -51,9 +51,14 @@ if(isset($_POST['graphSubmit']))
     $xAxis = $_POST['var1'];
     $yAxis = $_POST['var2'];
     $chartType = $_POST['chart'];
-    $results = $_SESSION['tableResults'];
-    $JSONString = $gr->convertResultsToJSON($results);
-    $_SESSION['resultsJSON'] = $JSONString;
+    if(isset($_SESSION['tableResults']))
+    {
+        $results = $_SESSION['tableResults'];
+        $CSVString = $gr->convertResultsToCSV($results);
+        $_SESSION['resultsJSON'] = $CSVString;
+        $gr->writeCSVFile($CSVString);
+        $view->graph = $chartType;
+    }
 }
 
 

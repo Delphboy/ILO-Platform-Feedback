@@ -130,8 +130,51 @@ class Graph
         return $JSONString;
     }
 
+    /**
+     * Take a 2D array that's been outputted by an SQL query and convert it to
+     * a CSV string
+     * @param $results
+     * @return string
+     */
+    public function convertResultsToCSV($results)
+    {
+        $CSVString = "\"idno\",\"platform\",\"wage\",\"currency\",\"hours_spent_working\",\"hours_spent_looking\",\"gender\",\"age\",\"rating\",\"country\",\"rating_pay\",\"rating_conditions\",\"rating_description\",\"comment\",\"rejection\",\"socialSecurity\"\n";
+
+        if($results == null)
+            $lastRow = 0;
+        else
+            $lastRow = sizeof($results);
 
 
+        for($row = 0; $row < $lastRow; $row++)
+        {
+            if($results == null)
+                $lastCol = 0;
+            else
+                $lastCol = sizeof($results[$row]);
+
+            for($colCount = 0; $colCount < ($lastCol / 2); $colCount++)
+            {
+                $value = $results[$row][$colCount];
+                $CSVString = $CSVString . "\"$value\",";
+            }
+            $CSVString = $CSVString . "\n";
+        }
+        return $CSVString;
+    }
+
+
+    /**
+     * Take a string of CSV data and write it to a file in the root
+     * directory of the server. This will override any data already
+     * in the file
+     * @param $CSVString
+     */
+    public function writeCSVFile($CSVString)
+    {
+        $file = 'data.csv';
+        file_put_contents($file, $CSVString);
+    }
 
 
     /**

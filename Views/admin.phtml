@@ -1,11 +1,12 @@
-<?php require_once("Views/template/headerAdmin.phtml"); ?>
+<?php require_once("template/headerAdmin.phtml"); ?>
 
 <!--Load the Ajax API-->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="/js/jquery.tabletojson.js" type="text/javascript"></script>
-<script src="/js/jquery.tabletojson.min.js" type="text/javascript"></script>
+<!--<script src="/js/jquery.tabletojson.js" type="text/javascript"></script>-->
+<!--<script src="/js/jquery.tabletojson.min.js" type="text/javascript"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script>
 
 
 <script type="text/javascript">
@@ -315,7 +316,7 @@
                     <td>Gender</td>
                     <td>Age</td>
                     <td>Overall Rating</td>
-                    <td>Overall Country</td>
+                    <td>Country</td>
                     <td>Pay Rating</td>
                     <td>Conditions Rating</td>
                     <td>Job Description Rating</td>
@@ -339,7 +340,7 @@
     <div class="sec2 col-md-6 col-xs-12">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="chartForm">
             <select name="var1" class="searchOp filterTable">
-                <option value="none">Choose var1</option>
+                <option value="none">Choose x-Axis</option>
                 <option value="platform">Platform</option>
                 <option value="country">County</option>
                 <option value="wage">Wage</option>
@@ -350,7 +351,7 @@
                 <option value="ratingDescription">Description rating</option>
             </select>
             <select name="var2" class="searchOp filterTable">
-                <option value="none">Choose var2</option>
+                <option value="none">Choose y-Axis</option>
                 <option value="avgWage">Average wage</option>
                 <option value="countPlatform">Platform count</option>
                 <option value="rating">Rating</option>
@@ -363,15 +364,24 @@
                 <option value="avgRatingDesc">Average Description rating</option>
             </select>
             <select name="chart" class="searchOp filterTable">
-                <option value="none">Choose chart</option>
-                <option value="barchart">barchart</option>
-                <option value="piechart">piechart</option>
-                <option value="areachart">areachart</option>
+                <option value="none">Choose Chart Type</option>
+                <option value="barchart">Bar Chart</option>
+                <option value="piechart">Pie Chart</option>
+                <option value="areachart">Area Chart</option>
             </select>
             <input type="submit" value="Generate Graph" name="graphSubmit" />
         </form>
         <div id="chart_div">
-            
+            <?php
+            if (isset($view->graph))
+            {
+                echo "<script type=\"text/javascript\">initialize();</script>";
+            }
+            else
+            {
+                echo "<h3>No script run</h3>";
+            }
+            ?>
         </div>
     </div>
 </div>
