@@ -300,6 +300,12 @@
                     </select>
                 </div>
             </label>
+            <?php
+            if (isset($view->table))
+            {
+                echo "<a href='/data.csv'><input type='button' class='login100-form-btn' value='Download Data' name='download-data' /></a>";
+            }
+            ?>
             <input type="submit" class="login100-form-btn" value="Show Data"
                    name="table-submit" />
         </form>
@@ -345,7 +351,7 @@
                 <option value="platform, AVG(wage)">Avg wage vs
                     platform</option>
                 <option value="platform, AVG(rating)">Avg rating vs
-                    platofm</option>
+                    platform</option>
                 <option value="platform, COUNT(gender)">Gender count vs
                     platform
                 </option>
