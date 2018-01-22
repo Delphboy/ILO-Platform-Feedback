@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 	else{
 
 	echo '<script language = "javascript">';
-	echo 'alert("FAIL")';
+	echo 'alert("Please complete the captcha")';
 	echo '</script>';
 
 	}
