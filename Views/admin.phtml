@@ -18,7 +18,7 @@
 <body>
 <div class="sec-container">
     <!-- RAW DATA SHOWN HERE -->
-    <div class="sec1 col-md-6 col-xs-12">
+    <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label>
@@ -300,7 +300,8 @@
                     </select>
                 </div>
             </label>
-            <input type="submit" class="login100-form-btn" value="Action Chosen Search" name="table-submit" />
+            <input type="submit" class="login100-form-btn" value="Show Data"
+                   name="table-submit" />
         </form>
 
         <div id="tableToDisplay" class="tablescroll">
@@ -334,54 +335,72 @@
             </table>
         </div>
     </div>
-	
+
 
     <!-- INFOGRAPHICS SHOWN HERE -->
-    <div class="sec2 col-md-6 col-xs-12">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="chartForm">
+    <div class="sec2 col-md-7 col-xs-12">
+        <form action="/return_data.php" method="post" id="chart_form">
             <select name="var1" class="searchOp filterTable">
-                <option value="none">Choose x-Axis</option>
+                <option value="none">Choose var1</option>
                 <option value="platform">Platform</option>
                 <option value="country">County</option>
                 <option value="wage">Wage</option>
                 <option value="gender">Gender</option>
                 <option value="rating">Rating</option>
-                <option value="ratingPay">Pay rating</option>
-                <option value="ratingConditions">Conditions rating</option>
-                <option value="ratingDescription">Description rating</option>
+                <option value="rating_pay">Pay rating</option>
+                <option value="rating_conditions">Conditions rating</option>
+                <option value="rating_description">Description rating</option>
             </select>
             <select name="var2" class="searchOp filterTable">
-                <option value="none">Choose y-Axis</option>
-                <option value="avgWage">Average wage</option>
-                <option value="countPlatform">Platform count</option>
+                <option value="none">Choose var2</option>
+                <option value="AVG(wage)">Average wage</option>
+                <option value="COUNT(platform)">Platform count</option>
                 <option value="rating">Rating</option>
-                <option value="avgRating">Average rating</option>
-                <option value="avgAge">Average age</option>
-                <option value="avgHoursWorking">Average hours working</option>
-                <option value="avgHoursLooking">Average hours looking</option>
-                <option value="avgRatingPay">Average pay rating</option>
-                <option value="avgRatingConditions">Average Conditions rating</option>
-                <option value="avgRatingDesc">Average Description rating</option>
+                <option value="AVG(rating)">Average rating</option>
+                <option value="AVG(age)">Average age</option>
+                <option value="AVG(hours_spent_working)">Average hours working</option>
+                <option value="AVG(hours_spent_looking)">Average hours looking</option>
+                <option value="AVG(rating_pay)">Average pay rating</option>
+                <option value="AVG(rating_conditions)">Average Conditions rating</option>
+                <option value="AVG(rating_description)">Average Description rating</option>
+            </select>
+            <select name="var3" class="searchOp filterTable">
+                <option value="none">Choose var2</option>
+                <option value="AVG(wage)">Average wage</option>
+                <option value="COUNT(platform)">Platform count</option>
+                <option value="rating">Rating</option>
+                <option value="AVG(rating)">Average rating</option>
+                <option value="AVG(age)">Average age</option>
+                <option value="AVG(hours_spent_working)">Average hours working</option>
+                <option value="AVG(hours_spent_looking)">Average hours looking</option>
+                <option value="AVG(rating_pay)">Average pay rating</option>
+                <option value="AVG(rating_conditions)">Average Conditions rating</option>
+                <option value="AVG(rating_description)">Average Description rating</option>
+            </select>
+            <select name="group" class="searchOp filterTable">
+                <option value="none">Group by:</option>
+                <option value="GROUP BY platform">Platform</option>
+                <option value="GROUP BY country">Country</option>
+                <option value="GROUP BY gender">Gender</option>
+                <option value="GROUP BY rating">Rating</option>
+                <option value="GROUP BY rating_pay">Pay Rating</option>
+                <option value="GROUP BY rating_conditions">Conditions Rating</option>
+                <option value="GROUP BY rating_description">Description Rating</option>
+                <option value="GROUP BY wage">Wage</option>
             </select>
             <select name="chart" class="searchOp filterTable">
-                <option value="none">Choose Chart Type</option>
-                <option value="barchart">Bar Chart</option>
-                <option value="piechart">Pie Chart</option>
-                <option value="areachart">Area Chart</option>
+                <option value="">Choose chart</option>
+                <option value="barchart">barchart</option>
+                <option value="piechart">piechart</option>
+                <option value="areachart">areachart</option>
             </select>
-            <input type="submit" value="Generate Graph" name="graphSubmit" />
+            <input type="submit" value="Generate Graph" name="GraphSubmit" />
+            <!--                <button id="jsonplz">json plz</button>-->
         </form>
+
+
         <div id="chart_div">
-            <?php
-            if (isset($view->graph))
-            {
-                echo "<script type=\"text/javascript\">initialize();</script>";
-            }
-            else
-            {
-                echo "<h3>No script run</h3>";
-            }
-            ?>
+
         </div>
     </div>
 </div>
