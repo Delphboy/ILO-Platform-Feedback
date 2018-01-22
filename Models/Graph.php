@@ -26,6 +26,7 @@ class Graph
     function getData($statement){
         $this->conn->query($statement);
         $data = $this->conn->resultSet();
+        print_r($data);
         return $data;
     }
 

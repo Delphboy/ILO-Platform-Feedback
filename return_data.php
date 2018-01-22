@@ -1,20 +1,26 @@
 <?php
+
+session_start();
 require_once('Models/Graph.php');
 require_once('Models/Admin.php');
 $gr = new Graph();
 $model = new Admin();
 $grdata = null;
-if (isset($_POST['var1']) && isset($_POST['var2'])) {
-    //$query = $_POST['def_graphs'];
-    if (isset($_POST['var3']) && $_POST['var3'] != "") {
-        $query = 'SELECT ' . $_POST['var1'] . ', ' . $_POST['var2'] . ', ' . $_POST['var3'] . ' FROM review ' . $_POST['group'];
-        $grdata = $gr->getJson3fields($query, $_POST['var1'], $_POST['var2'], $_POST['var3']);
+if (isset($_POST['var1'])) {
+    $cols = explode(', ', $_POST['var1']);
+    if (sizeof($cols) == 3)
+    {
+        $query = 'SELECT ' . $_POST['var1'] . ' FROM review '.$_SESSION['where_clause']
+            . " GROUP BY " .
+            $cols[0];
+        $grdata = $gr->getJson3fields($query, $cols[0], $cols[1], $cols[2]);
     } else {
-        $query = 'SELECT ' . $_POST['var1'] . ', ' . $_POST['var2'] . ' FROM review ' . $_POST['group'];
-        $grdata = $gr->getJson2fields($query, $_POST['var1'], $_POST['var2']);
+        $query = 'SELECT ' . $_POST['var1']  . ' FROM review ' .$_SESSION['where_clause']. " GROUP BY ".
+            $cols[0];
+        $grdata = $gr->getJson2fields($query, $cols[0], $cols[1]);
     }
-    echo "<h3>$query</h3>";
-    echo "<p>$grdata</p>";
+//    echo "<h3>$query</h3>";
+//    echo "<p>$grdata</p>";
     if ($_POST['chart'] == 'barchart') {
         echo "<script type=\"text/javascript\">drawBarChart('$grdata');</script>";
     } elseif ($_POST['chart'] == 'piechart') {

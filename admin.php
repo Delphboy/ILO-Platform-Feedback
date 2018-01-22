@@ -22,17 +22,29 @@ if (isset($_POST['table-submit'])) {
     $queryString = "SELECT * FROM review WHERE TRUE"; //true included so all other statements can start with AND
 
     // build query
-    if($country != "none") $queryString = $queryString . " AND country LIKE :country";
-    if($platform != "none") $queryString = $queryString . " AND platform LIKE :platform";
-    if($gender != "none") $queryString = $queryString . " AND gender LIKE :gender";
+    if($country != "none") $queryString = $queryString . " AND country LIKE '"
+        . $country ."'";
+    if($platform != "none") $queryString = $queryString . " AND platform LIKE '" . $platform . "'";
+    if($gender != "none") $queryString = $queryString . " AND gender LIKE '".
+        $gender."'";
+$_SESSION['where_clause'] = 'WHERE TRUE';
+    if($country != "none") $_SESSION['where_clause'] =  $_SESSION['where_clause'] . " AND country LIKE '"
+        . $country ."'";
+    if ($platform != "none") $_SESSION['where_clause'] = $_SESSION['where_clause'] . " AND platform LIKE '" . $platform . "'";
+    if ($gender != "none") $_SESSION['where_clause'] = $_SESSION['where_clause'] .
+        " AND platform LIKE '" . $gender . "'";
+//    $wherecl = $_SESSION['where_clause'];
+//    echo "$wherecl";
+
+
+
 
     //set query
     $db->query($queryString);
-
     //bind values
-    if($country != "none") $db->bind(':country', $country);
-    if($platform != "none") $db->bind(':platform', $platform);
-    if($gender != "none") $db->bind(':gender', $gender);
+//    if($country != "none") $db->bind(':country', $country);
+//    if($platform != "none") $db->bind(':platform', $platform);
+//    if($gender != "none") $db->bind(':gender', $gender);
 
     //store results
     $results = $db->resultSet();
