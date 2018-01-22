@@ -341,7 +341,7 @@
     <div class="sec2 col-md-7 col-xs-12">
         <form action="/return_data.php" method="post" id="chart_form">
             <select name="var1" class="searchOp filterTable">
-                <option value="none">Choose var1</option>
+                <option value="">Choose var1</option>
                 <option value="platform">Platform</option>
                 <option value="country">County</option>
                 <option value="wage">Wage</option>
@@ -352,7 +352,7 @@
                 <option value="rating_description">Description rating</option>
             </select>
             <select name="var2" class="searchOp filterTable">
-                <option value="none">Choose var2</option>
+                <option value="">Choose var2</option>
                 <option value="AVG(wage)">Average wage</option>
                 <option value="COUNT(platform)">Platform count</option>
                 <option value="rating">Rating</option>
@@ -365,7 +365,7 @@
                 <option value="AVG(rating_description)">Average Description rating</option>
             </select>
             <select name="var3" class="searchOp filterTable">
-                <option value="none">Choose var2</option>
+                <option value="">Choose var2</option>
                 <option value="AVG(wage)">Average wage</option>
                 <option value="COUNT(platform)">Platform count</option>
                 <option value="rating">Rating</option>
@@ -378,7 +378,7 @@
                 <option value="AVG(rating_description)">Average Description rating</option>
             </select>
             <select name="group" class="searchOp filterTable">
-                <option value="none">Group by:</option>
+                <option value="">Group by:</option>
                 <option value="GROUP BY platform">Platform</option>
                 <option value="GROUP BY country">Country</option>
                 <option value="GROUP BY gender">Gender</option>
@@ -405,17 +405,26 @@
     </div>
 </div>
 
-<!--Original-->
-<!--<script type="text/javascript">-->
-<!--        $('#chart_form').submit(function(e) {-->
-<!--            // Post the form data to return_data.php-->
-<!--            $.post('admin.php', $(this).serialize(), function(resp) {-->
-<!--                // Set the response data into the #chart_div-->
-<!--                $('#chart_div').html(resp);-->
-<!--            });-->
-<!--            // Cancel the actual form post so the page doesn't refresh-->
-<!--            e.preventDefault();-->
-<!--            return false;-->
-<!--        });-->
-<!--</script>-->
+<script type="text/javascript">
+    $('#chart_form').submit(function(e) {
+        // Post the form data to return_data.php
+        $.post('return_data.php', $(this).serialize(), function(resp) {
+            // Set the response data into the #chart_div
+            $('#chart_div').html(resp);
+        });
+        // Cancel the actual form post so the page doesn't refresh
+        e.preventDefault();
+        return false;
+    });
+    $('#table_form').submit(function(e) {
+        // Post the form data to return_data.php
+        $.post('return_data.php', $(this).serialize(), function(resp) {
+            // Set the response data into the #chart_div
+            $('#tableToDisplay').html(resp);
+        });
+        // Cancel the actual form post so the page doesn't refresh
+        e.preventDefault();
+        return false;
+    });
+</script>
 </body>
