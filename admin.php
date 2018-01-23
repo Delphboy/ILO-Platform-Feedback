@@ -49,6 +49,8 @@ $_SESSION['where_clause'] = 'WHERE TRUE';
     //store results
     $results = $db->resultSet();
     $tableToDisplay = $model->generateTableBody($results);
+    $CSVString = $gr->convertResultsToCSV($results);
+    $gr->writeCSVFile($CSVString);
 
     if ($tableToDisplay != "")
     {
