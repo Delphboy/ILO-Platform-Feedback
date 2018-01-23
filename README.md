@@ -30,19 +30,48 @@ Using this system you can identify trends with platforms, detect descrimination,
 With these results recorded, you can create enough evidence to question an employeer/company/platform about their methods and convince them to create a more just working environment for current and future employees. 
 
 ## Deployment of the product
-* Preliminary 
+##### Preliminary 
 
 You will need to have a table prepared for the data to be entered into, make sure it is titled identically to the one within the project or be willing to edit more than one class model.
-You will also need to have an Apache Server ready for the project to be accessible from, you can learn more about how to do this here [https://httpd.apache.org/docs/2.4/getting-started.html]
+You will also need to have an Apache Server ready for the project to be accessible from, to do this you will need to:
+- Download the Apache HTTP server
+* On windows
+You can do that here.. [http://httpd.apache.org/download.cgi]
 
-* On download 
+* On linux/unix
+
+`tar -xzvf ftpserver-1.0.0.tar.gz` or by entering this in the command line for linux/unix
+
+- Run the server:
+
+* On linux/unix
+
+`bin/ftpd.sh`
+
+* On windows
+
+`bin/ftpd.bat`
+
+- Configure server:
+
+* On linux/unix
+
+`bin/ftpd.sh res/conf/ftpd-typical.xml`
+
+* On windows
+
+`bin/ftpd.bat res/conf/ftpd-typical.xml`
+
+you can learn more about how to do this here [https://httpd.apache.org/docs/]
+
+##### On download 
 
 After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database (This is commented for your convenience).
 
-* User
+##### User
 
 To get started you simply need to take the survey  [http://delphboy-dev.gearhostpreview.com/]
 
-* Admin
+##### Admin
 
 To get started you need to log into your account  [http://delphboy-dev.gearhostpreview.com/login.php]
