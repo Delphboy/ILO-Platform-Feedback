@@ -40,7 +40,7 @@ You can do that here.. [http://httpd.apache.org/download.cgi]
 
 * On linux/unix
 
-`tar -xzvf ftpserver-1.0.0.tar.gz` or by entering this in the command line for linux/unix
+`tar -xzvf ftpserver-1.0.0.tar.gz` by entering this in the command line for linux/unix
 
 - Run the server:
 
