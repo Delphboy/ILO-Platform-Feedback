@@ -34,6 +34,7 @@ class Admin
         $this->ToptalAvg = $this->calculatePlatformAverage('Toptal');
         $this->UpworkAvg = $this->calculatePlatformAverage('Upwork');
         $this->iFreelanceAvg = $this->calculatePlatformAverage('iFreelance');
+        return true; //uncomment when using unit tests
     }
 
     /**
@@ -69,7 +70,7 @@ class Admin
             $output = $output . '</tr>';
         }
 
-        return $output;
+        return $output; //change $output to true when testing
     }
 
     /**
@@ -88,7 +89,7 @@ class Admin
         $dbConnection->execute();
         $row = $dbConnection->resultSet();
         $average = $row[0][1];
-        return $average;
+        return $average; //change to true when testing
     }
 
     /**

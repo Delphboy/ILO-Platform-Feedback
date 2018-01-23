@@ -1,0 +1,9 @@
+{
+
+"require" : {
+
+	"phpunit/phpunit" : "dev-master"
+
+}
+
+}
