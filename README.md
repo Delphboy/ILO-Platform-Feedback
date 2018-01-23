@@ -35,11 +35,23 @@ With these results recorded, you can create enough evidence to question an emplo
 We have been using PHP version 7 and have experianced problems with PHP version 5.6 or lower.
 You will need to have a table prepared for the data to be entered into, make sure it is titled identically to the one within the project or be willing to edit more than one class model.
 
-### Running FtpServer stand-alone in 5 minutes
+##### On download 
+
+After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database (This is commented for your convenience).
+
+##### User
+
+To get started you simply need to take the survey  [http://delphboy-dev.gearhostpreview.com/]
+
+##### Admin
+
+To get started you need to log into your account  [http://delphboy-dev.gearhostpreview.com/login.php]
+
+## Running FtpServer stand-alone in 5 minutes
 
 * On windows download from the link below
 
-http://httpd.apache.org/download.cgi]
+http://httpd.apache.org/download.cgi
 
 * On linux/unix enter the following line
 
@@ -67,14 +79,8 @@ http://httpd.apache.org/download.cgi]
 
 you can learn more about how to do this here [https://httpd.apache.org/docs/]
 
-##### On download 
+## Host a server
 
-After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database (This is commented for your convenience).
+Depending on how and what you want to host your sever on, you will need to follow the setup provided below:
 
-##### User
-
-To get started you simply need to take the survey  [http://delphboy-dev.gearhostpreview.com/]
-
-##### Admin
-
-To get started you need to log into your account  [http://delphboy-dev.gearhostpreview.com/login.php]
+https://linode.com/docs/web-servers/apache/
