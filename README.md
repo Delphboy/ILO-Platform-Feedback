@@ -41,11 +41,11 @@ After downloading the product, you will need to go to the database model and ent
 
 ##### User
 
-To get started you simply need to take the survey  [http://delphboy-dev.gearhostpreview.com/]
+To get started you simply need to take the survey, submit results and you are done.
 
 ##### Admin
 
-To get started you need to log into your account  [http://delphboy-dev.gearhostpreview.com/login.php]
+To get started you need to log into your account, you can follow the user guide from this point on.
 
 ## Running FtpServer stand-alone in 5 minutes
 
@@ -77,10 +77,25 @@ http://httpd.apache.org/download.cgi
 
 `bin/ftpd.bat res/conf/ftpd-typical.xml`
 
-you can learn more about how to do this here [https://httpd.apache.org/docs/]
-
 ## Host a server
 
-Depending on how and what you want to host your sever on, you will need to follow the setup provided below:
+To do this you will need to extract the .zip file into YOUR root directory.
 
-https://linode.com/docs/web-servers/apache/
+## Useful SQL Commands
+
+* Add to Database
+
+  `INSERT INTO table_name (column1, column2, column3, ...)
+  VALUES (value1, value2, value3, ...);`
+
+* View All the records within the Database
+
+  `SELECT * FROM table_name;`
+
+* View certain columns within the Database
+
+  `SELECT column1, column2 FROM table_name;`
+
+* View certain records within the Database
+
+  `SELECT * FROM table_name WHERE condition;`
