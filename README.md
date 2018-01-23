@@ -29,7 +29,15 @@ And to keep the data collected secure.
 Using this system you can identify trends with platforms, detect descrimination, and keep a record of people being tricked or under-paid to do a job.
 With these results recorded, you can create enough evidence to question an employeer/company/platform about their methods and convince them to create a more just working environment for current and future employees. 
 
-## How users can get started with the project
+## Deployment of the product
+* Preliminary 
+
+You will need to have a table prepared for the data to be entered into, make sure it is titled identically to the one within the project or be willing to edit more than one class model.
+
+* On download 
+
+After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database.
+
 * User
 
 To get started you simply need to take the survey  [http://delphboy-dev.gearhostpreview.com/]
