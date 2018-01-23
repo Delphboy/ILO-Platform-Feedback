@@ -1,5 +1,5 @@
 <?php
-//require('../Models/database.php');
+require('../Models/database.php');
 /**
  * Created by Henry Senior
  * User: stc765
@@ -21,8 +21,17 @@ class Register
      * @param $email
      * @param $password
      */
-    function addNewUser($email, $password)
+    function addNewUser($email, $password, $admin)
     {
+        $dbHandle = database::Instance();
+        $query = "INSERT INTO gr2.user(password, email, isAdministrator) VALUES (:psw, :email, :admin)";
+        $dbHandle->query($query);
 
+        $dbHandle->bind(':psw', $password);
+        $dbHandle->bind(':email', $email);
+        $dbHandle->bind(':admin', $admin);
+        $dbHandle->execute();
+
+        return true;
     }
 }

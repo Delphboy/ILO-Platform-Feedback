@@ -19,15 +19,7 @@ if(isset($_POST['submit']))
     echo "<h1>$password</h1>";
     $admin = '1';
 
-    $dbHandle = database::Instance();
-    $query = "INSERT INTO gr2.user(password, email, isAdministrator) 
-              VALUES (:psw, :email, :admin)";
-    $dbHandle->query($query);
-
-    $dbHandle->bind(':psw', $password);
-    $dbHandle->bind(':email', $email);
-    $dbHandle->bind(':admin', $admin);
-    $dbHandle->execute();
-
+    $register = new Register();
+    $register->addNewUser($email, $password, $admin);
 }
 

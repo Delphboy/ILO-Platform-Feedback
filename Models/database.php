@@ -46,6 +46,7 @@ final class database
         $q = $query;
         $this->statement = $this->db->prepare($q);
         if ($this->statement == false){echo 'query not prepared';}
+        return true; //uncomment when using unit tests
     }
 
     /** Executes the prepared query
@@ -71,6 +72,7 @@ final class database
     public function resetConnection()
     {
         $this->db = NULL;
+        return true;
     }
 
     public function bind($param, $value, $type = null){
