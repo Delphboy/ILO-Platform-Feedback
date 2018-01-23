@@ -32,17 +32,20 @@ With these results recorded, you can create enough evidence to question an emplo
 ## Deployment of the product
 ##### Preliminary 
 
+We have been using PHP version 7 and have experianced problems with PHP version 5.6 or lower.
 You will need to have a table prepared for the data to be entered into, make sure it is titled identically to the one within the project or be willing to edit more than one class model.
-You will also need to have an Apache Server ready for the project to be accessible from, to do this you will need to:
-- Download the Apache HTTP server
-* On windows
-You can do that here.. [http://httpd.apache.org/download.cgi]
 
-* On linux/unix
+### Running FtpServer stand-alone in 5 minutes
 
-`tar -xzvf ftpserver-1.0.0.tar.gz` by entering this in the command line for linux/unix
+* On windows download from the link below
 
-- Run the server:
+http://httpd.apache.org/download.cgi]
+
+* On linux/unix enter the following line
+
+`tar -xzvf ftpserver-1.0.0.tar.gz`
+
+**Then Run the server:**
 
 * On linux/unix
 
@@ -52,7 +55,7 @@ You can do that here.. [http://httpd.apache.org/download.cgi]
 
 `bin/ftpd.bat`
 
-- Configure server:
+**And Finally Configure the server:**
 
 * On linux/unix
 
