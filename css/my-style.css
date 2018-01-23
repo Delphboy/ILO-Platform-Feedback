@@ -165,7 +165,8 @@ max-height: 80vh;
 }
 .sec2{
     display: inline-block;
-    background-color: white;
+    /*background-color: white;*/
+    width:55%;
 }
 .wrap-wrap{
     display: block;
@@ -322,4 +323,13 @@ max-height: 80vh;
 {
     height: auto;
     margin-bottom: 10px;
+}
+
+.formstyless{
+    width: 100%;
+}
+
+.buttonstyle{
+    width:48%;
+    margin: 5px 0 10px 0;
 }
