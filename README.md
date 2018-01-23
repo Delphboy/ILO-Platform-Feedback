@@ -37,7 +37,7 @@ You will also need to have an Apache Server ready for the project to be accessib
 
 * On download 
 
-After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database.
+After downloading the product, you will need to go to the database model and enter your database details in order to create a connection to the database (This is commented for your convenience).
 
 * User
 
