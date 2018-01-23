@@ -16,6 +16,7 @@ final class database
     private $statement; //the current prepared query to be executed by execute()
 
     //Database details
+    //TODO: Enter the details to your database here
     private $host = "den1.mysql3.gear.host";
     private $dbName = "gr2";
     private $user = "gr2";
