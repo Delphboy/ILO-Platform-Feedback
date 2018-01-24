@@ -20,7 +20,7 @@
     <!-- RAW DATA SHOWN HERE -->
     <div class="sec1 col-md-5 col-xs-12">
         <!--Table-->
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="formstyless">
             <label>
                 <div class="countrydrop dropdown">
                     <select name="country-selection-admin" class="searchOp filterTable" >
@@ -303,11 +303,11 @@
             <?php
             if (isset($view->table))
             {
-                echo "<a href='/data.csv'><input type='button' class='login100-form-btn' value='Download Data' name='download-data' /></a>";
+                echo "<a href='/data.csv'><input class=\"btn btn-default buttonstyle\" type='button' class='login100-form-btn' value='Download Data' name='download-data' /></a>";
             }
             ?>
-            <input type="submit" class="login100-form-btn" value="Show Data"
-                   name="table-submit" />
+            <input type="submit" class="btn btn-default buttonstyle" value="Show
+            Data" name="table-submit" />
         </form>
 
         <div id="tableToDisplay" class="tablescroll">
@@ -347,7 +347,7 @@
     <div class="sec2 col-md-7 col-xs-12">
         <form action="/return_data.php" method="post" id="chart_form">
             <select name="var1" class="searchOp filterTable">
-                <option value="">Choose var1</option>
+                <option value="">Choose Axis</option>
                 <option value="platform, AVG(wage)">Avg wage vs
                     platform</option>
                 <option value="platform, AVG(rating)">Avg rating vs
@@ -368,7 +368,7 @@
                 <option value="piechart">piechart</option>
                 <option value="areachart">areachart</option>
             </select>
-            <input type="submit" value="Generate Graph" name="GraphSubmit" />
+            <input type="submit" value="Generate Graph" name="GraphSubmit"  class="btn buttonstyle" />
         </form>
         <div id="chart_div">
 
