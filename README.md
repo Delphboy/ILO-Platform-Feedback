@@ -1,5 +1,12 @@
 # ILO Platform Feedback Platform
-Group 2's submission for the SPAT Bootcamp 2017/18
+Group 2's submission for the SPAT Bootcamp 2017/18 can be viewed live at: [http://ilo.gearhostpreview.com/register.php](http://ilo.gearhostpreview.com/register.php)
+
+## Team
+ - [Stephen Agius](https://github.com/Stevieag)
+ - [Sam Jones](https://github.com/SamJones01)
+ - [Chris Lewis](https://github.com/ChrisLewisX)
+ - [Bilyana Neshkova](https://github.com/Rilliswen)
+ - [Henry Senior](https://github.com/Delphboy)
 
 ## Task
 Develop a worker feedback system wherein workers can basically express their concerns with regard to the nature of work,
