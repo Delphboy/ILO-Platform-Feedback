@@ -17,10 +17,10 @@ final class database
 
     //Database details
     //TODO: Enter the details to your database here
-    private $host = "den1.mysql3.gear.host";
-    private $dbName = "gr2";
-    private $user = "gr2";
-    private $pass = "gr0up2t357db!";
+    private $host = "";
+    private $dbName = "";
+    private $user = "";
+    private $pass = "";
 
     private static $inst = NULL;
     /**
